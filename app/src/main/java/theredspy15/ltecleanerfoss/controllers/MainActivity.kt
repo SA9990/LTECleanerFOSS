@@ -27,61 +27,40 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.preference.PreferenceManager
-import dev.shreyaspatil.MaterialDialog.MaterialDialog
-import dev.shreyaspatil.MaterialDialog.interfaces.DialogInterface
+import androidx.appcompat.app.AlertDialog
+import android.content.DialogInterface
 import theredspy15.ltecleanerfoss.FileScanner
 import theredspy15.ltecleanerfoss.R
 import theredspy15.ltecleanerfoss.databinding.ActivityMainBinding
 import java.io.File
 import java.text.DecimalFormat
-
-class MainActivity : AppCompatActivity() {
-	private lateinit var binding: ActivityMainBinding
-	override fun onCreate(savedInstanceState: Bundle?) {
+class MainActivity: AppCompatActivity(){
+	private lateinit var binding:ActivityMainBinding
+	private lateinit var mDialogBuilder:AlertDialog.Builder
+	override fun onCreate(savedInstanceState:Bundle?) {
 		if (prefs == null) updateTheme()
 		super.onCreate(savedInstanceState)
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
+		binding.analyzeBtn.setOnClickListener { analyze() }
 		binding.cleanBtn.setOnClickListener { clean() }
 		binding.settingsBtn.setOnClickListener { settings() }
 		binding.whitelistBtn.setOnClickListener { whitelist() }
-		binding.analyzeBtn.setOnClickListener { analyze() }
 		WhitelistActivity.getWhiteList(prefs)
+		mDialogBuilder = AlertDialog.Builder(this)
 	}
 
-	/**
-	 * Starts the settings activity
-	 */
-	fun settings() {
-		val intent = Intent(this, SettingsActivity::class.java)
-		startActivity(intent)
+	fun settings(){
+		startActivity(Intent(this,SettingsActivity::class.java))
+	}
+	fun whitelist(){
+		startActivity(Intent(this,WhitelistActivity::class.java))
 	}
 
-	fun whitelist() {
-		val intent = Intent(this, WhitelistActivity::class.java)
-		startActivity(intent)
-	}
-
-	fun analyze() {
-		requestWriteExternalPermission()
-		if (!FileScanner.isRunning) {
+	fun analyze(){
+		if (!FileScanner.isRunning){
+			requestWriteExternalPermission()
 			Thread { scan(false) }.start()
-		}
-	}
-
-	/**
-	 * Arranges the layout accordingly
-	 */
-	private fun arrangeViews(isDelete: Boolean) {
-		val orientation = resources.configuration.orientation
-		if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-			if (isDelete) {
-				binding.frameLayout.visibility = View.VISIBLE
-				binding.fileScrollView.visibility = View.GONE
-			} else {
-				binding.frameLayout.visibility = View.GONE
-				binding.fileScrollView.visibility = View.VISIBLE
-			}
 		}
 	}
 
@@ -89,25 +68,21 @@ class MainActivity : AppCompatActivity() {
 	 * Runs search and delete on background thread
 	 */
 	fun clean() {
-		requestWriteExternalPermission()
 		if (!FileScanner.isRunning) {
-			if (prefs == null) println("presssss is null")
-			if (prefs!!.getBoolean("one_click", false)) // one-click disabled
-			{
+			requestWriteExternalPermission()
+			if (prefs == null) println("prefs is null!")
+			if (prefs!!.getBoolean("one_click",false)){
 				Thread { scan(true) }.start() // one-click enabled
-			} else {
-				val mDialog = MaterialDialog.Builder(this)
-					.setTitle(getString(R.string.are_you_sure_deletion_title))
-					.setAnimation("5453-shred-paper.json")
-					.setMessage(getString(R.string.are_you_sure_deletion))
-					.setCancelable(false)
-					.setPositiveButton(getString(R.string.clean)) { dialogInterface: DialogInterface, _: Int ->
-						dialogInterface.dismiss()
-						Thread { scan(true) }.start()
-					}
-					.setNegativeButton(getString(R.string.cancel)) { dialogInterface: DialogInterface, _: Int -> dialogInterface.dismiss() }
-					.build()
-				mDialog.animationView.scaleType = ImageView.ScaleType.FIT_CENTER
+			} else { // one-click disabled
+				val mDialog: AlertDialog = mDialogBuilder.create()
+				mDialog.setTitle(getString(R.string.are_you_sure_deletion_title))
+				mDialog.setMessage(getString(R.string.are_you_sure_deletion))
+				mDialog.setCancelable(false)
+				mDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.clean)){ dialogInterface: DialogInterface, _: Int ->
+					dialogInterface.dismiss()
+					Thread { scan(true) }.start()
+				}
+				mDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel)){ dialogInterface: DialogInterface, _: Int -> dialogInterface.dismiss() }
 				mDialog.show()
 			}
 		}
@@ -119,9 +94,7 @@ class MainActivity : AppCompatActivity() {
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
 				mCbm.clearPrimaryClip()
 			} else {
-				val clipService = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-				val clipData = ClipData.newPlainText("", "")
-				clipService.setPrimaryClip(clipData)
+				mCbm.setPrimaryClip(ClipData.newPlainText("", ""))
 			}
 		} catch (e: NullPointerException) {
 			runOnUiThread {
@@ -145,17 +118,14 @@ class MainActivity : AppCompatActivity() {
 		runOnUiThread {
 			binding.cleanBtn.isEnabled = !FileScanner.isRunning
 			binding.analyzeBtn.isEnabled = !FileScanner.isRunning
+			binding.statusTextView.text = getString(R.string.status_running)
 		}
 		reset()
 		if (prefs!!.getBoolean("clipboard", false)) clearClipboard()
-		runOnUiThread {
-			arrangeViews(delete)
-			binding.statusTextView.text = getString(R.string.status_running)
-		}
 		val path = Environment.getExternalStorageDirectory()
 
 		// scanner setup
-		val fs = FileScanner(path, this)
+		val fs = FileScanner(path,this)
 			.setEmptyDir(prefs!!.getBoolean("empty", false))
 			.setAutoWhite(prefs!!.getBoolean("auto_white", true))
 			.setDelete(delete)
@@ -163,27 +133,23 @@ class MainActivity : AppCompatActivity() {
 			.setGUI(binding)
 			.setContext(this)
 			.setUpFilters(
-				prefs!!.getBoolean("generic", true),
-				prefs!!.getBoolean("aggressive", false),
-				prefs!!.getBoolean("apk", false)
+				prefs!!.getBoolean("generic",true),
+				prefs!!.getBoolean("aggressive",false),
+				prefs!!.getBoolean("apk",false)
 			)
 
 		// failed scan
-		if (path.listFiles() == null) { // is this needed? yes.
-			val textView = printTextView(getString(R.string.failed_scan), Color.RED)
-			runOnUiThread { binding.fileListView.addView(textView) }
+		if (path.listFiles() == null){ // is this needed? yes.
+			runOnUiThread { binding.fileListView.addView(printTextView(getString(R.string.failed_scan),Color.RED)) }
 		}
 
 		// kilobytes found/freed text
 		val kilobytesTotal = fs.startScan()
 		runOnUiThread {
 			if (delete) binding.statusTextView.text =
-				getString(R.string.freed) + " " + convertSize(kilobytesTotal) else binding.statusTextView.text =
+				getString(R.string.freed) + " " + convertSize(kilobytesTotal)
+			else binding.statusTextView.text =
 				getString(R.string.found) + " " + convertSize(kilobytesTotal)
-
-			// crappy but working fix for percentage never reaching 100 exactly
-			binding.scanProgress.progress = binding.scanProgress.max
-			binding.scanTextView.text = "100%"
 		}
 		binding.fileScrollView.post { binding.fileScrollView.fullScroll(ScrollView.FOCUS_DOWN) }
 		runOnUiThread {
@@ -202,7 +168,7 @@ class MainActivity : AppCompatActivity() {
 		val textView = TextView(this@MainActivity)
 		textView.setTextColor(color)
 		textView.text = text
-		textView.setPadding(3, 3, 3, 3)
+		textView.setPadding(3,3,3,3)
 		return textView
 	}
 
@@ -243,8 +209,6 @@ class MainActivity : AppCompatActivity() {
 		prefs = PreferenceManager.getDefaultSharedPreferences(this)
 		runOnUiThread {
 			binding.fileListView.removeAllViews()
-			binding.scanProgress.progress = 0
-			binding.scanProgress.max = 1
 		}
 	}
 
@@ -264,39 +228,38 @@ class MainActivity : AppCompatActivity() {
 			if (!Environment.isExternalStorageManager()) { // all files
 				Toast.makeText(this, R.string.permission_needed, Toast.LENGTH_LONG).show()
 				val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-				val uri = Uri.fromParts("package", packageName, null)
-				intent.data = uri
+				intent.data = Uri.fromParts("package",packageName,null)
 				startActivity(intent)
 			}
 		} else {
-			ActivityCompat.requestPermissions(
-				this, arrayOf(
-					Manifest.permission.WRITE_EXTERNAL_STORAGE,
-					Manifest.permission.READ_EXTERNAL_STORAGE
-				),
-				1
-			)
+			ActivityCompat.requestPermissions(this,arrayOf(
+				Manifest.permission.WRITE_EXTERNAL_STORAGE,
+				Manifest.permission.READ_EXTERNAL_STORAGE
+			),1)
 		}
 	}
 
 	/**
-	 * Handles the whether the user grants permission. Launches new fragment asking the user to give file permission.
+	 * Handles the whether the user grants permission. Shows an alert dialog asking the user to give storage permission.
 	 */
 	override fun onRequestPermissionsResult(
-		requestCode: Int,
-		permissions: Array<String>,
-		grantResults: IntArray
+		requestCode:Int,
+		permissions:Array<String>,
+		grantResults:IntArray
 	) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-		if (requestCode == 1 && grantResults.isNotEmpty() && grantResults[0] != PackageManager.PERMISSION_GRANTED) prompt()
-	}
-
-	/**
-	 * Launches the prompt activity
-	 */
-	private fun prompt() {
-		val intent = Intent(this, PromptActivity::class.java)
-		startActivity(intent)
+		if (requestCode == 1 && grantResults.isNotEmpty() && grantResults[0] != PackageManager.PERMISSION_GRANTED){
+			val mDialog: AlertDialog = mDialogBuilder.create()
+			mDialog.setTitle("Grant a permission")
+			mDialog.setMessage(getString(R.string.prompt_string))
+			mDialog.setButton(AlertDialog.BUTTON_POSITIVE,getString(R.string.settings_string)){ dialogInterface: DialogInterface, _: Int ->
+				val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+				intent.data = Uri.fromParts("package",packageName,null)
+				dialogInterface.dismiss()
+				startActivity(intent)
+			}
+			mDialog.show()
+		}
 	}
 
 	private fun updateTheme() {
@@ -312,19 +275,18 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	companion object {
-		@JvmField
-		var prefs: SharedPreferences? = null
-		@JvmStatic
-		fun convertSize(length: Long): String {
+		@JvmField var prefs:SharedPreferences? = null
+		@JvmStatic fun convertSize(length: Long): String {
 			val format = DecimalFormat("#.##")
-			val mib = (1024 * 1024).toLong()
-			val kib: Long = 1024
-			if (length > mib) {
-				return format.format(length / mib) + " MB"
-			}
-			return if (length > kib) {
+			val kib:Long = 1024
+			val mib:Long = 1048576
+			return if (length > mib) {
+				format.format(length / mib) + " MB"
+			} else if (length > kib) {
 				format.format(length / kib) + " KB"
-			} else format.format(length) + " B"
+			} else {
+				format.format(length) + " B"
+			}
 		}
 	}
 }

@@ -3,6 +3,7 @@
  * (C) 2023 MDP43140
  */
 package theredspy15.ltecleanerfoss.controllers
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
@@ -16,12 +17,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts.OpenDocumentTree
 import androidx.appcompat.app.AppCompatActivity
-import dev.shreyaspatil.MaterialDialog.MaterialDialog
-import dev.shreyaspatil.MaterialDialog.interfaces.DialogInterface
+import androidx.appcompat.app.AlertDialog
 import theredspy15.ltecleanerfoss.R
 import theredspy15.ltecleanerfoss.databinding.ActivityWhitelistBinding
-
-class WhitelistActivity : AppCompatActivity() {
+class WhitelistActivity: AppCompatActivity(){
 	lateinit var binding: ActivityWhitelistBinding
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -54,8 +53,8 @@ class WhitelistActivity : AppCompatActivity() {
 				button.textSize = 18f
 				button.isAllCaps = false
 				button.setOnClickListener { removePath(path, button) }
-				button.setPadding(50, 50, 50, 50)
-				layout.setMargins(0, 20, 0, 20)
+				button.setPadding(24, 24, 24, 24)
+				layout.setMargins(0, 12, 0, 12)
 				button.setBackgroundResource(R.drawable.rounded_view)
 				val drawable = button.background as GradientDrawable
 				drawable.setColor(Color.GRAY)
@@ -66,19 +65,17 @@ class WhitelistActivity : AppCompatActivity() {
 	}
 
 	private fun removePath(path: String?, button: Button?) {
-		val mDialog = MaterialDialog.Builder(this)
-			.setTitle(getString(R.string.remove_from_whitelist))
-			.setMessage(path!!)
-			.setCancelable(false)
-			.setPositiveButton(getString(R.string.delete)) { dialogInterface: DialogInterface, _: Int ->
-				dialogInterface.dismiss()
-				whiteList.remove(path)
-				MainActivity.prefs!!.edit().putStringSet("whitelist", HashSet(whiteList)).apply()
-				binding.pathsLayout.removeView(button)
-			}
-			.setNegativeButton(getString(R.string.cancel)) { dialogInterface: DialogInterface, _: Int -> dialogInterface.dismiss() }
-			.build()
-		mDialog.show()
+		val alertDialog = AlertDialog.Builder(this).create()
+		alertDialog.setTitle(getString(R.string.remove_from_whitelist))
+		alertDialog.setMessage(path!!)
+		alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.delete)){ dialogInterface:DialogInterface, _:Int ->
+			dialogInterface.dismiss()
+			whiteList.remove(path)
+			MainActivity.prefs!!.edit().putStringSet("whitelist", HashSet(whiteList)).apply()
+			binding.pathsLayout.removeView(button)
+		}
+		alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel)) { dialogInterface:DialogInterface, _:Int -> dialogInterface.dismiss() }
+		alertDialog.show()
 	}
 
 	/**
@@ -88,12 +85,13 @@ class WhitelistActivity : AppCompatActivity() {
 		mGetContent.launch(Uri.fromFile(Environment.getDataDirectory()))
 	}
 
-	private var mGetContent = registerForActivityResult(
-		OpenDocumentTree()
-	) { uri: Uri? ->
+	private var mGetContent = registerForActivityResult(OpenDocumentTree()) { uri: Uri? ->
 		if (uri != null) {
 			whiteList.add(uri.path!!.substring(uri.path!!.indexOf(":") + 1)) // TODO create file from uri, then just add its path once sd card support is finished
-			MainActivity.prefs!!.edit().putStringSet("whitelist", HashSet(whiteList)).apply()
+			MainActivity.prefs!!
+				.edit()
+				.putStringSet("whitelist", HashSet(whiteList))
+				.apply()
 			loadViews()
 		}
 	}
@@ -103,6 +101,9 @@ class WhitelistActivity : AppCompatActivity() {
 		fun getWhiteList(prefs: SharedPreferences?): List<String?> {
 			if (whiteList.isNullOrEmpty()) {
 				if (prefs != null) {
+					// Type mismatch:inferred type is
+					// (Mutable)Set<String!>? but
+					// (MutableCollection<out String!>..Collection<String!>) was expected
 					whiteList = ArrayList(prefs.getStringSet("whitelist", emptySet()))
 				}
 				whiteList.remove("[")
