@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
-    <string name="delete_empty_folders">Διαγραφή κενών φακέλων</string>
-    <string name="aggressive_filter">Ενεργοποίηση επιθετικού φίλτρου</string>
-    <string name="whitelist">-Whitelist</string>
-    <string name="privacy_policy">Πολιτική απορρήτου:</string>
-    <string name="add_to_whitelist">Προσθήκη στη λίστα επιτρεπών</string>
-    <string name="cancel">Ακύρωση.</string>
-    <string name="clean">Καθαρό.</string>
-    <string name="analyze">Ανάλυση:</string>
-    <string name="enable_generic_filter">Ενεργοποίηση γενικού φίλτρου</string>
-    <string name="one_click_clean">Ένα κλικ καθαρό</string>
-    <string name="freed">-Ναι. </string>
-    <string name="found">Βρέθηκε: </string>
-    <string name="auto_whitelist">Αυτόματη Whitelist</string>
-    <string name="reset_whitelist">-Άδειο λευκό;</string>
-    <string name="are_you_reset_whitelist">Είστε σίγουροι ότι θέλετε να καθαρίσετε τη λευκή λίστα?</string>
-    <string name="reset">\' Εκκαθάριση</string>
-    <string name="delete_apk_files">Διαγραφή αρχείων .apk</string>
-    <string name="status_idle">Κατάσταση: Σε αδράνεια</string>
-    <string name="progress_0">0 %</string>
-    <string name="status_running">Κατάσταση: Εκτέλεση</string>
-    <string name="privacy_sum">Προβολή της πολιτικής απορρήτου (εξωτερική διασύνδεση)</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Πολλή λίστα εδώ.</string>
-    <string name="apk_sum">Αρχεία του προγράμματος εγκατάστασης για το Android</string>
-    <string name="oneclick_sum">Δεν υπάρχει παράθυρο επιβεβαίωσης όταν πατηθεί το κουμπί.</string>
-    <string name="autowhite_sum">Εντοπισμός φακέλων που πρέπει να προστατεύονται αυτόματα</string>
-    <string name="prompt_string">Προσθέστε δικαιώματα πρόσβασης στο αρχείο.</string>
-    <string name="settings_string">Ρυθμίσεις:</string>
-    <string name="title_activity_prompt">Προτροπή /</string>
-    <string name="corpse_summary">Αρχεία που απομένουν από απεγκατάσταση εφαρμογών.</string>
-    <string name="corpse_title">Διαγραφή αρχείων πτωμάτων</string>
-    <string name="other">\' Αλλα</string>
-    <string name="daily_title">Καθημερινή καθαριότητα</string>
-    <string name="daily_sum">Λειτουργεί αυτόματα καθημερινά, χωρίς να χρειάζεται να ανοίξετε την εφαρμογή.</string>
-    <string name="other_apps">Κοίτα τις άλλες εφαρμογές μου!</string>
-    <string name="other_apps_sum">Προσπαθώ να έχω ένα καινούργιο κάθε εβδομάδα.</string>
-    <string name="permission_needed">Χρειάζεται άδεια!</string>
-    <string name="failed_scan">Η Σάρτη απέτυχε.</string>
-    <string name="are_you_sure_deletion">-Σίγουρα; Δεν είναι δυνατή η επαναφορά των αρχείων</string>
-    <string name="are_you_sure_deletion_title">Επιβεβαίωση διαγραφής</string>
-    <string name="aggressive_filter_what_title">Τι κάνει το φίλτρο;</string>
-    <string name="adds_the_following">Προσθέτει τα ακόλουθα φίλτρα:</string>
-    <string name="samsung_not_work">Δεν λειτουργεί σε συσκευές samsung</string>
-    <string name="clear_clipboard">Καθαρό πρόχειρο.</string>
-    <string name="double_check_sum">Θα εκτελείται σάρωση κάθε φορά που υπάρχει ένα όριο δέκα σαρώσεων.</string>
-    <string name="double_check_title">Διπλό Checker</string>
-    <string name="notification_title">Ολοκληρώθηκε η εκκαθάριση LTE</string>
-    <string name="clean_notification">Καθαρισμός:</string>
-    <string name="empty_whitelist">Τίποτα στη Whitelist</string>
-    <string name="theme_sum">Θα ακολουθήσει τις ρυθμίσεις του συστήματος. Επανεκκινήστε την εφαρμογή.</string>
-    <string name="theme_title">Επιλογή θέματος:</string>
-    <string name="filters_category_title">Φίλτρα φίλτρων</string>
-    <string name="scanner_category_title">Σαρωτής:</string>
-    <string name="links_category_title">-Συνδέσεις</string>
-    <string name="settings_page_title">Ρυθμίσεις:</string>
-    <string name="remove_from_whitelist">-Κατάργηση από τη λευκή;</string>
-    <string name="delete">Διαγραφή:</string>
-    <string name="clipboard_clear_failed">Απέτυχε η εκκαθάριση του πρόχειρο.</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp</item>
-        <item>- .log</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>Logs</item>
-        <item>αρχεία καταγραφής</item>
-        <item>-θερμοκρασία</item>
-        <item>\' Προσωρινή</item>
-        <item>-προσωρινή</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>Supersonicads</item>
-        <item>Cache:</item>
-        <item>Αναλυτική ανάλυση</item>
-        <item>-Νύχια;</item>
-        <item>Mobvista</item>
-        <item>UnityAdsVideoCache</item>
-        <item>-albumthumbs;</item>
-        <item>LOST.DIR</item>
-        <item>.Trash</item>
-        <item>Desktop.ini</item>
-        <item>διαρροές.</item>
-        <item>.DS_Store</item>
-        <item>.προβολέα - V100</item>
-        <item>Fseventsd</item>
-        <item>Bugreport.</item>
-        <item>τα bugreports</item>
-        <item>.Trash</item>
-        <item>-cache</item>
-        <item>Splashad</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>-Ταμπς;</item>
-        <item>αντίχειρα[0-9]</item>
-        <item>Splashad</item>
-    </string-array>
-    <string-array name="themes">
-        <item>\' Αυτόματα</item>
-        <item>Φως!</item>
-        <item>-Ναι.</item>
-    </string-array>
+	<string name="app_name">LTE Cleaner</string>
+	<string name="delete_empty_folders">Διαγραφή κενών φακέλων</string>
+	<string name="aggressive_filter">Ενεργοποίηση επιθετικού φίλτρου</string>
+	<string name="whitelist">-Whitelist</string>
+	<string name="privacy_policy">Πολιτική απορρήτου:</string>
+	<string name="add_to_whitelist">Προσθήκη στη λίστα επιτρεπών</string>
+	<string name="cancel">Ακύρωση.</string>
+	<string name="clean">Καθαρό.</string>
+	<string name="analyze">Ανάλυση:</string>
+	<string name="enable_generic_filter">Ενεργοποίηση γενικού φίλτρου</string>
+	<string name="one_click_clean">Ένα κλικ καθαρό</string>
+	<string name="freed">-Ναι. </string>
+	<string name="found">Βρέθηκε: </string>
+	<string name="auto_whitelist">Αυτόματη Whitelist</string>
+	<string name="reset_whitelist">-Άδειο λευκό;</string>
+	<string name="are_you_reset_whitelist">Είστε σίγουροι ότι θέλετε να καθαρίσετε τη λευκή λίστα?</string>
+	<string name="reset">\' Εκκαθάριση</string>
+	<string name="delete_apk_files">Διαγραφή αρχείων .apk</string>
+	<string name="status_idle">Κατάσταση: Σε αδράνεια</string>
+	<string name="progress_0">0 %</string>
+	<string name="status_running">Κατάσταση: Εκτέλεση</string>
+	<string name="privacy_sum">Προβολή της πολιτικής απορρήτου (εξωτερική διασύνδεση)</string>
+	<string name="generic_sum">.tmp, .log, Logs, logs</string>
+	<string name="aggressive_sum">Πολλή λίστα εδώ.</string>
+	<string name="apk_sum">Αρχεία του προγράμματος εγκατάστασης για το Android</string>
+	<string name="oneclick_sum">Δεν υπάρχει παράθυρο επιβεβαίωσης όταν πατηθεί το κουμπί.</string>
+	<string name="autowhite_sum">Εντοπισμός φακέλων που πρέπει να προστατεύονται αυτόματα</string>
+	<string name="prompt_string">Προσθέστε δικαιώματα πρόσβασης στο αρχείο.</string>
+	<string name="settings_string">Ρυθμίσεις:</string>
+	<string name="corpse_summary">Αρχεία που απομένουν από απεγκατάσταση εφαρμογών.</string>
+	<string name="corpse_title">Διαγραφή αρχείων πτωμάτων</string>
+	<string name="other">\' Αλλα</string>
+	<string name="daily_title">Καθημερινή καθαριότητα</string>
+	<string name="daily_sum">Λειτουργεί αυτόματα καθημερινά, χωρίς να χρειάζεται να ανοίξετε την εφαρμογή.</string>
+	<string name="other_apps">Κοίτα τις άλλες εφαρμογές μου!</string>
+	<string name="other_apps_sum">Προσπαθώ να έχω ένα καινούργιο κάθε εβδομάδα.</string>
+	<string name="permission_needed">Χρειάζεται άδεια!</string>
+	<string name="failed_scan">Η Σάρτη απέτυχε.</string>
+	<string name="are_you_sure_deletion">-Σίγουρα; Δεν είναι δυνατή η επαναφορά των αρχείων</string>
+	<string name="are_you_sure_deletion_title">Επιβεβαίωση διαγραφής</string>
+	<string name="aggressive_filter_what_title">Τι κάνει το φίλτρο;</string>
+	<string name="adds_the_following">Προσθέτει τα ακόλουθα φίλτρα:</string>
+	<string name="samsung_not_work">Δεν λειτουργεί σε συσκευές samsung</string>
+	<string name="clear_clipboard">Καθαρό πρόχειρο.</string>
+	<string name="double_check_sum">Θα εκτελείται σάρωση κάθε φορά που υπάρχει ένα όριο δέκα σαρώσεων.</string>
+	<string name="double_check_title">Διπλό Checker</string>
+	<string name="notification_title">Ολοκληρώθηκε η εκκαθάριση LTE</string>
+	<string name="clean_notification">Καθαρισμός:</string>
+	<string name="empty_whitelist">Τίποτα στη Whitelist</string>
+	<string name="theme_sum">Θα ακολουθήσει τις ρυθμίσεις του συστήματος. Επανεκκινήστε την εφαρμογή.</string>
+	<string name="theme_title">Επιλογή θέματος:</string>
+	<string name="filters_category_title">Φίλτρα φίλτρων</string>
+	<string name="scanner_category_title">Σαρωτής:</string>
+	<string name="links_category_title">-Συνδέσεις</string>
+	<string name="settings_page_title">Ρυθμίσεις:</string>
+	<string name="remove_from_whitelist">-Κατάργηση από τη λευκή;</string>
+	<string name="delete">Διαγραφή:</string>
+	<string name="clipboard_clear_failed">Απέτυχε η εκκαθάριση του πρόχειρο.</string>
+	<string-array name="themes">
+		<item>\' Αυτόματα</item>
+		<item>Φως!</item>
+		<item>-Ναι.</item>
+	</string-array>
 </resources>

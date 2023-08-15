@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">LTE 清除器</string>
-    <string name="delete_empty_folders">删除空文件夹</string>
-    <string name="aggressive_filter">启用攻击性过滤器</string>
-    <string name="whitelist">白名单</string>
-    <string name="privacy_policy">隐私策略</string>
-    <string name="add_to_whitelist">添加到白名单</string>
-    <string name="cancel">取消</string>
-    <string name="clean">清洁</string>
-    <string name="analyze">分析</string>
-    <string name="enable_generic_filter">启用通用过滤器</string>
-    <string name="one_click_clean">单击 \" 清除 \"</string>
-    <string name="freed">已释放: </string>
-    <string name="found">找到: </string>
-    <string name="auto_whitelist">自动白名单</string>
-    <string name="reset_whitelist">空白名单 ?</string>
-    <string name="are_you_reset_whitelist">确定要清除白名单吗 ?</string>
-    <string name="reset">清除</string>
-    <string name="delete_apk_files">删除 .apk 文件</string>
-    <string name="status_idle">状态: 空闲</string>
-    <string name="progress_0">0%</string>
-    <string name="status_running">状态: 正在运行</string>
-    <string name="privacy_sum">查看隐私策略 (外部链接)</string>
-    <string name="generic_sum">.tmp， .log，日志和日志</string>
-    <string name="aggressive_sum">此处列表太多</string>
-    <string name="apk_sum">Android 的安装程序文件</string>
-    <string name="oneclick_sum">按下清理按钮时没有确认对话框</string>
-    <string name="autowhite_sum">检测应该自动保护的文件夹</string>
-    <string name="prompt_string">请添加文件访问许可权</string>
-    <string name="settings_string">设置</string>
-    <string name="title_activity_prompt">提示活动</string>
-    <string name="corpse_summary">从已卸载应用程序遗留的文件</string>
-    <string name="corpse_title">删除尸体文件</string>
-    <string name="other">其他</string>
-    <string name="daily_title">每日清理</string>
-    <string name="daily_sum">每天自动运行，无需您打开应用程序。</string>
-    <string name="other_apps">看看我的其他应用！</string>
-    <string name="other_apps_sum">我试着大约每周发布一个新的</string>
-    <string name="permission_needed">需要许可 !</string>
-    <string name="failed_scan">扫描失败。</string>
-    <string name="are_you_sure_deletion">你确定吗 无法复原删除的文件</string>
-    <string name="are_you_sure_deletion_title">确认删除</string>
-    <string name="aggressive_filter_what_title">什么好的过滤器</string>
-    <string name="adds_the_following">添加以下过滤器:</string>
-    <string name="samsung_not_work">在 samsung 设备上不行</string>
-    <string name="clear_clipboard">清除剪贴板</string>
-    <string name="double_check_sum">每次发现具有 10 次扫描限制的内容时，将重新运行扫描</string>
-    <string name="double_check_title">双校验器</string>
-    <string name="notification_title">LTE 清除工作程序已完成</string>
-    <string name="clean_notification">已清除:</string>
-    <string name="empty_whitelist">白名单中没有任何内容</string>
-    <string name="theme_sum">否则将遵循系统设置。 重新启动应用程序以生效</string>
-    <string name="theme_title">选择主题</string>
-    <string name="filters_category_title">过滤器</string>
-    <string name="scanner_category_title">扫描仪</string>
-    <string name="links_category_title">链接</string>
-    <string name="settings_page_title">设置</string>
-    <string name="remove_from_whitelist">从白名单中除去 ?</string>
-    <string name="delete">删除</string>
-    <string name="clipboard_clear_failed">无法清除剪贴板</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp</item>
-        <item>.log</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>日志</item>
-        <item>日志</item>
-        <item>临时</item>
-        <item>临时</item>
-        <item>临时</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>素人</item>
-        <item>高速缓存</item>
-        <item>分析</item>
-        <item>大拇指</item>
-        <item>莫维斯塔</item>
-        <item>Unity广告视频缓存</item>
-        <item>阿尔布姆森斯</item>
-        <item>LOST.DIR</item>
-        <item>. 废纸篓</item>
-        <item>Desktop.ini</item>
-        <item>漏</item>
-        <item>.DS_Store</item>
-        <item>.spotlight-V100</item>
-        <item>弗塞文茨德</item>
-        <item>布格报告</item>
-        <item>布格汇报</item>
-        <item>. 废纸篓</item>
-        <item>高速缓存</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>拇指?.db</item>
-        <item>.thumb[0-9]</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="themes">
-        <item>自动</item>
-        <item>灯光</item>
-        <item>黑</item>
-    </string-array>
+	<string name="app_name">LTE 清除器</string>
+	<string name="delete_empty_folders">删除空文件夹</string>
+	<string name="aggressive_filter">启用攻击性过滤器</string>
+	<string name="whitelist">白名单</string>
+	<string name="privacy_policy">隐私策略</string>
+	<string name="add_to_whitelist">添加到白名单</string>
+	<string name="cancel">取消</string>
+	<string name="clean">清洁</string>
+	<string name="analyze">分析</string>
+	<string name="enable_generic_filter">启用通用过滤器</string>
+	<string name="one_click_clean">单击 \" 清除 \"</string>
+	<string name="freed">已释放: </string>
+	<string name="found">找到: </string>
+	<string name="auto_whitelist">自动白名单</string>
+	<string name="reset_whitelist">空白名单 ?</string>
+	<string name="are_you_reset_whitelist">确定要清除白名单吗 ?</string>
+	<string name="reset">清除</string>
+	<string name="delete_apk_files">删除 .apk 文件</string>
+	<string name="status_idle">状态: 空闲</string>
+	<string name="progress_0">0%</string>
+	<string name="status_running">状态: 正在运行</string>
+	<string name="privacy_sum">查看隐私策略 (外部链接)</string>
+	<string name="generic_sum">.tmp， .log，日志和日志</string>
+	<string name="aggressive_sum">此处列表太多</string>
+	<string name="apk_sum">Android 的安装程序文件</string>
+	<string name="oneclick_sum">按下清理按钮时没有确认对话框</string>
+	<string name="autowhite_sum">检测应该自动保护的文件夹</string>
+	<string name="prompt_string">请添加文件访问许可权</string>
+	<string name="settings_string">设置</string>
+	<string name="corpse_summary">从已卸载应用程序遗留的文件</string>
+	<string name="corpse_title">删除尸体文件</string>
+	<string name="other">其他</string>
+	<string name="daily_title">每日清理</string>
+	<string name="daily_sum">每天自动运行，无需您打开应用程序。</string>
+	<string name="other_apps">看看我的其他应用！</string>
+	<string name="other_apps_sum">我试着大约每周发布一个新的</string>
+	<string name="permission_needed">需要许可 !</string>
+	<string name="failed_scan">扫描失败。</string>
+	<string name="are_you_sure_deletion">你确定吗 无法复原删除的文件</string>
+	<string name="are_you_sure_deletion_title">确认删除</string>
+	<string name="aggressive_filter_what_title">什么好的过滤器</string>
+	<string name="adds_the_following">添加以下过滤器:</string>
+	<string name="samsung_not_work">在 samsung 设备上不行</string>
+	<string name="clear_clipboard">清除剪贴板</string>
+	<string name="double_check_sum">每次发现具有 10 次扫描限制的内容时，将重新运行扫描</string>
+	<string name="double_check_title">双校验器</string>
+	<string name="notification_title">LTE 清除工作程序已完成</string>
+	<string name="clean_notification">已清除:</string>
+	<string name="empty_whitelist">白名单中没有任何内容</string>
+	<string name="theme_sum">否则将遵循系统设置。 重新启动应用程序以生效</string>
+	<string name="theme_title">选择主题</string>
+	<string name="filters_category_title">过滤器</string>
+	<string name="scanner_category_title">扫描仪</string>
+	<string name="links_category_title">链接</string>
+	<string name="settings_page_title">设置</string>
+	<string name="remove_from_whitelist">从白名单中除去 ?</string>
+	<string name="delete">删除</string>
+	<string name="clipboard_clear_failed">无法清除剪贴板</string>
+	<string-array name="themes">
+		<item>自动</item>
+		<item>灯光</item>
+		<item>黑</item>
+	</string-array>
 </resources>

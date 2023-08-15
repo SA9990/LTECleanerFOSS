@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">ניקוי LTE</string>
-    <string name="delete_empty_folders">מחיקת תיקיות ריקות</string>
-    <string name="aggressive_filter">הפעלת מסנן תוקפני</string>
-    <string name="whitelist">רשימה לבנה</string>
-    <string name="privacy_policy">מדיניות פרטיות</string>
-    <string name="add_to_whitelist">הוספה לרשימה הלבנה</string>
-    <string name="cancel">ביטול</string>
-    <string name="clean">ניקוי</string>
-    <string name="analyze">ניתוח</string>
-    <string name="enable_generic_filter">הפעלת מסנן גנרי</string>
-    <string name="one_click_clean">לחיצה אחת נקייה</string>
-    <string name="freed">פריד: </string>
-    <string name="found">נמצא: </string>
-    <string name="auto_whitelist">רשימה לבנה אוטומטית</string>
-    <string name="reset_whitelist">רשימה לבנה ריקה?</string>
-    <string name="are_you_reset_whitelist">אתם בטוחים שברצונכם לנקות את הרשימה הלבנה?</string>
-    <string name="reset">ניקוי</string>
-    <string name="delete_apk_files">מחיקת קובצי .apk</string>
-    <string name="status_idle">מצב: לא פעיל</string>
-    <string name="progress_0">0 %</string>
-    <string name="status_running">מצב: רץ</string>
-    <string name="privacy_sum">הצגת מדיניות הפרטיות (קישור חיצוני)</string>
-    <string name="generic_sum">.tmp, .log, יומנים, יומנים</string>
-    <string name="aggressive_sum">יש כאן יותר מדי לרשימה.</string>
-    <string name="apk_sum">קובצי התקנה עבור Android</string>
-    <string name="oneclick_sum">אין תיבת דו-שיח לאישור כאשר לוחצים על הלחצן \' ניקוי \'</string>
-    <string name="autowhite_sum">איתור תיקיות שיש להגן עליהן אוטומטית.</string>
-    <string name="prompt_string">נא להוסיף הרשאות גישה לקובץ.</string>
-    <string name="settings_string">הגדרות</string>
-    <string name="title_activity_prompt">הנחיות מונחות</string>
-    <string name="corpse_summary">קבצים שנשארו מאפליקציות לא מותקנות</string>
-    <string name="corpse_title">מחיקת קובצי גופה</string>
-    <string name="other">אחר</string>
-    <string name="daily_title">ניקוי יומי</string>
-    <string name="daily_sum">הרצה אוטומטית של כל יום, ללא צורך לפתוח את היישום.</string>
-    <string name="other_apps">בדוק את האפליקציות האחרות שלי!</string>
-    <string name="other_apps_sum">אני מנסה להוציא אחד חדש כל שבוע.</string>
-    <string name="permission_needed">הרשאה דרושה!</string>
-    <string name="failed_scan">הסריקה נכשלה.</string>
-    <string name="are_you_sure_deletion">אתה בטוח? לא ניתן לשחזר קבצים שנמחקו</string>
-    <string name="are_you_sure_deletion_title">אישור מחיקה</string>
-    <string name="aggressive_filter_what_title">מה מסנן אגרסיבי עושה</string>
-    <string name="adds_the_following">מוסיף את המסננים הבאים:</string>
-    <string name="samsung_not_work">לא עובד על התקנים של דגימה</string>
-    <string name="clear_clipboard">ניקוי לוח הגזירים</string>
-    <string name="double_check_sum">יבצע הרצה מחדש של סריקה בכל פעם שמשהו נמצא עם מגבלה של 10 סריקות</string>
-    <string name="double_check_title">בודק כפול</string>
-    <string name="notification_title">עבודה נקייה של LTE הסתיימה</string>
-    <string name="clean_notification">ניקוי:</string>
-    <string name="empty_whitelist">אין פריטים ברשימה הלבנה</string>
-    <string name="theme_sum">במקרים אחרים, בצעו את הגדרות המערכת. הפעלה מחדש של יישום לביצוע</string>
-    <string name="theme_title">בחירת ערכה</string>
-    <string name="filters_category_title">מסננים</string>
-    <string name="scanner_category_title">סורק</string>
-    <string name="links_category_title">קישורים</string>
-    <string name="settings_page_title">הגדרות</string>
-    <string name="remove_from_whitelist">לסלק מרשימת הרשימות?</string>
-    <string name="delete">מחיקה</string>
-    <string name="clipboard_clear_failed">כשל בלנקות את לוח הגזירים</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp</item>
-        <item>.log</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>יומנים</item>
-        <item>לוגים</item>
-        <item>חום</item>
-        <item>זמני</item>
-        <item>זמני</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>התאמה אישית</item>
-        <item>מטמון</item>
-        <item>ניתוח</item>
-        <item>תמונות ממוזערות?</item>
-        <item>מובסטה</item>
-        <item>UnityAdsVideoCache</item>
-        <item>אגודלים?</item>
-        <item>LOST.DIR</item>
-        <item>. סל מיחזור</item>
-        <item>שולחן עבודה .ini</item>
-        <item>דליפה</item>
-        <item>.DS_Store</item>
-        <item>.זרקור V100</item>
-        <item>ה-70</item>
-        <item>בוגרפורט</item>
-        <item>בוגרטים</item>
-        <item>. סל מיחזור</item>
-        <item>מטמון</item>
-        <item>ניתז</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>אגודלים? .db</item>
-        <item>.אגודל[0-9]</item>
-        <item>ניתז</item>
-    </string-array>
-    <string-array name="themes">
-        <item>אוטומטי</item>
-        <item>אור</item>
-        <item>כהה</item>
-    </string-array>
+	<string name="app_name">ניקוי LTE</string>
+	<string name="delete_empty_folders">מחיקת תיקיות ריקות</string>
+	<string name="aggressive_filter">הפעלת מסנן תוקפני</string>
+	<string name="whitelist">רשימה לבנה</string>
+	<string name="privacy_policy">מדיניות פרטיות</string>
+	<string name="add_to_whitelist">הוספה לרשימה הלבנה</string>
+	<string name="cancel">ביטול</string>
+	<string name="clean">ניקוי</string>
+	<string name="analyze">ניתוח</string>
+	<string name="enable_generic_filter">הפעלת מסנן גנרי</string>
+	<string name="one_click_clean">לחיצה אחת נקייה</string>
+	<string name="freed">פריד: </string>
+	<string name="found">נמצא: </string>
+	<string name="auto_whitelist">רשימה לבנה אוטומטית</string>
+	<string name="reset_whitelist">רשימה לבנה ריקה?</string>
+	<string name="are_you_reset_whitelist">אתם בטוחים שברצונכם לנקות את הרשימה הלבנה?</string>
+	<string name="reset">ניקוי</string>
+	<string name="delete_apk_files">מחיקת קובצי .apk</string>
+	<string name="status_idle">מצב: לא פעיל</string>
+	<string name="progress_0">0 %</string>
+	<string name="status_running">מצב: רץ</string>
+	<string name="privacy_sum">הצגת מדיניות הפרטיות (קישור חיצוני)</string>
+	<string name="generic_sum">.tmp, .log, יומנים, יומנים</string>
+	<string name="aggressive_sum">יש כאן יותר מדי לרשימה.</string>
+	<string name="apk_sum">קובצי התקנה עבור Android</string>
+	<string name="oneclick_sum">אין תיבת דו-שיח לאישור כאשר לוחצים על הלחצן \' ניקוי \'</string>
+	<string name="autowhite_sum">איתור תיקיות שיש להגן עליהן אוטומטית.</string>
+	<string name="prompt_string">נא להוסיף הרשאות גישה לקובץ.</string>
+	<string name="settings_string">הגדרות</string>
+	<string name="corpse_summary">קבצים שנשארו מאפליקציות לא מותקנות</string>
+	<string name="corpse_title">מחיקת קובצי גופה</string>
+	<string name="other">אחר</string>
+	<string name="daily_title">ניקוי יומי</string>
+	<string name="daily_sum">הרצה אוטומטית של כל יום, ללא צורך לפתוח את היישום.</string>
+	<string name="other_apps">בדוק את האפליקציות האחרות שלי!</string>
+	<string name="other_apps_sum">אני מנסה להוציא אחד חדש כל שבוע.</string>
+	<string name="permission_needed">הרשאה דרושה!</string>
+	<string name="failed_scan">הסריקה נכשלה.</string>
+	<string name="are_you_sure_deletion">אתה בטוח? לא ניתן לשחזר קבצים שנמחקו</string>
+	<string name="are_you_sure_deletion_title">אישור מחיקה</string>
+	<string name="aggressive_filter_what_title">מה מסנן אגרסיבי עושה</string>
+	<string name="adds_the_following">מוסיף את המסננים הבאים:</string>
+	<string name="samsung_not_work">לא עובד על התקנים של דגימה</string>
+	<string name="clear_clipboard">ניקוי לוח הגזירים</string>
+	<string name="double_check_sum">יבצע הרצה מחדש של סריקה בכל פעם שמשהו נמצא עם מגבלה של 10 סריקות</string>
+	<string name="double_check_title">בודק כפול</string>
+	<string name="notification_title">עבודה נקייה של LTE הסתיימה</string>
+	<string name="clean_notification">ניקוי:</string>
+	<string name="empty_whitelist">אין פריטים ברשימה הלבנה</string>
+	<string name="theme_sum">במקרים אחרים, בצעו את הגדרות המערכת. הפעלה מחדש של יישום לביצוע</string>
+	<string name="theme_title">בחירת ערכה</string>
+	<string name="filters_category_title">מסננים</string>
+	<string name="scanner_category_title">סורק</string>
+	<string name="links_category_title">קישורים</string>
+	<string name="settings_page_title">הגדרות</string>
+	<string name="remove_from_whitelist">לסלק מרשימת הרשימות?</string>
+	<string name="delete">מחיקה</string>
+	<string name="clipboard_clear_failed">כשל בלנקות את לוח הגזירים</string>
+	<string-array name="themes">
+		<item>אוטומטי</item>
+		<item>אור</item>
+		<item>כהה</item>
+	</string-array>
 </resources>

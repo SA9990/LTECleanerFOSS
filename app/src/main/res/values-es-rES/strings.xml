@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">Limpiador LTE</string>
-    <string name="delete_empty_folders">Eliminar carpetas vacías</string>
-    <string name="aggressive_filter">Activar filtro agresivo</string>
-    <string name="whitelist">Lista blanca</string>
-    <string name="privacy_policy">Política de privacidad</string>
-    <string name="add_to_whitelist">Añadir a la lista blanca</string>
-    <string name="cancel">Cancelar</string>
-    <string name="clean">Limpiar</string>
-    <string name="analyze">Analizar</string>
-    <string name="enable_generic_filter">Activar filtro genérico</string>
-    <string name="one_click_clean">Limpieza en un clic</string>
-    <string name="freed">Liberado: </string>
-    <string name="found">Encontrado: </string>
-    <string name="auto_whitelist">Lista blanca automática</string>
-    <string name="reset_whitelist">¿Vaciar lista blanca?</string>
-    <string name="are_you_reset_whitelist">¿Está seguro de que desea eliminar la lista blanca?</string>
-    <string name="reset">Limpiar</string>
-    <string name="delete_apk_files">Eliminar archivos .apk</string>
-    <string name="status_idle">Estado: Inactivo</string>
-    <string name="progress_0">0%</string>
-    <string name="status_running">Estado: En ejecución</string>
-    <string name="privacy_sum">Consultar la política de privacidad (enlace externo)</string>
-    <string name="generic_sum">.tmp, .log, Registros, registros</string>
-    <string name="aggressive_sum">Demasiado para listar aquí</string>
-    <string name="apk_sum">Archivos de instalación para Android</string>
-    <string name="oneclick_sum">No mostrar diálogo de confirmación al pulsar el botón de limpieza</string>
-    <string name="autowhite_sum">Detectar carpetas que deben protegerse automáticamente</string>
-    <string name="prompt_string">Por favor, conceda permiso de acceso a archivos</string>
-    <string name="settings_string">Ajustes</string>
-    <string name="title_activity_prompt">PromptActivity</string>
-    <string name="corpse_summary">Archivos restantes de aplicaciones desinstaladas</string>
-    <string name="corpse_title">Eliminar archivos de cadáveres</string>
-    <string name="other">Otros</string>
-    <string name="daily_title">Limpieza diaria</string>
-    <string name="daily_sum">Automáticamente se ejecuta diariamente, sin que tengas que abrir la aplicación.</string>
-    <string name="other_apps">¡Eche un vistazo a mis otras aplicaciones!</string>
-    <string name="other_apps_sum">Intento tener una nueva cada semana más o menos</string>
-    <string name="permission_needed">¡Permiso necesario!</string>
-    <string name="failed_scan">Escaneo fallido.</string>
-    <string name="are_you_sure_deletion">¿Está seguro? Los archivos eliminados no se pueden restaurar</string>
-    <string name="are_you_sure_deletion_title">Confirmar eliminación</string>
-    <string name="aggressive_filter_what_title">¿Qué hace el filtro agresivo?</string>
-    <string name="adds_the_following">Añade los siguientes filtros:</string>
-    <string name="samsung_not_work">No funciona en dispositivos Samsung</string>
-    <string name="clear_clipboard">Limpiar portapapeles</string>
-    <string name="double_check_sum">Se volverá a escanear cada vez que se encuentre algo, limitado a diez escaneos</string>
-    <string name="double_check_title">Doble verificador</string>
-    <string name="notification_title">Trabajo del Limpiador LTE finalizado</string>
-    <string name="clean_notification">Limpiado:</string>
-    <string name="empty_whitelist">Nada en lista blanca</string>
-    <string name="theme_sum">De lo contrario seguirá los valores del sistema. Reinicie la aplicación para que entre en vigor</string>
-    <string name="theme_title">Seleccione Tema</string>
-    <string name="filters_category_title">Filtros</string>
-    <string name="scanner_category_title">Escáner</string>
-    <string name="links_category_title">Enlaces</string>
-    <string name="settings_page_title">Configuración</string>
-    <string name="remove_from_whitelist">¿Eliminar de la lista blanca?</string>
-    <string name="delete">Suprimir</string>
-    <string name="clipboard_clear_failed">Error al borrar el portapapeles</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp</item>
-        <item>.log</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>Registros</item>
-        <item>registros</item>
-        <item>temp</item>
-        <item>Temporal</item>
-        <item>temporal</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>supersonicads</item>
-        <item>Caché</item>
-        <item>Analíticas</item>
-        <item>Miniaturas</item>
-        <item>mobvista</item>
-        <item>UnityAdsVideoCache</item>
-        <item>Miniaturas de álbumes</item>
-        <item>LOST.DIR</item>
-        <item>.Trash</item>
-        <item>desktop.ini</item>
-        <item>leakcanary</item>
-        <item>.DS_Store</item>
-        <item>.spotlight-V100</item>
-        <item>fseventsd</item>
-        <item>Informe de errores</item>
-        <item>bugreports</item>
-        <item>.Trash</item>
-        <item>caché</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>¿miniaturas?.db</item>
-        <item>.miniatura[0-9]</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="themes">
-        <item>Auto</item>
-        <item>Luz</item>
-        <item>Oscuro</item>
-    </string-array>
+	<string name="app_name">Limpiador LTE</string>
+	<string name="delete_empty_folders">Eliminar carpetas vacías</string>
+	<string name="aggressive_filter">Activar filtro agresivo</string>
+	<string name="whitelist">Lista blanca</string>
+	<string name="privacy_policy">Política de privacidad</string>
+	<string name="add_to_whitelist">Añadir a la lista blanca</string>
+	<string name="cancel">Cancelar</string>
+	<string name="clean">Limpiar</string>
+	<string name="analyze">Analizar</string>
+	<string name="enable_generic_filter">Activar filtro genérico</string>
+	<string name="one_click_clean">Limpieza en un clic</string>
+	<string name="freed">Liberado: </string>
+	<string name="found">Encontrado: </string>
+	<string name="auto_whitelist">Lista blanca automática</string>
+	<string name="reset_whitelist">¿Vaciar lista blanca?</string>
+	<string name="are_you_reset_whitelist">¿Está seguro de que desea eliminar la lista blanca?</string>
+	<string name="reset">Limpiar</string>
+	<string name="delete_apk_files">Eliminar archivos .apk</string>
+	<string name="status_idle">Estado: Inactivo</string>
+	<string name="progress_0">0%</string>
+	<string name="status_running">Estado: En ejecución</string>
+	<string name="privacy_sum">Consultar la política de privacidad (enlace externo)</string>
+	<string name="generic_sum">.tmp, .log, Registros, registros</string>
+	<string name="aggressive_sum">Demasiado para listar aquí</string>
+	<string name="apk_sum">Archivos de instalación para Android</string>
+	<string name="oneclick_sum">No mostrar diálogo de confirmación al pulsar el botón de limpieza</string>
+	<string name="autowhite_sum">Detectar carpetas que deben protegerse automáticamente</string>
+	<string name="prompt_string">Por favor, conceda permiso de acceso a archivos</string>
+	<string name="settings_string">Ajustes</string>
+	<string name="corpse_summary">Archivos restantes de aplicaciones desinstaladas</string>
+	<string name="corpse_title">Eliminar archivos de cadáveres</string>
+	<string name="other">Otros</string>
+	<string name="daily_title">Limpieza diaria</string>
+	<string name="daily_sum">Automáticamente se ejecuta diariamente, sin que tengas que abrir la aplicación.</string>
+	<string name="other_apps">¡Eche un vistazo a mis otras aplicaciones!</string>
+	<string name="other_apps_sum">Intento tener una nueva cada semana más o menos</string>
+	<string name="permission_needed">¡Permiso necesario!</string>
+	<string name="failed_scan">Escaneo fallido.</string>
+	<string name="are_you_sure_deletion">¿Está seguro? Los archivos eliminados no se pueden restaurar</string>
+	<string name="are_you_sure_deletion_title">Confirmar eliminación</string>
+	<string name="aggressive_filter_what_title">¿Qué hace el filtro agresivo?</string>
+	<string name="adds_the_following">Añade los siguientes filtros:</string>
+	<string name="samsung_not_work">No funciona en dispositivos Samsung</string>
+	<string name="clear_clipboard">Limpiar portapapeles</string>
+	<string name="double_check_sum">Se volverá a escanear cada vez que se encuentre algo, limitado a diez escaneos</string>
+	<string name="double_check_title">Doble verificador</string>
+	<string name="notification_title">Trabajo del Limpiador LTE finalizado</string>
+	<string name="clean_notification">Limpiado:</string>
+	<string name="empty_whitelist">Nada en lista blanca</string>
+	<string name="theme_sum">De lo contrario seguirá los valores del sistema. Reinicie la aplicación para que entre en vigor</string>
+	<string name="theme_title">Seleccione Tema</string>
+	<string name="filters_category_title">Filtros</string>
+	<string name="scanner_category_title">Escáner</string>
+	<string name="links_category_title">Enlaces</string>
+	<string name="settings_page_title">Configuración</string>
+	<string name="remove_from_whitelist">¿Eliminar de la lista blanca?</string>
+	<string name="delete">Suprimir</string>
+	<string name="clipboard_clear_failed">Error al borrar el portapapeles</string>
+	<string-array name="themes">
+		<item>Auto</item>
+		<item>Luz</item>
+		<item>Oscuro</item>
+	</string-array>
 </resources>

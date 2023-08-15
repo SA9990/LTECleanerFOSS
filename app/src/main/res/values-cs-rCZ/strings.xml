@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">Vyčištění LTE</string>
-    <string name="delete_empty_folders">Odstranit prázdné složky</string>
-    <string name="aggressive_filter">Povolit agresivní filtr</string>
-    <string name="whitelist">Seznam povolených adres</string>
-    <string name="privacy_policy">Ochrana osobních údajů</string>
-    <string name="add_to_whitelist">Přidat do seznamu povolených</string>
-    <string name="cancel">Storno</string>
-    <string name="clean">Vyčistit</string>
-    <string name="analyze">Analyzovat</string>
-    <string name="enable_generic_filter">Povolit generický filtr</string>
-    <string name="one_click_clean">Jedno klepnutí je čisté</string>
-    <string name="freed">Uvolněno: </string>
-    <string name="found">Nalezeno: </string>
-    <string name="auto_whitelist">Automatický seznam povolených adres</string>
-    <string name="reset_whitelist">Prázdný seznam povolených adres</string>
-    <string name="are_you_reset_whitelist">Jste si jisti, že chcete vymazat seznam povolených adres?</string>
-    <string name="reset">Vyčistit</string>
-    <string name="delete_apk_files">Odstranit soubory .apk</string>
-    <string name="status_idle">Stav: Nečinný</string>
-    <string name="progress_0">0%</string>
-    <string name="status_running">Stav: Spuštěno</string>
-    <string name="privacy_sum">Zobrazit zásady ochrany osobních údajů (externí odkaz)</string>
-    <string name="generic_sum">.tmp, .log, Protokoly, protokoly</string>
-    <string name="aggressive_sum">Příliš mnoho na seznam zde</string>
-    <string name="apk_sum">Soubory instalačního programu pro android</string>
-    <string name="oneclick_sum">Po stisknutí tlačítka pro vyčištění se nezobrazí žádné potvrzovací dialogové okno</string>
-    <string name="autowhite_sum">Zjišťovat složky, které mají být automaticky chráněny</string>
-    <string name="prompt_string">Přidejte přístupová oprávnění k souboru</string>
-    <string name="settings_string">NastaveníComment</string>
-    <string name="title_activity_prompt">Aktivita náznaku</string>
-    <string name="corpse_summary">Soubory ponechané v odinstalovaných aplikacích</string>
-    <string name="corpse_title">Odstranit soubory mrtvol</string>
-    <string name="other">Další</string>
-    <string name="daily_title">Denní vyčištění</string>
-    <string name="daily_sum">Automaticky běží denně, aniž byste museli otevřít aplikaci.</string>
-    <string name="other_apps">Podívejte se na moje další aplikace!</string>
-    <string name="other_apps_sum">Snažím se mít nový každý týden, nebo tak.</string>
-    <string name="permission_needed">Žádám o povolení!</string>
-    <string name="failed_scan">Skenování se nezdařilo.</string>
-    <string name="are_you_sure_deletion">Jsi si jistý? Odstraněné soubory nelze obnovit</string>
-    <string name="are_you_sure_deletion_title">Potvrdit odstranění</string>
-    <string name="aggressive_filter_what_title">Co dělá agresivní filtr</string>
-    <string name="adds_the_following">Přidává následující filtry:</string>
-    <string name="samsung_not_work">Nefunguje na Samsung zařízeních.</string>
-    <string name="clear_clipboard">Vymazat schránku</string>
-    <string name="double_check_sum">Znovu spustí skenování pokaždé, když se něco najde s omezením na deset skenování</string>
-    <string name="double_check_title">Dvojitá kontrola</string>
-    <string name="notification_title">Vyčištění LTE-dokončeno</string>
-    <string name="clean_notification">Očištěné:</string>
-    <string name="empty_whitelist">Nic v seznamu povolených</string>
-    <string name="theme_sum">V opačném případě se řiďte systémovými nastaveními. Restartujte aplikaci, aby se projevila</string>
-    <string name="theme_title">Vybrat motiv</string>
-    <string name="filters_category_title">Filtry</string>
-    <string name="scanner_category_title">Skener</string>
-    <string name="links_category_title">Odkazy</string>
-    <string name="settings_page_title">NastaveníComment</string>
-    <string name="remove_from_whitelist">Odebrat ze seznamu povolených adres?</string>
-    <string name="delete">Odstranit</string>
-    <string name="clipboard_clear_failed">Nezdařilo se vymazat schránku</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp.</item>
-        <item>.log</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>Protokoly</item>
-        <item>logs, protokoly</item>
-        <item>dočasný</item>
-        <item>Dočasné</item>
-        <item>dočasné</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>supersonikád</item>
-        <item>Paměť cache</item>
-        <item>Analytika</item>
-        <item>skicy?</item>
-        <item>mobvista</item>
-        <item>UnityAdsVideoCache</item>
-        <item>albuminy?</item>
-        <item>LOK.DIR</item>
-        <item>.Koš</item>
-        <item>desktop.ini</item>
-        <item>kapající</item>
-        <item>.DS_Store</item>
-        <item>.spotlight-V100</item>
-        <item>fsedmsetd</item>
-        <item>Bugreport</item>
-        <item>bugreports</item>
-        <item>.Koš</item>
-        <item>mezipaměť</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>palce? .db</item>
-        <item>.thumb[0-9]</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="themes">
-        <item>Automatický</item>
-        <item>Světlé</item>
-        <item>Tmavé</item>
-    </string-array>
+	<string name="app_name">Vyčištění LTE</string>
+	<string name="delete_empty_folders">Odstranit prázdné složky</string>
+	<string name="aggressive_filter">Povolit agresivní filtr</string>
+	<string name="whitelist">Seznam povolených adres</string>
+	<string name="privacy_policy">Ochrana osobních údajů</string>
+	<string name="add_to_whitelist">Přidat do seznamu povolených</string>
+	<string name="cancel">Storno</string>
+	<string name="clean">Vyčistit</string>
+	<string name="analyze">Analyzovat</string>
+	<string name="enable_generic_filter">Povolit generický filtr</string>
+	<string name="one_click_clean">Jedno klepnutí je čisté</string>
+	<string name="freed">Uvolněno: </string>
+	<string name="found">Nalezeno: </string>
+	<string name="auto_whitelist">Automatický seznam povolených adres</string>
+	<string name="reset_whitelist">Prázdný seznam povolených adres</string>
+	<string name="are_you_reset_whitelist">Jste si jisti, že chcete vymazat seznam povolených adres?</string>
+	<string name="reset">Vyčistit</string>
+	<string name="delete_apk_files">Odstranit soubory .apk</string>
+	<string name="status_idle">Stav: Nečinný</string>
+	<string name="progress_0">0%</string>
+	<string name="status_running">Stav: Spuštěno</string>
+	<string name="privacy_sum">Zobrazit zásady ochrany osobních údajů (externí odkaz)</string>
+	<string name="generic_sum">.tmp, .log, Protokoly, protokoly</string>
+	<string name="aggressive_sum">Příliš mnoho na seznam zde</string>
+	<string name="apk_sum">Soubory instalačního programu pro android</string>
+	<string name="oneclick_sum">Po stisknutí tlačítka pro vyčištění se nezobrazí žádné potvrzovací dialogové okno</string>
+	<string name="autowhite_sum">Zjišťovat složky, které mají být automaticky chráněny</string>
+	<string name="prompt_string">Přidejte přístupová oprávnění k souboru</string>
+	<string name="settings_string">NastaveníComment</string>
+	<string name="corpse_summary">Soubory ponechané v odinstalovaných aplikacích</string>
+	<string name="corpse_title">Odstranit soubory mrtvol</string>
+	<string name="other">Další</string>
+	<string name="daily_title">Denní vyčištění</string>
+	<string name="daily_sum">Automaticky běží denně, aniž byste museli otevřít aplikaci.</string>
+	<string name="other_apps">Podívejte se na moje další aplikace!</string>
+	<string name="other_apps_sum">Snažím se mít nový každý týden, nebo tak.</string>
+	<string name="permission_needed">Žádám o povolení!</string>
+	<string name="failed_scan">Skenování se nezdařilo.</string>
+	<string name="are_you_sure_deletion">Jsi si jistý? Odstraněné soubory nelze obnovit</string>
+	<string name="are_you_sure_deletion_title">Potvrdit odstranění</string>
+	<string name="aggressive_filter_what_title">Co dělá agresivní filtr</string>
+	<string name="adds_the_following">Přidává následující filtry:</string>
+	<string name="samsung_not_work">Nefunguje na Samsung zařízeních.</string>
+	<string name="clear_clipboard">Vymazat schránku</string>
+	<string name="double_check_sum">Znovu spustí skenování pokaždé, když se něco najde s omezením na deset skenování</string>
+	<string name="double_check_title">Dvojitá kontrola</string>
+	<string name="notification_title">Vyčištění LTE-dokončeno</string>
+	<string name="clean_notification">Očištěné:</string>
+	<string name="empty_whitelist">Nic v seznamu povolených</string>
+	<string name="theme_sum">V opačném případě se řiďte systémovými nastaveními. Restartujte aplikaci, aby se projevila</string>
+	<string name="theme_title">Vybrat motiv</string>
+	<string name="filters_category_title">Filtry</string>
+	<string name="scanner_category_title">Skener</string>
+	<string name="links_category_title">Odkazy</string>
+	<string name="settings_page_title">NastaveníComment</string>
+	<string name="remove_from_whitelist">Odebrat ze seznamu povolených adres?</string>
+	<string name="delete">Odstranit</string>
+	<string name="clipboard_clear_failed">Nezdařilo se vymazat schránku</string>
+	<string-array name="themes">
+		<item>Automatický</item>
+		<item>Světlé</item>
+		<item>Tmavé</item>
+	</string-array>
 </resources>

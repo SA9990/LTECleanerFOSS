@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
-    <string name="delete_empty_folders">Slet tomme foldere</string>
-    <string name="aggressive_filter">Aktivér aggressivt filter</string>
-    <string name="whitelist">Whitelist</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="add_to_whitelist">Tilføj til hvidliste</string>
-    <string name="cancel">Annullér</string>
-    <string name="clean">Rens</string>
-    <string name="analyze">Analysér</string>
-    <string name="enable_generic_filter">Aktivér generisk filter</string>
-    <string name="one_click_clean">En klik er ren</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Fundet: </string>
-    <string name="auto_whitelist">Auto-hvidliste</string>
-    <string name="reset_whitelist">Tom hvidliste?</string>
-    <string name="are_you_reset_whitelist">Er du sikker på, at du vil rydde hvidlisten?</string>
-    <string name="reset">Ryd</string>
-    <string name="delete_apk_files">Slet .apk-filer</string>
-    <string name="status_idle">Status: Idle</string>
-    <string name="progress_0">0%</string>
-    <string name="status_running">Status: Udførelse</string>
-    <string name="privacy_sum">Vis fortrolighedspolitikken (eksternt link)</string>
-    <string name="generic_sum">.tmp, .log, Logs, logge</string>
-    <string name="aggressive_sum">Der er for meget at liste her</string>
-    <string name="apk_sum">Installer-filer til android</string>
-    <string name="oneclick_sum">Ingen bekræftelsesdialogboks, når der trykkes på knappen</string>
-    <string name="autowhite_sum">Registrér foldere, der skal beskyttes automatisk</string>
-    <string name="prompt_string">Tilføj adgangstilladelser til fil</string>
-    <string name="settings_string">Indstillinger</string>
-    <string name="title_activity_prompt">PromptAktivitet</string>
-    <string name="corpse_summary">Filer, der er udelod fra installerede apps</string>
-    <string name="corpse_title">Slet lig-filer</string>
-    <string name="other">Andet</string>
-    <string name="daily_title">Daglig ren</string>
-    <string name="daily_sum">Automatisk kører dagligt, uden at du skal åbne appen.</string>
-    <string name="other_apps">Tjek mine andre apps!</string>
-    <string name="other_apps_sum">Jeg prøver at få en ny ud hver uge eller sådan noget.</string>
-    <string name="permission_needed">Tilladelse nødvendig!</string>
-    <string name="failed_scan">Scanning mislykkedes.</string>
-    <string name="are_you_sure_deletion">-Er du sikker? Slettede filer kan ikke gendannes</string>
-    <string name="are_you_sure_deletion_title">Bekræft sletning</string>
-    <string name="aggressive_filter_what_title">Hvilket aggressivt filter gør</string>
-    <string name="adds_the_following">Tilføjer følgende filtre:</string>
-    <string name="samsung_not_work">Virker ikke på samsung-udstyr</string>
-    <string name="clear_clipboard">Ryd udklipsholder</string>
-    <string name="double_check_sum">Udfør scanningen igen, hver gang noget er fundet med en grænse på ti scanninger</string>
-    <string name="double_check_title">Dobbelttekker</string>
-    <string name="notification_title">LTE Clean Worker Finished</string>
-    <string name="clean_notification">Rengøring:</string>
-    <string name="empty_whitelist">Intet i hvidlisten</string>
-    <string name="theme_sum">Vil ellers følge systemindstillingerne. Genstart applikation, der skal træde i kraft</string>
-    <string name="theme_title">Vælg tema</string>
-    <string name="filters_category_title">Filtre</string>
-    <string name="scanner_category_title">Scanner</string>
-    <string name="links_category_title">Link</string>
-    <string name="settings_page_title">Indstillinger</string>
-    <string name="remove_from_whitelist">Fjern fra hvidliste?</string>
-    <string name="delete">Slet</string>
-    <string name="clipboard_clear_failed">Kan ikke rydde udklipsholderen</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp</item>
-        <item>.log</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>Logfiler</item>
-        <item>logs</item>
-        <item>vikar</item>
-        <item>Midlertidig</item>
-        <item>midlertidig</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>supersonicader</item>
-        <item>Cache</item>
-        <item>Analyse</item>
-        <item>Tommelfingernegle?</item>
-        <item>mobvista</item>
-        <item>UnityAdsVideoCache</item>
-        <item>albummelfingere?</item>
-        <item>LOST.DIR</item>
-        <item>.Papirkurv</item>
-        <item>Desktop.ini</item>
-        <item>lækkanarie</item>
-        <item>.DS_Store</item>
-        <item>.spotlyt-V100</item>
-        <item>f7 tsd</item>
-        <item>Bugreport</item>
-        <item>bugreports</item>
-        <item>.Papirkurv</item>
-        <item>cache</item>
-        <item>plashad</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>tommelfingre? .db</item>
-        <item>.Tomt[0-9]</item>
-        <item>plashad</item>
-    </string-array>
-    <string-array name="themes">
-        <item>Auto</item>
-        <item>Lys</item>
-        <item>Mørk</item>
-    </string-array>
+	<string name="app_name">LTE Cleaner</string>
+	<string name="delete_empty_folders">Slet tomme foldere</string>
+	<string name="aggressive_filter">Aktivér aggressivt filter</string>
+	<string name="whitelist">Whitelist</string>
+	<string name="privacy_policy">Privacy Policy</string>
+	<string name="add_to_whitelist">Tilføj til hvidliste</string>
+	<string name="cancel">Annullér</string>
+	<string name="clean">Rens</string>
+	<string name="analyze">Analysér</string>
+	<string name="enable_generic_filter">Aktivér generisk filter</string>
+	<string name="one_click_clean">En klik er ren</string>
+	<string name="freed">Freed: </string>
+	<string name="found">Fundet: </string>
+	<string name="auto_whitelist">Auto-hvidliste</string>
+	<string name="reset_whitelist">Tom hvidliste?</string>
+	<string name="are_you_reset_whitelist">Er du sikker på, at du vil rydde hvidlisten?</string>
+	<string name="reset">Ryd</string>
+	<string name="delete_apk_files">Slet .apk-filer</string>
+	<string name="status_idle">Status: Idle</string>
+	<string name="progress_0">0%</string>
+	<string name="status_running">Status: Udførelse</string>
+	<string name="privacy_sum">Vis fortrolighedspolitikken (eksternt link)</string>
+	<string name="generic_sum">.tmp, .log, Logs, logge</string>
+	<string name="aggressive_sum">Der er for meget at liste her</string>
+	<string name="apk_sum">Installer-filer til android</string>
+	<string name="oneclick_sum">Ingen bekræftelsesdialogboks, når der trykkes på knappen</string>
+	<string name="autowhite_sum">Registrér foldere, der skal beskyttes automatisk</string>
+	<string name="prompt_string">Tilføj adgangstilladelser til fil</string>
+	<string name="settings_string">Indstillinger</string>
+	<string name="corpse_summary">Filer, der er udelod fra installerede apps</string>
+	<string name="corpse_title">Slet lig-filer</string>
+	<string name="other">Andet</string>
+	<string name="daily_title">Daglig ren</string>
+	<string name="daily_sum">Automatisk kører dagligt, uden at du skal åbne appen.</string>
+	<string name="other_apps">Tjek mine andre apps!</string>
+	<string name="other_apps_sum">Jeg prøver at få en ny ud hver uge eller sådan noget.</string>
+	<string name="permission_needed">Tilladelse nødvendig!</string>
+	<string name="failed_scan">Scanning mislykkedes.</string>
+	<string name="are_you_sure_deletion">-Er du sikker? Slettede filer kan ikke gendannes</string>
+	<string name="are_you_sure_deletion_title">Bekræft sletning</string>
+	<string name="aggressive_filter_what_title">Hvilket aggressivt filter gør</string>
+	<string name="adds_the_following">Tilføjer følgende filtre:</string>
+	<string name="samsung_not_work">Virker ikke på samsung-udstyr</string>
+	<string name="clear_clipboard">Ryd udklipsholder</string>
+	<string name="double_check_sum">Udfør scanningen igen, hver gang noget er fundet med en grænse på ti scanninger</string>
+	<string name="double_check_title">Dobbelttekker</string>
+	<string name="notification_title">LTE Clean Worker Finished</string>
+	<string name="clean_notification">Rengøring:</string>
+	<string name="empty_whitelist">Intet i hvidlisten</string>
+	<string name="theme_sum">Vil ellers følge systemindstillingerne. Genstart applikation, der skal træde i kraft</string>
+	<string name="theme_title">Vælg tema</string>
+	<string name="filters_category_title">Filtre</string>
+	<string name="scanner_category_title">Scanner</string>
+	<string name="links_category_title">Link</string>
+	<string name="settings_page_title">Indstillinger</string>
+	<string name="remove_from_whitelist">Fjern fra hvidliste?</string>
+	<string name="delete">Slet</string>
+	<string name="clipboard_clear_failed">Kan ikke rydde udklipsholderen</string>
+	<string-array name="themes">
+		<item>Auto</item>
+		<item>Lys</item>
+		<item>Mørk</item>
+	</string-array>
 </resources>

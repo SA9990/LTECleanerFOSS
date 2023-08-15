@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">منظف LTE</string>
-    <string name="delete_empty_folders">حذف المجلدات الفارغة</string>
-    <string name="aggressive_filter">اتاحة مرشح البيانات العدواني</string>
-    <string name="whitelist">القائمة البيضاء</string>
-    <string name="privacy_policy">سياسة الخصوصية</string>
-    <string name="add_to_whitelist">إضافة للقائمة البيضاء</string>
-    <string name="cancel">الغاء</string>
-    <string name="clean">تنظيف</string>
-    <string name="analyze">تحليل</string>
-    <string name="enable_generic_filter">اتاحة مرشح بيانات عام</string>
-    <string name="one_click_clean">تنظيف بنقرة واحدة</string>
-    <string name="freed">تم اخلائه : </string>
-    <string name="found">تم ايجاد : </string>
-    <string name="auto_whitelist">القائمة البيضاء التلقائية</string>
-    <string name="reset_whitelist">إفراغ القائمة البيضاء؟</string>
-    <string name="are_you_reset_whitelist">هل أنت متأكد من أنك تريد مسح القائمة البيضاء؟</string>
-    <string name="reset">محو</string>
-    <string name="delete_apk_files">حذف ملفات .apk</string>
-    <string name="status_idle">الحالة : غير فعال</string>
-    <string name="progress_0">0%</string>
-    <string name="status_running">الحالة : تشغيل</string>
-    <string name="privacy_sum">عرض سياسة الخصوصية (رابط خارجي)</string>
-    <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">يوجد الكثير ليتم عرضه هنا</string>
-    <string name="apk_sum">ملفات المثبت للأندرويد</string>
-    <string name="oneclick_sum">لا يوجد مربع حوار للتأكيد عند الضغط على المفتاح النظيف</string>
-    <string name="autowhite_sum">اكتشاف الحافظات التي يجب حمايتها آليا</string>
-    <string name="prompt_string">الرجاء إضافة أذونات الوصول إلى الملفات</string>
-    <string name="settings_string">الإعدادات</string>
-    <string name="title_activity_prompt">رسالة حث</string>
-    <string name="corpse_summary">الملفات المتبقية من التطبيقات غير المثبتة</string>
-    <string name="corpse_title">حذف الملفات الميتة</string>
-    <string name="other">أخرى</string>
-    <string name="daily_title">تنظيف يومي</string>
-    <string name="daily_sum">يتم تشغيله آليا بطريقة يومية ، بدون أن يكون عليك فتح التطبيق.</string>
-    <string name="other_apps">تحقق من التطبيقات الأخرى الخاصة بي !</string>
-    <string name="other_apps_sum">أحاول أن يكون عندي واحد جديد كل إسبوع أو لذا</string>
-    <string name="permission_needed">الإذن مطلوب!</string>
-    <string name="failed_scan">فشل في المسح.</string>
-    <string name="are_you_sure_deletion">هل أنت متأكد ؟ لا يمكن استعادة الملفات التي تم حذفها</string>
-    <string name="are_you_sure_deletion_title">تأكيد الحذف</string>
-    <string name="aggressive_filter_what_title">ماذا يفعل عامل التصفية العدواني</string>
-    <string name="adds_the_following">يضيف عوامل التصفية التالية:</string>
-    <string name="samsung_not_work">لا يعمل على أجهزة سامسونج</string>
-    <string name="clear_clipboard">مسح الحافظة</string>
-    <string name="double_check_sum">سيتم إعادة تشغيل المسح في كل مرة يتم العثور على شيء بحد أقصى من عشرة مسوحات</string>
-    <string name="double_check_title">الفحص المزدوج</string>
-    <string name="notification_title">إنتهى عمل تطبيق منظف LTE</string>
-    <string name="clean_notification">تم تنظيفه:</string>
-    <string name="empty_whitelist">لا شيء في البياض</string>
-    <string name="theme_sum">سيتم اتباع محددات النظام بطريقة أخرى. قم باعادة بدء التطبيق ليصبح فعال</string>
-    <string name="theme_title">اختيار نسق رئيسي</string>
-    <string name="filters_category_title">مرشحات</string>
-    <string name="scanner_category_title">وحدة المسح الضوئي</string>
-    <string name="links_category_title">وصلات</string>
-    <string name="settings_page_title">المحددات</string>
-    <string name="remove_from_whitelist">إزالة من البيضلي ؟</string>
-    <string name="delete">حذف</string>
-    <string name="clipboard_clear_failed">فشل في اخلاء المسودة</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp</item>
-        <item>.السجلات</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>السجلات</item>
-        <item>سجلات</item>
-        <item>مؤقت</item>
-        <item>مؤقت</item>
-        <item>مؤقت</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>supersons</item>
-        <item>ذاكرة التخزين المؤقت</item>
-        <item>تحليلات</item>
-        <item>الصور المصغرة؟</item>
-        <item>mobvista</item>
-        <item>UnityAdmeVideCache</item>
-        <item>صور الالبومات المصغرة ؟</item>
-        <item>LOST.DIR</item>
-        <item>المهملات</item>
-        <item>desktop.ini</item>
-        <item>التسرب</item>
-        <item>.DS_Store</item>
-        <item>.V100.</item>
-        <item>fseventsd</item>
-        <item>تقرير الاخطاء</item>
-        <item>تقارير أخطاء العمليات</item>
-        <item>المهملات</item>
-        <item>ذاكرة وسيطة</item>
-        <item>متناثرة</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>thumbs ؟ .db</item>
-        <item>.مصغرة[0-9]</item>
-        <item>متناثرة</item>
-    </string-array>
-    <string-array name="themes">
-        <item>آلي</item>
-        <item>خفيف</item>
-        <item>ظلام</item>
-    </string-array>
+	<string name="app_name">منظف LTE</string>
+	<string name="delete_empty_folders">حذف المجلدات الفارغة</string>
+	<string name="aggressive_filter">اتاحة مرشح البيانات العدواني</string>
+	<string name="whitelist">القائمة البيضاء</string>
+	<string name="privacy_policy">سياسة الخصوصية</string>
+	<string name="add_to_whitelist">إضافة للقائمة البيضاء</string>
+	<string name="cancel">الغاء</string>
+	<string name="clean">تنظيف</string>
+	<string name="analyze">تحليل</string>
+	<string name="enable_generic_filter">اتاحة مرشح بيانات عام</string>
+	<string name="one_click_clean">تنظيف بنقرة واحدة</string>
+	<string name="freed">تم اخلائه : </string>
+	<string name="found">تم ايجاد : </string>
+	<string name="auto_whitelist">القائمة البيضاء التلقائية</string>
+	<string name="reset_whitelist">إفراغ القائمة البيضاء؟</string>
+	<string name="are_you_reset_whitelist">هل أنت متأكد من أنك تريد مسح القائمة البيضاء؟</string>
+	<string name="reset">محو</string>
+	<string name="delete_apk_files">حذف ملفات .apk</string>
+	<string name="status_idle">الحالة : غير فعال</string>
+	<string name="progress_0">0%</string>
+	<string name="status_running">الحالة : تشغيل</string>
+	<string name="privacy_sum">عرض سياسة الخصوصية (رابط خارجي)</string>
+	<string name="generic_sum">.tmp, .log, Logs, logs</string>
+	<string name="aggressive_sum">يوجد الكثير ليتم عرضه هنا</string>
+	<string name="apk_sum">ملفات المثبت للأندرويد</string>
+	<string name="oneclick_sum">لا يوجد مربع حوار للتأكيد عند الضغط على المفتاح النظيف</string>
+	<string name="autowhite_sum">اكتشاف الحافظات التي يجب حمايتها آليا</string>
+	<string name="prompt_string">الرجاء إضافة أذونات الوصول إلى الملفات</string>
+	<string name="settings_string">الإعدادات</string>
+	<string name="corpse_summary">الملفات المتبقية من التطبيقات غير المثبتة</string>
+	<string name="corpse_title">حذف الملفات الميتة</string>
+	<string name="other">أخرى</string>
+	<string name="daily_title">تنظيف يومي</string>
+	<string name="daily_sum">يتم تشغيله آليا بطريقة يومية ، بدون أن يكون عليك فتح التطبيق.</string>
+	<string name="other_apps">تحقق من التطبيقات الأخرى الخاصة بي !</string>
+	<string name="other_apps_sum">أحاول أن يكون عندي واحد جديد كل إسبوع أو لذا</string>
+	<string name="permission_needed">الإذن مطلوب!</string>
+	<string name="failed_scan">فشل في المسح.</string>
+	<string name="are_you_sure_deletion">هل أنت متأكد ؟ لا يمكن استعادة الملفات التي تم حذفها</string>
+	<string name="are_you_sure_deletion_title">تأكيد الحذف</string>
+	<string name="aggressive_filter_what_title">ماذا يفعل عامل التصفية العدواني</string>
+	<string name="adds_the_following">يضيف عوامل التصفية التالية:</string>
+	<string name="samsung_not_work">لا يعمل على أجهزة سامسونج</string>
+	<string name="clear_clipboard">مسح الحافظة</string>
+	<string name="double_check_sum">سيتم إعادة تشغيل المسح في كل مرة يتم العثور على شيء بحد أقصى من عشرة مسوحات</string>
+	<string name="double_check_title">الفحص المزدوج</string>
+	<string name="notification_title">إنتهى عمل تطبيق منظف LTE</string>
+	<string name="clean_notification">تم تنظيفه:</string>
+	<string name="empty_whitelist">لا شيء في البياض</string>
+	<string name="theme_sum">سيتم اتباع محددات النظام بطريقة أخرى. قم باعادة بدء التطبيق ليصبح فعال</string>
+	<string name="theme_title">اختيار نسق رئيسي</string>
+	<string name="filters_category_title">مرشحات</string>
+	<string name="scanner_category_title">وحدة المسح الضوئي</string>
+	<string name="links_category_title">وصلات</string>
+	<string name="settings_page_title">المحددات</string>
+	<string name="remove_from_whitelist">إزالة من البيضلي ؟</string>
+	<string name="delete">حذف</string>
+	<string name="clipboard_clear_failed">فشل في اخلاء المسودة</string>
+	<string-array name="themes">
+		<item>آلي</item>
+		<item>خفيف</item>
+		<item>ظلام</item>
+	</string-array>
 </resources>

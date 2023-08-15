@@ -1,109 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2020 Hunter J Drum
+	~ (C) 2020-2023 Hunter J Drum
+	~ (C) 2023 MDP43140
   -->
 <resources>
-    <string name="app_name">LTE-rensning</string>
-    <string name="delete_empty_folders">Ta bort tomma mappar</string>
-    <string name="aggressive_filter">Aktivera aggressivt filter</string>
-    <string name="whitelist">Vitlista</string>
-    <string name="privacy_policy">Privatpolicy</string>
-    <string name="add_to_whitelist">Lägg till i vitlista</string>
-    <string name="cancel">Avbryt</string>
-    <string name="clean">Rensning</string>
-    <string name="analyze">Analysera</string>
-    <string name="enable_generic_filter">Aktivera generiska filter</string>
-    <string name="one_click_clean">En klickning</string>
-    <string name="freed">Freed: </string>
-    <string name="found">Hittade: </string>
-    <string name="auto_whitelist">Automatisk vitlista</string>
-    <string name="reset_whitelist">Tom whitelist?</string>
-    <string name="are_you_reset_whitelist">Är du säker på att du vill rensa vitlistan?</string>
-    <string name="reset">Undan!</string>
-    <string name="delete_apk_files">Ta bort .apk-filer</string>
-    <string name="status_idle">Status: Idle</string>
-    <string name="progress_0">0%</string>
-    <string name="status_running">Status: Kör</string>
-    <string name="privacy_sum">Visa integritetspolicyn (extern länk)</string>
-    <string name="generic_sum">.tmp, .log, Loggar, loggar</string>
-    <string name="aggressive_sum">För mycket att lista här</string>
-    <string name="apk_sum">Installationsfiler för android</string>
-    <string name="oneclick_sum">Ingen bekräftelsedialogruta när ren knapp trycks ned</string>
-    <string name="autowhite_sum">Detektera mappar som ska skyddas automatiskt</string>
-    <string name="prompt_string">Lägg till filåtkomstbehörigheter</string>
-    <string name="settings_string">Inställningar</string>
-    <string name="title_activity_prompt">Promptaktivitet</string>
-    <string name="corpse_summary">Filer som lämnas över från avinstallerade appar</string>
-    <string name="corpse_title">Ta bort likfiler</string>
-    <string name="other">Andra slag</string>
-    <string name="daily_title">Dagligen rens</string>
-    <string name="daily_sum">Kör automatiskt dagligen, utan att du behöver öppna appen.</string>
-    <string name="other_apps">Kolla in mina andra appar!</string>
-    <string name="other_apps_sum">Jag försöker få ut en ny varje vecka, eller så.</string>
-    <string name="permission_needed">Behörighet behövs!</string>
-    <string name="failed_scan">Skanningen misslyckades.</string>
-    <string name="are_you_sure_deletion">Är du säker på det? Borttagna filer kan inte återställas</string>
-    <string name="are_you_sure_deletion_title">Bekräfta borttag</string>
-    <string name="aggressive_filter_what_title">Vilket aggressivt filter gör</string>
-    <string name="adds_the_following">Lägger till följande filter:</string>
-    <string name="samsung_not_work">Fungs inte på Samsung-enheter</string>
-    <string name="clear_clipboard">Rensa klippbordet</string>
-    <string name="double_check_sum">Will Rerun scan varje gång något hittas med en gräns på tio skanningar</string>
-    <string name="double_check_title">Dubbelkontroll</string>
-    <string name="notification_title">LTE rensad arbetskjul klar</string>
-    <string name="clean_notification">Rensade:</string>
-    <string name="empty_whitelist">Inget i whitelist</string>
-    <string name="theme_sum">Kommer på annat sätt att följa systeminställningarna. Starta om app för att få effekt</string>
-    <string name="theme_title">Välj tema</string>
-    <string name="filters_category_title">Filter</string>
-    <string name="scanner_category_title">Skanner</string>
-    <string name="links_category_title">Länkar</string>
-    <string name="settings_page_title">Inställningar</string>
-    <string name="remove_from_whitelist">Vill du ta bort från vitlistan?</string>
-    <string name="delete">Radera</string>
-    <string name="clipboard_clear_failed">Det gick inte att rensa klippbordet</string>
-    <string-array name="generic_filter_files">
-        <item>.tmp</item>
-        <item>.log</item>
-    </string-array>
-    <string-array name="generic_filter_folders">
-        <item>Loggar</item>
-        <item>loggar</item>
-        <item>temp</item>
-        <item>Tillfälligt</item>
-        <item>tillfällig</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="aggressive_filter_folders">
-        <item>supersoniskaror</item>
-        <item>Cache</item>
-        <item>Analys</item>
-        <item>Miniatyrer?</item>
-        <item>mobvista</item>
-        <item>UnityAdsVideoCache</item>
-        <item>albumtummar?</item>
-        <item>LOST.DIR</item>
-        <item>.papperskorg</item>
-        <item>desktop.ini</item>
-        <item>leakkanar</item>
-        <item>.DS_Lagra</item>
-        <item>.spotlight-V100</item>
-        <item>fseventsd</item>
-        <item>Bugreport</item>
-        <item>bugreports</item>
-        <item>.papperskorg</item>
-        <item>cache</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="aggressive_filter_files">
-        <item>.exo</item>
-        <item>Tummar?</item>
-        <item>.tumme[0-9]</item>
-        <item>splashad</item>
-    </string-array>
-    <string-array name="themes">
-        <item>Automatiskt</item>
-        <item>Ljus</item>
-        <item>Mörkt</item>
-    </string-array>
+	<string name="app_name">LTE-rensning</string>
+	<string name="delete_empty_folders">Ta bort tomma mappar</string>
+	<string name="aggressive_filter">Aktivera aggressivt filter</string>
+	<string name="whitelist">Vitlista</string>
+	<string name="privacy_policy">Privatpolicy</string>
+	<string name="add_to_whitelist">Lägg till i vitlista</string>
+	<string name="cancel">Avbryt</string>
+	<string name="clean">Rensning</string>
+	<string name="analyze">Analysera</string>
+	<string name="enable_generic_filter">Aktivera generiska filter</string>
+	<string name="one_click_clean">En klickning</string>
+	<string name="freed">Freed: </string>
+	<string name="found">Hittade: </string>
+	<string name="auto_whitelist">Automatisk vitlista</string>
+	<string name="reset_whitelist">Tom whitelist?</string>
+	<string name="are_you_reset_whitelist">Är du säker på att du vill rensa vitlistan?</string>
+	<string name="reset">Undan!</string>
+	<string name="delete_apk_files">Ta bort .apk-filer</string>
+	<string name="status_idle">Status: Idle</string>
+	<string name="progress_0">0%</string>
+	<string name="status_running">Status: Kör</string>
+	<string name="privacy_sum">Visa integritetspolicyn (extern länk)</string>
+	<string name="generic_sum">.tmp, .log, Loggar, loggar</string>
+	<string name="aggressive_sum">För mycket att lista här</string>
+	<string name="apk_sum">Installationsfiler för android</string>
+	<string name="oneclick_sum">Ingen bekräftelsedialogruta när ren knapp trycks ned</string>
+	<string name="autowhite_sum">Detektera mappar som ska skyddas automatiskt</string>
+	<string name="prompt_string">Lägg till filåtkomstbehörigheter</string>
+	<string name="settings_string">Inställningar</string>
+	<string name="corpse_summary">Filer som lämnas över från avinstallerade appar</string>
+	<string name="corpse_title">Ta bort likfiler</string>
+	<string name="other">Andra slag</string>
+	<string name="daily_title">Dagligen rens</string>
+	<string name="daily_sum">Kör automatiskt dagligen, utan att du behöver öppna appen.</string>
+	<string name="other_apps">Kolla in mina andra appar!</string>
+	<string name="other_apps_sum">Jag försöker få ut en ny varje vecka, eller så.</string>
+	<string name="permission_needed">Behörighet behövs!</string>
+	<string name="failed_scan">Skanningen misslyckades.</string>
+	<string name="are_you_sure_deletion">Är du säker på det? Borttagna filer kan inte återställas</string>
+	<string name="are_you_sure_deletion_title">Bekräfta borttag</string>
+	<string name="aggressive_filter_what_title">Vilket aggressivt filter gör</string>
+	<string name="adds_the_following">Lägger till följande filter:</string>
+	<string name="samsung_not_work">Fungs inte på Samsung-enheter</string>
+	<string name="clear_clipboard">Rensa klippbordet</string>
+	<string name="double_check_sum">Will Rerun scan varje gång något hittas med en gräns på tio skanningar</string>
+	<string name="double_check_title">Dubbelkontroll</string>
+	<string name="notification_title">LTE rensad arbetskjul klar</string>
+	<string name="clean_notification">Rensade:</string>
+	<string name="empty_whitelist">Inget i whitelist</string>
+	<string name="theme_sum">Kommer på annat sätt att följa systeminställningarna. Starta om app för att få effekt</string>
+	<string name="theme_title">Välj tema</string>
+	<string name="filters_category_title">Filter</string>
+	<string name="scanner_category_title">Skanner</string>
+	<string name="links_category_title">Länkar</string>
+	<string name="settings_page_title">Inställningar</string>
+	<string name="remove_from_whitelist">Vill du ta bort från vitlistan?</string>
+	<string name="delete">Radera</string>
+	<string name="clipboard_clear_failed">Det gick inte att rensa klippbordet</string>
+	<string-array name="themes">
+		<item>Automatiskt</item>
+		<item>Ljus</item>
+		<item>Mörkt</item>
+	</string-array>
 </resources>
