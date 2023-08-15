@@ -37,14 +37,14 @@
 	<string name="corpse_title">Hapus berkas mayat</string>
 	<string name="other">Lainnya</string>
 	<string name="daily_title">Bersihkan Harian</string>
-	<string name="daily_sum">Otomatis berjalan setiap hari, tanpa Anda harus membuka aplikasi.</string>
+	<string name="daily_sum">Otomatis berjalan setiap hari, tanpa harus membuka aplikasi.</string>
 	<string name="other_apps">Lihat aplikasiku yang lain!</string>
 	<string name="other_apps_sum">Saya mencoba untuk memiliki satu baru keluar setiap minggu atau lebih</string>
 	<string name="permission_needed">Ijin dibutuhkan!</string>
 	<string name="failed_scan">Pemindaian gagal.</string>
 	<string name="are_you_sure_deletion">Apakah Anda yakin? Berkas yang dihapus tidak dapat dipulihkan</string>
 	<string name="are_you_sure_deletion_title">Konfirmasi Penghapusan</string>
-	<string name="aggressive_filter_what_title">Apa filter agresif tidak</string>
+	<string name="aggressive_filter_what_title">Apa yang dilakukan filter agresif</string>
 	<string name="adds_the_following">Tambahkan filter berikut:</string>
 	<string name="samsung_not_work">Tidak bekerja pada perangkat samsung</string>
 	<string name="clear_clipboard">Bersihkan papan klip</string>
@@ -62,48 +62,10 @@
 	<string name="remove_from_whitelist">Hapus dari Daftar putih?</string>
 	<string name="delete">Hapus</string>
 	<string name="clipboard_clear_failed">Gagal membersihkan papan klip</string>
-	<string-array name="generic_filter_files">
-		<item>.tmp</item>
-		<item>.log</item>
-	</string-array>
-	<string-array name="generic_filter_folders">
-		<item>Logs</item>
-		<item>logs</item>
-		<item>temp</item>
-		<item>Temporary</item>
-		<item>temporary</item>
-	</string-array>
-	<!-- TODO: Remove or change this placeholder text -->
-	<!-- For developers: dont change the text below, these are folders that going to be cleaned -->
-	<string-array name="aggressive_filter_folders">
-		<item>supersonicads</item>
-		<item>Cache</item>
-		<item>Analytics</item>
-		<item>thumbnails?</item>
-		<item>mobvista</item>
-		<item>UnityAdsVideoCache</item>
-		<item>albumthumbs?</item>
-		<item>LOST.DIR</item>
-		<item>.Trash</item>
-		<item>desktop.ini</item>
-		<item>leakcanary</item>
-		<item>.DS_Store</item>
-		<item>.spotlight-V100</item>
-		<item>fseventsd</item>
-		<item>Bugreport</item>
-		<item>bugreports</item>
-		<item>.Trash</item>
-		<item>cache</item>
-		<item>splashad</item>
-	</string-array>
-	<string-array name="aggressive_filter_files">
-		<item>.exo</item>
-		<item>thumbs?.db</item>
-		<item>.thumb[0-9]</item>
-		<item>splashad</item>
-	</string-array>
+	<string name="settings_notification_name">Pemberitahuan Pembersih Harian</string>
+	<string name="settings_notification_sum">Menunjukkan pemberitahuan berapa banyak cache yang dibersihkan tiap hari</string>
 	<string-array name="themes">
-		<item>Otomatis</item>
+		<item>Ikuti sistem</item>
 		<item>Terang</item>
 		<item>Gelap</item>
 	</string-array>
