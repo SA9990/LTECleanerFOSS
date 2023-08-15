@@ -1,8 +1,8 @@
 /*
- * Copyright 2020 Hunter J Drum
+ * (C) 2020-2023 Hunter J Drum
+ * (C) 2023 MDP43140
  */
 package theredspy15.ltecleanerfoss
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences

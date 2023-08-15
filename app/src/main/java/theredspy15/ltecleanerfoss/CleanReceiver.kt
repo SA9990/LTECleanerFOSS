@@ -1,5 +1,8 @@
+/*
+ * (C) 2020-2023 Hunter J Drum
+ * (C) 2023 MDP43140
+ */
 package theredspy15.ltecleanerfoss
-
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver

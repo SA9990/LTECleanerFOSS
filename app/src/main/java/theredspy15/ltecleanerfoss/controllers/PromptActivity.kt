@@ -1,8 +1,4 @@
-/*
- * Copyright 2020 Hunter J Drum
- */
 package theredspy15.ltecleanerfoss.controllers
-
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -12,7 +8,6 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.appcompat.app.AppCompatActivity
 import theredspy15.ltecleanerfoss.R
 import kotlin.system.exitProcess
-
 class PromptActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +18,6 @@ class PromptActivity : AppCompatActivity() {
             exitProcess(0)
         }
     }
-
-    //Instead of onActivityResult() method use this one
     private var resultLauncher = registerForActivityResult(
         StartActivityForResult()
     ) { result: ActivityResult ->
