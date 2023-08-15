@@ -193,8 +193,7 @@ class FileScanner(private val path: File, context: Context){
 		var cycles: Byte = 0
 		var maxCycles: Byte = 1
 		var foundFiles: List<File>
-		if (prefs.getBoolean("multirun", false)) maxCycles = 10
-		if (!delete) maxCycles = 1 // when nothing is being deleted. Stops duplicates from being found
+		if (delete) maxCycles = prefs.getInt("multirun",1).toByte()
 
 		// removes the need to 'clean' multiple times to get everything
 		while (cycles < maxCycles) {
@@ -202,7 +201,7 @@ class FileScanner(private val path: File, context: Context){
 			// cycle indicator
 			if (gui != null)
 				(context as MainActivity?)!!.displayText(
-					"Running Cycle" + " " + (cycles + 1) + "/" + maxCycles
+					"Running Cycle " + (cycles + 1) + "/" + maxCycles
 				)
 
 			// find/scan files
@@ -238,14 +237,12 @@ class FileScanner(private val path: File, context: Context){
 				}
 			}
 
-			// cycle indicator
-			if (gui != null) (context as MainActivity?)!!.displayText(
-				"Finished Cycle " + (cycles + 1) + "/" + maxCycles
-			)
 			if (filesRemoved == 0) break // nothing found this run, no need to run again
 			filesRemoved = 0 // reset for next cycle
 			++cycles
 		}
+		// cycle indicator
+		if (gui != null) (context as MainActivity?)!!.displayText("Finished!")
 		isRunning = false
 		return kilobytesTotal
 	}

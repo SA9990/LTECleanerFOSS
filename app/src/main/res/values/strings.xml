@@ -49,7 +49,7 @@
 	<string name="adds_the_following">Adds the following filters:</string>
 	<string name="samsung_not_work">Doesn\'t work on samsung devices</string>
 	<string name="clear_clipboard">Clear clipboard</string>
-	<string name="double_check_sum">Will rerun scan each time something is found with a limit of ten scans</string>
+	<string name="double_check_sum">How many times the scan reruns each time something is found</string>
 	<string name="double_check_title">Double Checker</string>
 	<string name="notification_title">LTE Clean Worker Finished</string>
 	<string name="clean_notification">Cleaned:</string>

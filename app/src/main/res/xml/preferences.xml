@@ -41,12 +41,14 @@
 			android:persistent="true"
 			android:summary="@string/autowhite_sum"
 			android:title="@string/auto_whitelist" />
-		<SwitchPreferenceCompat
+		<SeekBarPreference
 			app:iconSpaceReserved="false"
-			android:defaultValue="false"
+			android:min="1"
+			android:max="10"
+			android:defaultValue="1"
 			android:textColor="#FFF"
 			android:key="multirun"
-			android:persistent="true"
+			app:showSeekBarValue="true"
 			android:summary="@string/double_check_sum"
 			android:title="@string/double_check_title" />
 	</PreferenceCategory>

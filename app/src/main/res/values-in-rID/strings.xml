@@ -48,7 +48,7 @@
 	<string name="adds_the_following">Tambahkan filter berikut:</string>
 	<string name="samsung_not_work">Tidak bekerja pada perangkat samsung</string>
 	<string name="clear_clipboard">Bersihkan papan klip</string>
-	<string name="double_check_sum">Akan memindai ulang setiap kali sesuatu ditemukan dengan batas dari sepuluh pemindaian</string>
+	<string name="double_check_sum">Berapa kali memindai ulang setiap kali sesuatu ditemukan</string>
 	<string name="double_check_title">Pemeriksa Ganda</string>
 	<string name="notification_title">LTE Pekerja Bersih Selesai</string>
 	<string name="clean_notification">Dibersihkan:</string>
