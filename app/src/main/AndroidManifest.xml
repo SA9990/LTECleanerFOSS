@@ -4,65 +4,53 @@
 	~ (C) 2023 MDP43140
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:installLocation="auto"
-    package="theredspy15.ltecleanerfoss">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.MAIN" />
-        </intent>
-    </queries>
-    <application
-        android:allowBackup="true"
-        android:fullBackupContent="false"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5128547878021429~1249782813"/>
-        <activity
-            android:exported="true"
-            android:name="theredspy15.ltecleanerfoss.controllers.PromptActivity"
-            android:label="@string/title_activity_prompt" />
-        <activity
-            android:label="@string/whitelist"
-            android:exported="true"
-            android:name="theredspy15.ltecleanerfoss.controllers.WhitelistActivity"
-            android:parentActivityName="theredspy15.ltecleanerfoss.controllers.SettingsActivity"
-            android:screenOrientation="unspecified" />
-        <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name="theredspy15.ltecleanerfoss.controllers.MainActivity"
-            android:screenOrientation="unspecified"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:exported="true"
-            android:name="theredspy15.ltecleanerfoss.controllers.SettingsActivity"
-            android:parentActivityName="theredspy15.ltecleanerfoss.controllers.MainActivity"
-            android:screenOrientation="unspecified" />
-        <receiver android:name="theredspy15.ltecleanerfoss.CleanReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-        <service
-            android:name="theredspy15.ltecleanerfoss.ScheduledService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-    </application>
+	xmlns:tools="http://schemas.android.com/tools"
+	android:installLocation="auto">
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+	<queries>
+		<intent>
+			<action android:name="android.intent.action.MAIN" />
+		</intent>
+	</queries>
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:requestLegacyExternalStorage="true"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme"
+		tools:ignore="GoogleAppIndexingWarning">
+		<activity
+			android:exported="true"
+			android:name=".controllers.MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:exported="false"
+			android:name=".controllers.WhitelistActivity"
+			android:parentActivityName=".controllers.SettingsActivity" />
+		<activity
+			android:exported="false"
+			android:name=".controllers.SettingsActivity"
+			android:parentActivityName=".controllers.MainActivity" />
+		<receiver
+			android:exported="false"
+			android:name=".CleanReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</receiver>
+		<!--service
+			android:name="theredspy15.ltecleanerfoss.ScheduledWorker"
+			android:permission="android.permission.BIND_JOB_SERVICE" /-->
+	</application>
 </manifest>

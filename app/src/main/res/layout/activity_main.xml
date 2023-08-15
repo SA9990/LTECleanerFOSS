@@ -4,160 +4,103 @@
 	~ (C) 2023 MDP43140
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:weightSum="4"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".controllers.MainActivity"
-    android:id="@+id/main_layout">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:weightSum="4"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	tools:context=".controllers.MainActivity"
+	android:id="@+id/main_layout">
 
-    <LinearLayout
-        android:id="@+id/frameLayout"
-        android:background="?attr/CircleBackground"
-        android:orientation="horizontal"
-        android:layout_weight="4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+	<ScrollView
+		android:animateLayoutChanges="false"
+		android:background="@drawable/rounded_view"
+		android:layout_weight="4"
+		android:id="@+id/fileScrollView"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginBottom="16dp"
+		android:layout_marginStart="24dp"
+		android:layout_marginEnd="24dp">
+		<LinearLayout
+			android:id="@+id/fileListView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="3dp"
+			android:orientation="vertical" />
+	</ScrollView>
 
-        <androidx.legacy.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2" />
+	<TextView
+		android:id="@+id/statusTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginTop="10dp"
+		android:layout_marginStart="30dp"
+		android:layout_marginEnd="30dp"
+		android:layout_marginBottom="10dp"
+		android:fontFamily="sans-serif-condensed-medium"
+		android:textAlignment="center"
+		android:textColor="?attr/Accents"
+		android:textSize="20sp" />
 
-        <FrameLayout
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ProgressBar
-                android:id="@+id/scanProgress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@drawable/circular_background"
-                android:indeterminate="false"
-                android:max="1"
-                android:progress="0"
-                android:progressDrawable="@drawable/circular" />
+	<androidx.gridlayout.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="250dp"
+		android:layout_gravity="bottom"
+		app:columnCount="2"
+		app:rowCount="2">
 
-            <TextView
-                android:id="@+id/scanTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="monospace"
-                android:text="@string/progress_0"
-                android:textColor="?attr/Accents"
-                android:textSize="30sp" />
-        </FrameLayout>
+		<Button
+			style="?android:attr/borderlessButtonStyle"
+			android:id="@+id/analyzeBtn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="24dp"
+			android:text="@string/analyze"
+			app:icon="@drawable/ic_baseline_search_24"
+			app:iconGravity="top"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
 
-        <androidx.legacy.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2" />
+		<Button
+			style="?android:attr/borderlessButtonStyle"
+			android:id="@+id/cleanBtn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="24dp"
+			android:text="@string/clean"
+			app:icon="@drawable/ic_baseline_cleaning_services_24"
+			app:iconGravity="top"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
 
-    </LinearLayout>
+		<Button
+			style="?android:attr/borderlessButtonStyle"
+			android:id="@+id/whitelistBtn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="24dp"
+			android:text="@string/whitelist"
+			app:icon="@drawable/ic_baseline_list_24"
+			app:iconGravity="top"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
 
-    <ScrollView
-        android:background="@color/grey"
-        android:animateLayoutChanges="true"
-        android:layout_weight="4"
-        android:visibility="gone"
-        android:id="@+id/fileScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp">
+		<Button
+			style="?android:attr/borderlessButtonStyle"
+			android:id="@+id/settingsBtn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="24dp"
+			android:text="@string/settings_string"
+			app:icon="@drawable/ic_baseline_settings_24"
+			app:iconGravity="top"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
 
-        <LinearLayout
-            android:id="@+id/fileListView"
-            android:animateLayoutChanges="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:orientation="vertical" />
-    </ScrollView>
-
-    <TextView
-        android:id="@+id/statusTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/status_idle"
-        android:textAlignment="center"
-        android:textColor="?attr/Accents"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="10dp"
-        app:columnCount="2"
-        app:rowCount="2">
-
-        <com.google.android.material.button.MaterialButton
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
-            android:id="@+id/analyzeBtn"
-            app:iconGravity="top"
-            app:icon="@drawable/ic_baseline_search_24"
-            android:text="@string/analyze"
-            android:minWidth="0dp"
-            app:backgroundTint="@android:color/transparent" />
-
-        <com.google.android.material.button.MaterialButton
-            style="?android:attr/borderlessButtonStyle"
-            android:id="@+id/cleanBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_columnWeight="1"
-            android:minWidth="0dp"
-            app:layout_rowWeight="1"
-            app:iconGravity="top"
-            app:icon="@drawable/ic_baseline_cleaning_services_24"
-            android:text="@string/clean" />
-
-        <com.google.android.material.button.MaterialButton
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/whitelistBtn"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
-            app:iconGravity="top"
-            app:icon="@drawable/ic_baseline_list_24"
-            android:text="@string/whitelist"
-            android:minWidth="0dp"
-            app:backgroundTint="@android:color/transparent" />
-
-        <com.google.android.material.button.MaterialButton
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_rowWeight="1"
-            android:id="@+id/settingsBtn"
-            app:layout_columnWeight="1"
-            app:icon="@drawable/ic_baseline_settings_24"
-            app:iconGravity="top"
-            android:text="@string/settings_string"
-            android:minWidth="0dp"
-            app:backgroundTint="@android:color/transparent" />
-
-    </androidx.gridlayout.widget.GridLayout>
+	</androidx.gridlayout.widget.GridLayout>
 
 </LinearLayout>
