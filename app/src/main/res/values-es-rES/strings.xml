@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Archivos restantes de aplicaciones desinstaladas</string>
 	<string name="corpse_title">Eliminar archivos de cadáveres</string>
 	<string name="other">Otros</string>
-	<string name="daily_title">Limpieza diaria</string>
-	<string name="daily_sum">Automáticamente se ejecuta diariamente, sin que tengas que abrir la aplicación.</string>
-	<string name="other_apps">¡Eche un vistazo a mis otras aplicaciones!</string>
-	<string name="other_apps_sum">Intento tener una nueva cada semana más o menos</string>
 	<string name="permission_needed">¡Permiso necesario!</string>
 	<string name="failed_scan">Escaneo fallido.</string>
 	<string name="are_you_sure_deletion">¿Está seguro? Los archivos eliminados no se pueden restaurar</string>

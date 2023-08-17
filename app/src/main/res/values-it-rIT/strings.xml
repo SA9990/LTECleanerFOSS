@@ -36,10 +36,6 @@
 	<string name="corpse_summary">File residui di app disinstallate</string>
 	<string name="corpse_title">Elimina file obsoleti</string>
 	<string name="other">Altro</string>
-	<string name="daily_title">Pulizia Quotidiana</string>
-	<string name="daily_sum">Automaticamente viene eseguito quotidianamente, senza che si debba aprire l\'app.</string>
-	<string name="other_apps">Scopri le mie altre app!</string>
-	<string name="other_apps_sum">Cerco di farne uscire una più o meno ogni settimana</string>
 	<string name="permission_needed">Permesso necessario!</string>
 	<string name="failed_scan">Scansione non riuscita.</string>
 	<string name="are_you_sure_deletion">Sei sicuro? I file cancellati non possono essere ripristinati</string>

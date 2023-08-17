@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Filer, der er udelod fra installerede apps</string>
 	<string name="corpse_title">Slet lig-filer</string>
 	<string name="other">Andet</string>
-	<string name="daily_title">Daglig ren</string>
-	<string name="daily_sum">Automatisk kører dagligt, uden at du skal åbne appen.</string>
-	<string name="other_apps">Tjek mine andre apps!</string>
-	<string name="other_apps_sum">Jeg prøver at få en ny ud hver uge eller sådan noget.</string>
 	<string name="permission_needed">Tilladelse nødvendig!</string>
 	<string name="failed_scan">Scanning mislykkedes.</string>
 	<string name="are_you_sure_deletion">-Er du sikker? Slettede filer kan ikke gendannes</string>

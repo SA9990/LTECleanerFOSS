@@ -36,10 +36,6 @@
 	<string name="corpse_summary">アプリケーションのアンインストール後に残されたファイル</string>
 	<string name="corpse_title">残骸ファイルの削除</string>
 	<string name="other">その他</string>
-	<string name="daily_title">日次クリーニング</string>
-	<string name="daily_sum">アプリケーションを開くことなく、毎日自動的に実行されます。</string>
-	<string name="other_apps">他のアプリを確認してください。</string>
-	<string name="other_apps_sum">ほぼ毎週新作をリリースすることを目標にしています</string>
 	<string name="permission_needed">許可が必要です。</string>
 	<string name="failed_scan">スキャンに失敗しました。</string>
 	<string name="are_you_sure_deletion">- 確かか ? 削除されたファイルを復元する</string>

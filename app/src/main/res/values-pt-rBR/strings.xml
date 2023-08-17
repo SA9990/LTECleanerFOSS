@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Arquivos sobem a partir de apps não instalados</string>
 	<string name="corpse_title">Excluir arquivos de cadáver</string>
 	<string name="other">Outro</string>
-	<string name="daily_title">Limpeza Diária</string>
-	<string name="daily_sum">Executa automaticamente diariamente, sem que você tenha que abrir o app.</string>
-	<string name="other_apps">Confira os meus outros apps!</string>
-	<string name="other_apps_sum">Eu tento ter um novo fora a cada semana ou mais</string>
 	<string name="permission_needed">Permissão necessária!</string>
 	<string name="failed_scan">Varredura falhou.</string>
 	<string name="are_you_sure_deletion">Você tem certeza? Arquivos excluídos não podem ser restaurados</string>

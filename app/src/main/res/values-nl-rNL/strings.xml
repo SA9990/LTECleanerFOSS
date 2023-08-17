@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Bestanden over van niet geïnstalleerde apps</string>
 	<string name="corpse_title">Dode bestanden verwijderen</string>
 	<string name="other">Andere</string>
-	<string name="daily_title">Dagelijks schoon</string>
-	<string name="daily_sum">Automatisch wordt dagelijks uitgevoerd, zonder dat u de app te openen.</string>
-	<string name="other_apps">Bekijk mijn andere apps!</string>
-	<string name="other_apps_sum">Ik probeer elke week een nieuwe uit te hebben.</string>
 	<string name="permission_needed">Toestemming nodig!</string>
 	<string name="failed_scan">Scan is mislukt.</string>
 	<string name="are_you_sure_deletion">Weet je het zeker? Verwijderde bestanden kunnen niet worden hersteld</string>

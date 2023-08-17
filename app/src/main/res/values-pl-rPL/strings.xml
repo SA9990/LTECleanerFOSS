@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Pliki pozostałe po odinstalowanych aplikacjach</string>
 	<string name="corpse_title">Usuń ostałe pliki</string>
 	<string name="other">Inne</string>
-	<string name="daily_title">Czyszczenie codzienne</string>
-	<string name="daily_sum">Automatyczne uruchamianie codziennie, bez konieczności otwierania aplikacji.</string>
-	<string name="other_apps">Sprawdź inne moje aplikacje!</string>
-	<string name="other_apps_sum">Staram się mieć coś nowego raz na tydzień</string>
 	<string name="permission_needed">Wymagane uprawnienie!</string>
 	<string name="failed_scan">Skanowanie nie powiodło się.</string>
 	<string name="are_you_sure_deletion">Czy na pewno? Nie można odtworzyć usuniętych plików</string>

@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Filer som lämnas över från avinstallerade appar</string>
 	<string name="corpse_title">Ta bort likfiler</string>
 	<string name="other">Andra slag</string>
-	<string name="daily_title">Dagligen rens</string>
-	<string name="daily_sum">Kör automatiskt dagligen, utan att du behöver öppna appen.</string>
-	<string name="other_apps">Kolla in mina andra appar!</string>
-	<string name="other_apps_sum">Jag försöker få ut en ny varje vecka, eller så.</string>
 	<string name="permission_needed">Behörighet behövs!</string>
 	<string name="failed_scan">Skanningen misslyckades.</string>
 	<string name="are_you_sure_deletion">Är du säker på det? Borttagna filer kan inte återställas</string>

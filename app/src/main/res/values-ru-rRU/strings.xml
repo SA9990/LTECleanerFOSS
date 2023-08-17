@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Файлы, оставшиеся от удалённых приложений</string>
 	<string name="corpse_title">Удалить остатки</string>
 	<string name="other">Прочее</string>
-	<string name="daily_title">Ежедневная очистка</string>
-	<string name="daily_sum">Автоматически запускается ежедневно, без необходимости открывать приложение.</string>
-	<string name="other_apps">Зацени мои другие приложения!</string>
-	<string name="other_apps_sum">Я стараюсь, чтобы у меня была новая жизнь каждую неделю, или так</string>
 	<string name="permission_needed">Необходимы разрешения!</string>
 	<string name="failed_scan">Сканирование завершилось неудачно.</string>
 	<string name="are_you_sure_deletion">Вы уверены? Невозможно восстановить удаленные файлы</string>

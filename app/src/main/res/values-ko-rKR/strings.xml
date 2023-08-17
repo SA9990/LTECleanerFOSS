@@ -36,10 +36,6 @@
 	<string name="corpse_summary">설치 제거된 앱에서 남겨진 파일</string>
 	<string name="corpse_title">시체 파일 삭제하기</string>
 	<string name="other">기타</string>
-	<string name="daily_title">데일리 클린</string>
-	<string name="daily_sum">앱을 열 필요 없이 매일 자동으로 실행됩니다.</string>
-	<string name="other_apps">다른 앱들을 확인해 보세요!</string>
-	<string name="other_apps_sum">나는 매주 새로운 것을 가지려고 노력한다.</string>
 	<string name="permission_needed">필요한 권한!</string>
 	<string name="failed_scan">스캔이 실패했습니다.</string>
 	<string name="are_you_sure_deletion">확실해요? 삭제된 파일을 복원할 수 없음</string>

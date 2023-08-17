@@ -37,8 +37,6 @@
 	<string name="corpse_summary">Files left over from uninstalled apps</string>
 	<string name="corpse_title">Delete corpse files</string>
 	<string name="other">Other</string>
-	<string name="daily_title">Daily Clean</string>
-	<string name="daily_sum">Automatically runs daily, without you having to open the app.</string>
 	<string name="clean_boot_title">Clean on boot</string>
 	<string name="clean_boot_sum">Automatically runs when device completed boot, without having to open the app.</string>
 	<string name="clean_hourly_title">Hourly Clean</string>

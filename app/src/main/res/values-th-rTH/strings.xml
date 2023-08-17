@@ -36,10 +36,6 @@
 	<string name="corpse_summary">ไฟล์ที่เหลือจากแอ็พที่ถอนการติดตั้ง</string>
 	<string name="corpse_title">ลบไฟล์ศพ</string>
 	<string name="other">อื่นๆ</string>
-	<string name="daily_title">ล้างข้อมูลรายวัน</string>
-	<string name="daily_sum">รันโดยอัตโนมัติทุกวันโดยคุณไม่ต้องเปิดแอ็พพลิเคชัน</string>
-	<string name="other_apps">ตรวจสอบแอพอื่นๆของฉัน!</string>
-	<string name="other_apps_sum">ฉันพยายามที่จะมีคนใหม่ออกทุกสัปดาห์หรือดังนั้น</string>
 	<string name="permission_needed">ต้องการสิทธิ์!</string>
 	<string name="failed_scan">การสแกนล้มเหลว</string>
 	<string name="are_you_sure_deletion">คุณแน่ใจนะ ไฟล์ที่ลบไม่สามารถเรียกคืนได้</string>

@@ -36,10 +36,6 @@
 	<string name="corpse_summary">已解除安裝應用程式遺留的檔案數</string>
 	<string name="corpse_title">刪除屍體檔案</string>
 	<string name="other">其他</string>
-	<string name="daily_title">每日清除</string>
-	<string name="daily_sum">每日自動執行，而不需要開啟應用程式。</string>
-	<string name="other_apps">移出我的其他應用程式！</string>
-	<string name="other_apps_sum">我每周都試一次又一次</string>
 	<string name="permission_needed">請求批准</string>
 	<string name="failed_scan">掃描失敗。</string>
 	<string name="are_you_sure_deletion">你確定嗎？ 無法還原已刪除的檔案</string>

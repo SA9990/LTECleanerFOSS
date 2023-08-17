@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Αρχεία που απομένουν από απεγκατάσταση εφαρμογών.</string>
 	<string name="corpse_title">Διαγραφή αρχείων πτωμάτων</string>
 	<string name="other">\' Αλλα</string>
-	<string name="daily_title">Καθημερινή καθαριότητα</string>
-	<string name="daily_sum">Λειτουργεί αυτόματα καθημερινά, χωρίς να χρειάζεται να ανοίξετε την εφαρμογή.</string>
-	<string name="other_apps">Κοίτα τις άλλες εφαρμογές μου!</string>
-	<string name="other_apps_sum">Προσπαθώ να έχω ένα καινούργιο κάθε εβδομάδα.</string>
 	<string name="permission_needed">Χρειάζεται άδεια!</string>
 	<string name="failed_scan">Η Σάρτη απέτυχε.</string>
 	<string name="are_you_sure_deletion">-Σίγουρα; Δεν είναι δυνατή η επαναφορά των αρχείων</string>

@@ -36,10 +36,6 @@
 	<string name="corpse_summary">קבצים שנשארו מאפליקציות לא מותקנות</string>
 	<string name="corpse_title">מחיקת קובצי גופה</string>
 	<string name="other">אחר</string>
-	<string name="daily_title">ניקוי יומי</string>
-	<string name="daily_sum">הרצה אוטומטית של כל יום, ללא צורך לפתוח את היישום.</string>
-	<string name="other_apps">בדוק את האפליקציות האחרות שלי!</string>
-	<string name="other_apps_sum">אני מנסה להוציא אחד חדש כל שבוע.</string>
 	<string name="permission_needed">הרשאה דרושה!</string>
 	<string name="failed_scan">הסריקה נכשלה.</string>
 	<string name="are_you_sure_deletion">אתה בטוח? לא ניתן לשחזר קבצים שנמחקו</string>

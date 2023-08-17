@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Kaldırılan uygulamalardan kalan dosyalar</string>
 	<string name="corpse_title">Ceset dosyalarını sil</string>
 	<string name="other">Diğer</string>
-	<string name="daily_title">Günlük Temiz</string>
-	<string name="daily_sum">Uygulamayı açmanıza gerek kalmadan her gün otomatik olarak çalışır.</string>
-	<string name="other_apps">Diğer uygulamalarımı kontrol et!</string>
-	<string name="other_apps_sum">Her hafta yeni bir tane yapmaya çalışıyorum.</string>
 	<string name="permission_needed">İzin gerekli!</string>
 	<string name="failed_scan">Tarama başarısız oldu.</string>
 	<string name="are_you_sure_deletion">Emin misin? Silinen dosyalar geri yüklenemez</string>

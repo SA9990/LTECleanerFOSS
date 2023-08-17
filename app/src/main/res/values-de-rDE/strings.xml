@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Dateien, die von deinstallierten Apps übrig bleiben</string>
 	<string name="corpse_title">Corpse-Dateien löschen</string>
 	<string name="other">Sonstige</string>
-	<string name="daily_title">Tägliche Reinigung</string>
-	<string name="daily_sum">Wird automatisch täglich ausgeführt, ohne dass Sie die App öffnen müssen.</string>
-	<string name="other_apps">Schauen Sie sich meine anderen Apps an!</string>
-	<string name="other_apps_sum">Ich versuche, jede Woche einen neuen zu haben, oder so</string>
 	<string name="permission_needed">Berechtigung erforderlich!</string>
 	<string name="failed_scan">Scan fehlgeschlagen.</string>
 	<string name="are_you_sure_deletion">Sind Sie sicher? Gelöschte Dateien können nicht wiederhergestellt werden</string>

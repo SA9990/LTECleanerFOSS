@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Fişiere rămase de la aplicaţii neinstalate</string>
 	<string name="corpse_title">Ştergere fişiere cadavru</string>
 	<string name="other">Alte</string>
-	<string name="daily_title">Curăţare zilnică</string>
-	<string name="daily_sum">Rulează automat zilnic, fără ca tu să trebuiască să deschizi aplicația.</string>
-	<string name="other_apps">Verificați celelalte aplicații!</string>
-	<string name="other_apps_sum">Incerc sa am un nou scos in fiecare saptamana sau asa</string>
 	<string name="permission_needed">Permisiune necesară!</string>
 	<string name="failed_scan">Scanare eşuată.</string>
 	<string name="are_you_sure_deletion">Sunteţi sigur? Fişierele şterse nu pot fi restaurate</string>

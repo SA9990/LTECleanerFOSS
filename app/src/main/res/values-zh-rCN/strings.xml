@@ -36,10 +36,6 @@
 	<string name="corpse_summary">从已卸载应用程序遗留的文件</string>
 	<string name="corpse_title">删除尸体文件</string>
 	<string name="other">其他</string>
-	<string name="daily_title">每日清理</string>
-	<string name="daily_sum">每天自动运行，无需您打开应用程序。</string>
-	<string name="other_apps">看看我的其他应用！</string>
-	<string name="other_apps_sum">我试着大约每周发布一个新的</string>
 	<string name="permission_needed">需要许可 !</string>
 	<string name="failed_scan">扫描失败。</string>
 	<string name="are_you_sure_deletion">你确定吗 无法复原删除的文件</string>

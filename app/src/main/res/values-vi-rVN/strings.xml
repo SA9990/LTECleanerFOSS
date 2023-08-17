@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Tập tin bị bỏ qua các ứng dụng không cài đặt</string>
 	<string name="corpse_title">Xoá tập tin xác chết</string>
 	<string name="other">Khác</string>
-	<string name="daily_title">Sạch hàng ngày</string>
-	<string name="daily_sum">Tự động chạy hàng ngày, không có bạn phải mở ứng dụng.</string>
-	<string name="other_apps">Kiểm tra các ứng dụng khác!</string>
-	<string name="other_apps_sum">Mỗi tuần tôi lại có một người mới ra ngoài.</string>
 	<string name="permission_needed">Cho phép!</string>
 	<string name="failed_scan">Quét không thành công.</string>
 	<string name="are_you_sure_deletion">Anh chắc chứ? Không thể khôi phục tập tin bị xóa</string>

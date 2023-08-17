@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Fichiers laissés par les applications non installées</string>
 	<string name="corpse_title">Supprimer les fichiers de dépouille</string>
 	<string name="other">Autres</string>
-	<string name="daily_title">Nettoyage quotidien</string>
-	<string name="daily_sum">Exécuter automatiquement tous les jours, sans avoir à ouvrir l\'application.</string>
-	<string name="other_apps">Regardez mes autres applications !</string>
-	<string name="other_apps_sum">J\'essaie d\'en avoir une nouvelle chaque semaine.</string>
 	<string name="permission_needed">Autorisation requise !</string>
 	<string name="failed_scan">Echec de l\'analyse.</string>
 	<string name="are_you_sure_deletion">Es-tu sûre? Les fichiers supprimés ne peuvent pas être restaurés</string>

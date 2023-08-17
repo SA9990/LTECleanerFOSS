@@ -36,10 +36,6 @@
 	<string name="corpse_summary">Soubory ponechané v odinstalovaných aplikacích</string>
 	<string name="corpse_title">Odstranit soubory mrtvol</string>
 	<string name="other">Další</string>
-	<string name="daily_title">Denní vyčištění</string>
-	<string name="daily_sum">Automaticky běží denně, aniž byste museli otevřít aplikaci.</string>
-	<string name="other_apps">Podívejte se na moje další aplikace!</string>
-	<string name="other_apps_sum">Snažím se mít nový každý týden, nebo tak.</string>
 	<string name="permission_needed">Žádám o povolení!</string>
 	<string name="failed_scan">Skenování se nezdařilo.</string>
 	<string name="are_you_sure_deletion">Jsi si jistý? Odstraněné soubory nelze obnovit</string>
