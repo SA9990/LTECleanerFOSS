@@ -39,6 +39,10 @@
 	<string name="other">Other</string>
 	<string name="daily_title">Daily Clean</string>
 	<string name="daily_sum">Automatically runs daily, without you having to open the app.</string>
+	<string name="clean_boot_title">Clean on boot</string>
+	<string name="clean_boot_sum">Automatically runs when device completed boot, without having to open the app.</string>
+	<string name="clean_hourly_title">Hourly Clean</string>
+	<string name="clean_hourly_sum">How many hour cleanup should be scheduled.</string>
 	<string name="permission_needed">Permission needed!</string>
 	<string name="failed_scan">Scan failed.</string>
 	<string name="are_you_sure_deletion">Are you sure? Files deleted cannot be restored</string>

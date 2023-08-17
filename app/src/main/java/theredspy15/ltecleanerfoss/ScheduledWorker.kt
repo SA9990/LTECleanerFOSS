@@ -12,17 +12,22 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.preference.PreferenceManager
 import androidx.work.Constraints
-import androidx.work.ExistingWorkPolicy
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.WorkManager
 import theredspy15.ltecleanerfoss.controllers.MainActivity.Companion.convertSize
+import android.content.SharedPreferences
 import java.util.concurrent.TimeUnit
 class ScheduledWorker(appContext: Context, workerParams: WorkerParameters): Worker(appContext, workerParams) {
 	override fun doWork(): Result {
 		try {
+			makeStatusNotification(
+				applicationContext.getString(R.string.status_running),
+				applicationContext
+			)
 			val path = Environment.getExternalStorageDirectory()
 			val prefs = PreferenceManager.getDefaultSharedPreferences(
 				applicationContext
@@ -56,23 +61,30 @@ class ScheduledWorker(appContext: Context, workerParams: WorkerParameters): Work
 		}
 	}
 	companion object {
-		private const val UNIQUE_WORK_NAME = "scheduled_cleanup_work"
-		private const val WORK_TAG = "cleanup_work_tag"
+		const val UNIQUE_WORK_NAME = "scheduled_cleanup_work"
+		const val WORK_TAG = "cleanup_work_tag"
 		@JvmStatic
 		fun enqueueWork(context: Context) {
-			val constraints = Constraints.Builder()
-				.setRequiredNetworkType(NetworkType.UNMETERED)
-				.build()
-			val myWork = OneTimeWorkRequestBuilder<ScheduledWorker>()
-				.setConstraints(constraints)
-				.addTag(WORK_TAG)
-				.setInitialDelay(1, TimeUnit.HOURS)
-				.build()
-			WorkManager.getInstance(context).enqueueUniqueWork(
-				UNIQUE_WORK_NAME,
-				ExistingWorkPolicy.REPLACE,
-				myWork
-			)
+			val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+			val dailyCleanupInterval: Long = prefs.getInt("cleanevery",0).toLong();
+			//val constraints = Constraints.Builder()
+			//	.build()
+			//.setRequiresBatteryNotLow(true)
+			//.setRequiresDeviceIdle(true)
+			WorkManager.getInstance(context).cancelAllWorkByTag(UNIQUE_WORK_NAME)
+			if (dailyCleanupInterval > 0){
+				val myPeriodicWork = PeriodicWorkRequestBuilder<ScheduledWorker>(
+						dailyCleanupInterval, TimeUnit.HOURS, // Interval
+						15, TimeUnit.MINUTES // Flex interval for battery optimization
+					)
+					.addTag(WORK_TAG)
+					.build()
+				WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+					UNIQUE_WORK_NAME,
+					ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
+					myPeriodicWork
+				)
+			}
 		}
 
 		fun makeStatusNotification(message: String?, context: Context) {

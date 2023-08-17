@@ -18,15 +18,23 @@
 			android:title="@string/one_click_clean"
 			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="false"
 			android:textColor="#FFF"
-			android:key="dailyclean"
+			android:key="bootedcleanup"
 			android:persistent="true"
-			android:summary="@string/daily_sum"
-			android:title="@string/daily_title" />
-		<SwitchPreferenceCompat
+			android:summary="@string/clean_boot_sum"
+			android:title="@string/clean_boot_title"
+			app:iconSpaceReserved="false" />
+		<SeekBarPreference
+			android:min="-1"
+			android:max="24"
+			android:defaultValue="-1"
+			android:textColor="#FFF"
+			android:key="cleanevery"
+			android:summary="@string/clean_hourly_sum"
+			android:title="@string/clean_hourly_title"
 			app:iconSpaceReserved="false"
+			app:showSeekBarValue="true" />
 		<SwitchPreferenceCompat
 			android:defaultValue="false"
 			android:textColor="#FFF"

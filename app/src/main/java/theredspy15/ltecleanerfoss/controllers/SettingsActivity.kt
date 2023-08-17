@@ -42,7 +42,7 @@ class SettingsActivity: AppCompatActivity(){
 					}
 					true
 				}
-			findPreference<Preference>("dailyclean")!!.onPreferenceChangeListener =
+			findPreference<Preference>("cleanevery")!!.onPreferenceChangeListener =
 				Preference.OnPreferenceChangeListener { _:Preference, _:Any? ->
 					enqueueWork(requireContext().applicationContext)
 					true

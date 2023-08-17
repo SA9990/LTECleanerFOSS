@@ -38,6 +38,10 @@
 	<string name="other">Lainnya</string>
 	<string name="daily_title">Bersihkan Harian</string>
 	<string name="daily_sum">Otomatis berjalan setiap hari, tanpa harus membuka aplikasi.</string>
+	<string name="clean_boot_title">Bersihkan saat boot</string>
+	<string name="clean_boot_sum">Otomatis berjalan setelah perangkat menyelesaikan boot, tanpa harus membuka aplikasi.</string>
+	<string name="clean_hourly_title">Bersihkan tiap jam</string>
+	<string name="clean_hourly_sum">Berapa jam pembersih dijadwalkan.</string>
 	<string name="permission_needed">Ijin dibutuhkan!</string>
 	<string name="failed_scan">Pemindaian gagal.</string>
 	<string name="are_you_sure_deletion">Apakah Anda yakin? Berkas yang dihapus tidak dapat dipulihkan</string>

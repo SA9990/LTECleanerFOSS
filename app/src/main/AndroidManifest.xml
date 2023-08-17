@@ -44,7 +44,7 @@
 			android:parentActivityName=".controllers.MainActivity" />
 		<receiver
 			android:exported="false"
-			android:name=".CleanReceiver">
+			android:name=".BootReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />
 			</intent-filter>
