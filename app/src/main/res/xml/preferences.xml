@@ -10,13 +10,13 @@
 	app:iconSpaceReserved="false">
 	<PreferenceCategory android:title="@string/scanner_category_title" app:iconSpaceReserved="false">
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="false"
 			android:textColor="#FFF"
 			android:key="one_click"
 			android:persistent="true"
 			android:summary="@string/oneclick_sum"
-			android:title="@string/one_click_clean" />
+			android:title="@string/one_click_clean"
+			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
 			app:iconSpaceReserved="false"
 			android:defaultValue="false"
@@ -27,96 +27,94 @@
 			android:title="@string/daily_title" />
 		<SwitchPreferenceCompat
 			app:iconSpaceReserved="false"
+		<SwitchPreferenceCompat
 			android:defaultValue="false"
 			android:textColor="#FFF"
 			android:key="clipboard"
 			android:persistent="true"
 			android:summary="@string/samsung_not_work"
-			android:title="@string/clear_clipboard" />
+			android:title="@string/clear_clipboard"
+			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="true"
 			android:textColor="#FFF"
 			android:key="auto_white"
 			android:persistent="true"
 			android:summary="@string/autowhite_sum"
-			android:title="@string/auto_whitelist" />
+			android:title="@string/auto_whitelist"
+			app:iconSpaceReserved="false" />
 		<SeekBarPreference
-			app:iconSpaceReserved="false"
 			android:min="1"
 			android:max="10"
 			android:defaultValue="1"
 			android:textColor="#FFF"
 			android:key="multirun"
-			app:showSeekBarValue="true"
 			android:summary="@string/double_check_sum"
-			android:title="@string/double_check_title" />
+			android:title="@string/double_check_title"
+			app:iconSpaceReserved="false"
+			app:showSeekBarValue="true" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/filters_category_title" app:iconSpaceReserved="false">
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="true"
 			android:textColor="#FFF"
 			android:key="generic"
 			android:persistent="true"
 			android:summary="@string/generic_sum"
-			android:title="@string/enable_generic_filter" />
+			android:title="@string/enable_generic_filter"
+			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="false"
 			android:textColor="#FFF"
 			android:key="aggressive"
 			android:persistent="true"
 			android:summary="@string/aggressive_sum"
-			android:title="@string/aggressive_filter" />
+			android:title="@string/aggressive_filter"
+			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="false"
 			android:textColor="#FFF"
 			android:key="empty"
 			android:persistent="true"
-			android:title="@string/delete_empty_folders" />
+			android:title="@string/delete_empty_folders"
+			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="false"
 			android:textColor="#FFF"
 			android:key="corpse"
 			android:persistent="true"
 			android:summary="@string/corpse_summary"
-			android:title="@string/corpse_title" />
+			android:title="@string/corpse_title"
+			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
-			app:iconSpaceReserved="false"
 			android:defaultValue="true"
 			android:textColor="#FFF"
 			android:key="apk"
 			android:persistent="true"
 			android:summary="@string/apk_sum"
-			android:title="@string/delete_apk_files" />
+			android:title="@string/delete_apk_files"
+			app:iconSpaceReserved="false" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/other" app:iconSpaceReserved="false">
 		<ListPreference
-			app:iconSpaceReserved="false"
 			android:key="theme"
 			android:defaultValue="Dark"
 			android:entries="@array/themes"
 			android:entryValues="@array/themes"
 			android:summary="@string/theme_sum"
 			android:persistent="true"
-			android:title="@string/theme_title" />
+			android:title="@string/theme_title"
+			app:iconSpaceReserved="false" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/links_category_title" app:iconSpaceReserved="false">
-		<Preference android:title="@string/privacy_policy"
+		<Preference
+			android:title="@string/privacy_policy"
 			android:key="privacyPolicy"
-			app:iconSpaceReserved="false"
-			android:summary="@string/privacy_sum">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html" />
-		</Preference>
-		<Preference android:title="@string/other_apps"
-			android:summary="@string/other_apps_sum"
+			android:summary="@string/privacy_sum"
 			app:iconSpaceReserved="false">
-			<intent android:action="android.intent.action.VIEW"
-				android:data="https://play.google.com/store/apps/developer?id=TheRedSpy15" />
+			<intent
+				android:action="android.intent.action.VIEW"
+				android:data="https://cdn.rawgit.com/TheRedSpy15/LTECleanerFOSS/d9522c76/privacy_policy.html" />
 		</Preference>
 	</PreferenceCategory>
 </PreferenceScreen>

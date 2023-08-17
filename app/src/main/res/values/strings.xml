@@ -39,8 +39,6 @@
 	<string name="other">Other</string>
 	<string name="daily_title">Daily Clean</string>
 	<string name="daily_sum">Automatically runs daily, without you having to open the app.</string>
-	<string name="other_apps">Check out my other apps!</string>
-	<string name="other_apps_sum">I try to have a new one out every week or so</string>
 	<string name="permission_needed">Permission needed!</string>
 	<string name="failed_scan">Scan failed.</string>
 	<string name="are_you_sure_deletion">Are you sure? Files deleted cannot be restored</string>

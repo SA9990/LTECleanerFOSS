@@ -38,8 +38,6 @@
 	<string name="other">Lainnya</string>
 	<string name="daily_title">Bersihkan Harian</string>
 	<string name="daily_sum">Otomatis berjalan setiap hari, tanpa harus membuka aplikasi.</string>
-	<string name="other_apps">Lihat aplikasiku yang lain!</string>
-	<string name="other_apps_sum">Saya mencoba untuk memiliki satu baru keluar setiap minggu atau lebih</string>
 	<string name="permission_needed">Ijin dibutuhkan!</string>
 	<string name="failed_scan">Pemindaian gagal.</string>
 	<string name="are_you_sure_deletion">Apakah Anda yakin? Berkas yang dihapus tidak dapat dipulihkan</string>

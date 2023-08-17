@@ -12,8 +12,7 @@ import androidx.preference.CheckBoxPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import theredspy15.ltecleanerfoss.CleanReceiver.Companion.cancelAlarm
-import theredspy15.ltecleanerfoss.CleanReceiver.Companion.scheduleAlarm
+import theredspy15.ltecleanerfoss.ScheduledWorker.Companion.enqueueWork
 import theredspy15.ltecleanerfoss.R
 class SettingsActivity: AppCompatActivity(){
 	override fun onCreate(savedInstanceState:Bundle?) {
@@ -44,13 +43,8 @@ class SettingsActivity: AppCompatActivity(){
 					true
 				}
 			findPreference<Preference>("dailyclean")!!.onPreferenceChangeListener =
-				Preference.OnPreferenceChangeListener { _:Preference, value:Any? ->
-					val isChecked = (value as Boolean)
-					if (isChecked){
-						scheduleAlarm(requireContext().applicationContext)
-					} else {
-						cancelAlarm(requireContext().applicationContext)
-					}
+				Preference.OnPreferenceChangeListener { _:Preference, _:Any? ->
+					enqueueWork(requireContext().applicationContext)
 					true
 				}
 			findPreference<Preference>("theme")!!.onPreferenceChangeListener =
