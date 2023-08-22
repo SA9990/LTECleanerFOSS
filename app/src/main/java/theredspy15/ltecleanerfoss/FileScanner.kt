@@ -17,6 +17,7 @@ import theredspy15.ltecleanerfoss.databinding.ActivityMainBinding
 import java.io.File
 import java.util.*
 class FileScanner(private val path: File, context: Context){
+	// TODO: Ability to clean SD Card? Already tried SAF implementation, but its really hard, and soon i realized it has storage access restrictions: https://developer.android.com/training/data-storage/shared/documents-files#document-tree-access-restrictions
 	private var prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 	private var context: Context? = null
 	private var res: Resources? = null
@@ -45,8 +46,8 @@ class FileScanner(private val path: File, context: Context){
 				if (file != null) { // hopefully to fix crashes on a very limited number of devices.
 					if (!isWhiteListed(file)) { // won't touch if whitelisted
 						if (file.isDirectory) { // folder
-							if (autoWhite) {
-								if (!autoWhiteList(file)) inFiles.add(file)
+							if (autoWhite) { // if auto whitelist enabled
+								if (!autoWhiteList(file)) inFiles.add(file) // if file is not in autowhitelist index, add it (TODO: Allow custom whitelist regexes (custom folder/file name))
 							} else inFiles.add(file) // add folder itself
 							inFiles.addAll(getListFiles(file)) // add contents to returned list
 						} else inFiles.add(file) // add file

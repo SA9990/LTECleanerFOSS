@@ -5,10 +5,12 @@
 package theredspy15.ltecleanerfoss.controllers
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.ActivityManager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Color
@@ -38,7 +40,7 @@ class MainActivity: AppCompatActivity(){
 	private lateinit var binding:ActivityMainBinding
 	private lateinit var mDialogBuilder:AlertDialog.Builder
 	override fun onCreate(savedInstanceState:Bundle?) {
-		if (prefs == null) updateTheme()
+		updateTheme()
 		super.onCreate(savedInstanceState)
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
@@ -122,6 +124,12 @@ class MainActivity: AppCompatActivity(){
 		}
 		reset()
 		if (prefs!!.getBoolean("clipboard", false)) clearClipboard()
+		if (prefs!!.getBoolean("closebgapps", false)) {
+			val am = this.getSystemService("activity") as ActivityManager
+			for (pkg in getPackageManager().getInstalledApplications(8704)) {
+				am.killBackgroundProcesses(pkg.processName)
+			}
+		}
 		val path = Environment.getExternalStorageDirectory()
 
 		// scanner setup
@@ -264,9 +272,10 @@ class MainActivity: AppCompatActivity(){
 
 	private fun updateTheme() {
 		prefs = PreferenceManager.getDefaultSharedPreferences(this)
-		val dark = resources.getStringArray(R.array.themes)[2]
+		val auto = resources.getStringArray(R.array.themes)[0]
 		val light = resources.getStringArray(R.array.themes)[1]
-		val selectedTheme = prefs!!.getString("theme", dark)
+		val dark = resources.getStringArray(R.array.themes)[2]
+		val selectedTheme = prefs!!.getString("theme", auto)
 		if (selectedTheme == dark) { // dark
 			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 		} else if (selectedTheme == light) { // light

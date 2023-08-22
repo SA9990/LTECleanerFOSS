@@ -5,6 +5,10 @@
 package theredspy15.ltecleanerfoss.controllers
 import android.content.DialogInterface
 import android.os.Bundle
+import android.net.Uri
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -12,18 +16,81 @@ import androidx.preference.CheckBoxPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import theredspy15.ltecleanerfoss.ScheduledWorker.Companion.enqueueWork
 import theredspy15.ltecleanerfoss.R
+import org.json.JSONArray
+import org.json.JSONObject
 class SettingsActivity: AppCompatActivity(){
 	override fun onCreate(savedInstanceState:Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_settings)
+		val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+		val preferenceFragment = MyPreferenceFragment()
+		preferenceFragment.setImportFileLauncher(registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+			try {
+				if (uri != null){
+					val inputStream = contentResolver.openInputStream(uri)
+					val jsonBytes = inputStream?.readBytes()
+					inputStream?.close()
+					if (jsonBytes != null && prefs != null) {
+						val jsonString = jsonBytes.toString(Charsets.UTF_8)
+						val jsonObject = JSONObject(jsonString)
+						val prefsEditor = prefs.edit()
+
+						for (key in jsonObject.keys()){
+							val value = jsonObject.get(key)
+							when (value) {
+								is String -> prefsEditor.putString(key, value)
+								is Int -> prefsEditor.putInt(key, value)
+								is Boolean -> prefsEditor.putBoolean(key, value)
+								is JSONArray -> {
+									val stringArray = mutableListOf<String>()
+									for (i in 0 until value.length()) stringArray.add(value.optString(i))
+									prefsEditor.putStringSet(key, stringArray.toSet())
+								}
+								else -> {
+									// Handle unsupported data type or provide a fallback
+									Toast.makeText(this,
+										String.format("Unsupported data type: %s = %s",key,value),
+										Toast.LENGTH_SHORT
+									).show()
+								}
+							}
+						}
+
+						prefsEditor.apply()
+						Toast.makeText(this, "Settings imported successfully!", Toast.LENGTH_SHORT).show()
+
+						supportFragmentManager.beginTransaction()
+							.replace(R.id.layout, MyPreferenceFragment())
+							.commit()
+					}
+				}
+			} catch (e: Exception){Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()}
+		})
+		preferenceFragment.setExportFileLauncher(registerForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { uri ->
+			val jsonData: String = JSONObject(prefs?.all).toString() // TODO - warning - Type mismatch: inferred type is (Mutable)Map<String!, *>? but (MutableMap<Any?, Any?>..Map<*, *>) was expected
+			if (uri != null){
+				writeContentToUri(uri, jsonData);
+				Toast.makeText(this, "Settings imported successfully!", Toast.LENGTH_SHORT).show()
+			}
+		})
 		supportFragmentManager.beginTransaction()
-			.replace(R.id.layout, MyPreferenceFragment())
+			.replace(R.id.layout, preferenceFragment)
 			.commit()
 	}
 
+	private fun writeContentToUri(uri: Uri, content: String) {
+		this.contentResolver.openOutputStream(uri)?.use { outputStream ->
+			outputStream.write(content.toByteArray())
+		}
+	}
+
 	class MyPreferenceFragment: PreferenceFragmentCompat() {
+		private lateinit var importFileLauncher: ActivityResultLauncher<Array<String>>
+		private lateinit var exportFileLauncher: ActivityResultLauncher<String>
+
 		override fun onCreate(savedInstanceState: Bundle?) {
 			super.onCreate(savedInstanceState)
 			setHasOptionsMenu(true)
@@ -60,6 +127,24 @@ class SettingsActivity: AppCompatActivity(){
 					}
 					true
 				}
+			findPreference<Preference>("dataImport")!!.onPreferenceClickListener =
+				Preference.OnPreferenceClickListener { _ ->
+					importFileLauncher.launch(arrayOf("application/json"))
+					true
+				}
+			findPreference<Preference>("dataExport")!!.onPreferenceClickListener =
+				Preference.OnPreferenceClickListener { _ ->
+					exportFileLauncher.launch("LTECleaner_settings.json")
+					true
+				}
+		}
+
+		/* TODO: is there a better way to do this? */
+		public fun setImportFileLauncher(activityResultLauncher: ActivityResultLauncher<Array<String>>) {
+			importFileLauncher = activityResultLauncher
+		}
+		public fun setExportFileLauncher(activityResultLauncher: ActivityResultLauncher<String>) {
+			exportFileLauncher = activityResultLauncher
 		}
 
 		/**

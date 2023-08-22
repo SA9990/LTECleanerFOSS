@@ -41,6 +41,12 @@
 	<string name="clean_boot_sum">Automatically runs when device completed boot, without having to open the app.</string>
 	<string name="clean_hourly_title">Hourly Clean</string>
 	<string name="clean_hourly_sum">How many hour cleanup should be scheduled.</string>
+	<string name="data_import_title">Import Data</string>
+	<string name="data_export_title">Export Data</string>
+	<string name="data_import_sum">Restore settings from backup file</string>
+	<string name="data_export_sum">Backup settings to XML/JSON file</string>
+	<string name="stopbgapps_title">Stop background apps</string>
+	<string name="stopbgapps_sum">Closes apps that are running in the background</string>
 	<string name="permission_needed">Permission needed!</string>
 	<string name="failed_scan">Scan failed.</string>
 	<string name="are_you_sure_deletion">Are you sure? Files deleted cannot be restored</string>
@@ -88,7 +94,7 @@
 		<item>supersonicads</item>
 		<item>Cache</item>
 		<item>Analytics</item>
-		<item>thumbnails?</item>
+		<item>.thumbnails?</item>
 		<item>mobvista</item>
 		<item>UnityAdsVideoCache</item>
 		<item>albumthumbs?</item>

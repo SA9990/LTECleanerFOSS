@@ -67,10 +67,10 @@ class ScheduledWorker(appContext: Context, workerParams: WorkerParameters): Work
 		fun enqueueWork(context: Context) {
 			val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 			val dailyCleanupInterval: Long = prefs.getInt("cleanevery",0).toLong();
-			//val constraints = Constraints.Builder()
-			//	.build()
-			//.setRequiresBatteryNotLow(true)
-			//.setRequiresDeviceIdle(true)
+			val constraints = Constraints.Builder()
+				.setRequiresBatteryNotLow(true)
+				.setRequiresDeviceIdle(true)
+				.build()
 			WorkManager.getInstance(context).cancelAllWorkByTag(UNIQUE_WORK_NAME)
 			if (dailyCleanupInterval > 0){
 				val myPeriodicWork = PeriodicWorkRequestBuilder<ScheduledWorker>(
@@ -78,6 +78,7 @@ class ScheduledWorker(appContext: Context, workerParams: WorkerParameters): Work
 						15, TimeUnit.MINUTES // Flex interval for battery optimization
 					)
 					.addTag(WORK_TAG)
+					.setConstraints(constraints)
 					.build()
 				WorkManager.getInstance(context).enqueueUniquePeriodicWork(
 					UNIQUE_WORK_NAME,

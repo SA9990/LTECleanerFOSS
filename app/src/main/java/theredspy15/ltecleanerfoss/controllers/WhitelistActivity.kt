@@ -27,7 +27,10 @@ class WhitelistActivity: AppCompatActivity(){
 		setContentView(R.layout.activity_whitelist)
 		binding = ActivityWhitelistBinding.inflate(layoutInflater)
 		setContentView(binding.root)
-		binding.newButton.setOnClickListener { addToWhiteList() }
+		binding.newButton.setOnClickListener {
+			// Creates a dialog asking for a file/folder name to add to the whitelist
+			mGetContent.launch(Uri.fromFile(Environment.getDataDirectory()))
+		}
 		getWhiteList(MainActivity.prefs)
 		loadViews()
 	}
@@ -40,8 +43,8 @@ class WhitelistActivity: AppCompatActivity(){
 		)
 		layout.setMargins(0, 20, 0, 20)
 
-		if (whiteList.isEmpty()) {
-			val textView = TextView(this) // no news feeds selected
+		if (whiteList.isNullOrEmpty()) {
+			val textView = TextView(this)
 			textView.setText(R.string.empty_whitelist)
 			textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
 			textView.textSize = 18f
@@ -54,11 +57,7 @@ class WhitelistActivity: AppCompatActivity(){
 				button.isAllCaps = false
 				button.setOnClickListener { removePath(path, button) }
 				button.setPadding(24, 24, 24, 24)
-				layout.setMargins(0, 12, 0, 12)
 				button.setBackgroundResource(R.drawable.rounded_view)
-				val drawable = button.background as GradientDrawable
-				drawable.setColor(Color.GRAY)
-				drawable.alpha = 30
 				runOnUiThread { binding.pathsLayout.addView(button, layout) }
 			}
 		}
@@ -69,9 +68,8 @@ class WhitelistActivity: AppCompatActivity(){
 		alertDialog.setTitle(getString(R.string.remove_from_whitelist))
 		alertDialog.setMessage(path!!)
 		alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.delete)){ dialogInterface:DialogInterface, _:Int ->
+			rmWhiteList(MainActivity.prefs,path);
 			dialogInterface.dismiss()
-			whiteList.remove(path)
-			MainActivity.prefs!!.edit().putStringSet("whitelist", HashSet(whiteList)).apply()
 			binding.pathsLayout.removeView(button)
 		}
 		alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel)) { dialogInterface:DialogInterface, _:Int -> dialogInterface.dismiss() }
@@ -79,37 +77,45 @@ class WhitelistActivity: AppCompatActivity(){
 	}
 
 	/**
-	 * Creates a dialog asking for a file/folder name to add to the whitelist
+	 * Prepare a dialog that asks for a file/folder name to add to the whitelist
 	 */
-	private fun addToWhiteList() {
-		mGetContent.launch(Uri.fromFile(Environment.getDataDirectory()))
-	}
-
 	private var mGetContent = registerForActivityResult(OpenDocumentTree()) { uri: Uri? ->
 		if (uri != null) {
-			whiteList.add(uri.path!!.substring(uri.path!!.indexOf(":") + 1)) // TODO create file from uri, then just add its path once sd card support is finished
-			MainActivity.prefs!!
-				.edit()
-				.putStringSet("whitelist", HashSet(whiteList))
-				.apply()
-			loadViews()
+			val path: String = uri.path!!.substring(uri.path!!.indexOf(":") + 1)
+			addWhiteList(MainActivity.prefs, path)
 		}
+		loadViews()
 	}
 
 	companion object {
 		private var whiteList: ArrayList<String> = ArrayList()
 		fun getWhiteList(prefs: SharedPreferences?): List<String?> {
-			if (whiteList.isNullOrEmpty()) {
-				if (prefs != null) {
-					// Type mismatch:inferred type is
-					// (Mutable)Set<String!>? but
-					// (MutableCollection<out String!>..Collection<String!>) was expected
-					whiteList = ArrayList(prefs.getStringSet("whitelist", emptySet()))
-				}
+			if (whiteList.isNullOrEmpty() && prefs != null) {
+				// Type mismatch:inferred type is
+				// (Mutable)Set<String!>? but
+				// (MutableCollection<out String!>..Collection<String!>) was expected
+				whiteList = ArrayList(prefs.getStringSet("whitelist", emptySet()))
 				whiteList.remove("[")
 				whiteList.remove("]")
 			}
 			return whiteList
+		}
+		fun addWhiteList(prefs: SharedPreferences?, path: String) {
+			// TODO: check for duplicates first before adding it
+			if (whiteList.isNullOrEmpty()) getWhiteList(prefs)
+			whiteList.add(path)
+			prefs!!
+				.edit()
+				.putStringSet("whitelist", HashSet(whiteList))
+				.apply()
+		}
+		fun rmWhiteList(prefs: SharedPreferences?, path: String) {
+			if (whiteList.isNullOrEmpty()) getWhiteList(prefs)
+			whiteList.remove(path)
+			prefs!!
+				.edit()
+				.putStringSet("whitelist", HashSet(whiteList))
+				.apply()
 		}
 	}
 }

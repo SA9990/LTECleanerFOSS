@@ -8,19 +8,21 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
+import androidx.work.Constraints
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import java.util.concurrent.TimeUnit
 class BootReceiver: BroadcastReceiver() {
 	override fun onReceive(ctxt: Context, i: Intent) {
 		runCleanup(ctxt)
 	}
 	fun runCleanup(context: Context){
 		val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-		//val constraints = Constraints.Builder()
-		//	.build()
-		//.setRequiresBatteryNotLow(true)
-		//.setRequiresDeviceIdle(true)
+		val constraints = Constraints.Builder()
+			.setRequiresBatteryNotLow(true)
+			.setRequiresDeviceIdle(true)
+			.build()
 
 		// Schedule the work hourly
 		ScheduledWorker.enqueueWork(context)
@@ -29,9 +31,9 @@ class BootReceiver: BroadcastReceiver() {
 		if (prefs.getBoolean("bootedcleanup",false)){
 			val myWork = OneTimeWorkRequestBuilder<ScheduledWorker>()
 				.addTag(ScheduledWorker.Companion.WORK_TAG)
+				.setConstraints(constraints)
+				.setInitialDelay(1, TimeUnit.MINUTES)
 				.build()
-			//.setConstraints(constraints)
-			//.setInitialDelay(1, TimeUnit.HOURS)
 			WorkManager.getInstance(context).enqueueUniqueWork(
 				ScheduledWorker.Companion.UNIQUE_WORK_NAME,
 				ExistingWorkPolicy.REPLACE,

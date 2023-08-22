@@ -25,6 +25,7 @@
 		android:layout_marginStart="24dp"
 		android:layout_marginEnd="24dp">
 		<LinearLayout
+			android:animateLayoutChanges="false"
 			android:id="@+id/fileListView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

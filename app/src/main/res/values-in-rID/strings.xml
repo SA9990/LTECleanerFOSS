@@ -40,6 +40,12 @@
 	<string name="clean_boot_sum">Otomatis berjalan setelah perangkat menyelesaikan boot, tanpa harus membuka aplikasi.</string>
 	<string name="clean_hourly_title">Bersihkan tiap jam</string>
 	<string name="clean_hourly_sum">Berapa jam pembersih dijadwalkan.</string>
+	<string name="data_import_title">Impor Data</string>
+	<string name="data_export_title">Ekspor Data</string>
+	<string name="data_import_sum">Kembalikan setelan dari file cadangan</string>
+	<string name="data_export_sum">Cadangkan setelan ke file XML/JSON</string>
+	<string name="stopbgapps_title">Tutup aplikasi latar-belakang</string>
+	<string name="stopbgapps_sum">Menutup aplikasi yang berjalan di latar-belakang</string>
 	<string name="permission_needed">Ijin dibutuhkan!</string>
 	<string name="failed_scan">Pemindaian gagal.</string>
 	<string name="are_you_sure_deletion">Apakah Anda yakin? Berkas yang dihapus tidak dapat dipulihkan</string>
