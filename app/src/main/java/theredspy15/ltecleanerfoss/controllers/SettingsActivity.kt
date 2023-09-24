@@ -137,6 +137,11 @@ class SettingsActivity: AppCompatActivity(){
 					exportFileLauncher.launch("LTECleaner_settings.json")
 					true
 				}
+			findPreference<Preference>("crash")!!.onPreferenceClickListener =
+				Preference.OnPreferenceClickListener { _ ->
+					val result = 10 / 0
+					result == 0
+				}
 		}
 
 		/* TODO: is there a better way to do this? */

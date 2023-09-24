@@ -131,6 +131,11 @@
 			android:key="dataExport"
 			android:summary="@string/data_export_sum"
 			app:iconSpaceReserved="false" />
+		<Preference
+			android:title="Crash test"
+			android:key="crash"
+			android:summary="Crash this app with ArithmeticException error"
+			app:iconSpaceReserved="false" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/links_category_title" app:iconSpaceReserved="false">
 		<Preference
