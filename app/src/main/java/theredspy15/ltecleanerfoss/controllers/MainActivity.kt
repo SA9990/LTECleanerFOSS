@@ -3,6 +3,7 @@
  * (C) 2023 MDP43140
  */
 package theredspy15.ltecleanerfoss.controllers
+import com.google.android.material.color.DynamicColors
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.ActivityManager
@@ -26,21 +27,20 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.preference.PreferenceManager
-import androidx.appcompat.app.AlertDialog
 import android.content.DialogInterface
+import theredspy15.ltecleanerfoss.App
 import theredspy15.ltecleanerfoss.FileScanner
 import theredspy15.ltecleanerfoss.R
 import theredspy15.ltecleanerfoss.databinding.ActivityMainBinding
 import java.io.File
 import java.text.DecimalFormat
 class MainActivity: AppCompatActivity(){
-	private lateinit var binding:ActivityMainBinding
-	private lateinit var mDialogBuilder:AlertDialog.Builder
+	private lateinit var binding: ActivityMainBinding
+	private lateinit var mDialogBuilder: AlertDialog.Builder
 	override fun onCreate(savedInstanceState:Bundle?) {
-		updateTheme()
 		super.onCreate(savedInstanceState)
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
@@ -50,16 +50,17 @@ class MainActivity: AppCompatActivity(){
 		binding.whitelistBtn.setOnClickListener { whitelist() }
 		WhitelistActivity.getWhiteList(prefs)
 		mDialogBuilder = AlertDialog.Builder(this)
+		if (prefs!!.getBoolean("dynamicColor",true)) DynamicColors.applyToActivityIfAvailable(this)
 	}
 
-	fun settings(){
+	private fun settings(){
 		startActivity(Intent(this,SettingsActivity::class.java))
 	}
-	fun whitelist(){
+	private fun whitelist(){
 		startActivity(Intent(this,WhitelistActivity::class.java))
 	}
 
-	fun analyze(){
+	private fun analyze(){
 		if (!FileScanner.isRunning){
 			requestWriteExternalPermission()
 			Thread { scan(false) }.start()
@@ -69,7 +70,7 @@ class MainActivity: AppCompatActivity(){
 	/**
 	 * Runs search and delete on background thread
 	 */
-	fun clean() {
+	private fun clean() {
 		if (!FileScanner.isRunning) {
 			requestWriteExternalPermission()
 			if (prefs == null) println("prefs is null!")
@@ -151,19 +152,16 @@ class MainActivity: AppCompatActivity(){
 			runOnUiThread { binding.fileListView.addView(printTextView(getString(R.string.failed_scan),Color.RED)) }
 		}
 
-		// kilobytes found/freed text
+		// run the scan and put KBs found/freed text
 		val kilobytesTotal = fs.startScan()
 		runOnUiThread {
-			if (delete) binding.statusTextView.text =
-				getString(R.string.freed) + " " + convertSize(kilobytesTotal)
-			else binding.statusTextView.text =
-				getString(R.string.found) + " " + convertSize(kilobytesTotal)
-		}
-		binding.fileScrollView.post { binding.fileScrollView.fullScroll(ScrollView.FOCUS_DOWN) }
-		runOnUiThread {
+			binding.statusTextView.text =
+				getString(if (delete) R.string.freed else R.string.found) +
+				" " + convertSize(kilobytesTotal)
 			binding.cleanBtn.isEnabled = !FileScanner.isRunning
 			binding.analyzeBtn.isEnabled = !FileScanner.isRunning
 		}
+		binding.fileScrollView.post { binding.fileScrollView.fullScroll(ScrollView.FOCUS_DOWN) }
 		Looper.loop()
 	}
 
@@ -224,15 +222,12 @@ class MainActivity: AppCompatActivity(){
 	 * Request write permission
 	 */
 	private fun requestWriteExternalPermission() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) { // android 11 and up
-			ActivityCompat.requestPermissions(
-				this, arrayOf(
-					Manifest.permission.WRITE_EXTERNAL_STORAGE,
-					Manifest.permission.READ_EXTERNAL_STORAGE,
-					Manifest.permission.MANAGE_EXTERNAL_STORAGE // starting from android 11 and above, manage external storage is now required due to storageAccessFramework
-				),
-				1
-			)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){ // Android 11+
+			ActivityCompat.requestPermissions(this,arrayOf(
+				Manifest.permission.WRITE_EXTERNAL_STORAGE,
+				Manifest.permission.READ_EXTERNAL_STORAGE,
+				Manifest.permission.MANAGE_EXTERNAL_STORAGE // Android 11+ requires manage external storage due to storageAccessFramework
+			),1)
 			if (!Environment.isExternalStorageManager()) { // all files
 				Toast.makeText(this, R.string.permission_needed, Toast.LENGTH_LONG).show()
 				val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
@@ -270,21 +265,9 @@ class MainActivity: AppCompatActivity(){
 		}
 	}
 
-	private fun updateTheme() {
-		prefs = PreferenceManager.getDefaultSharedPreferences(this)
-		val auto = resources.getStringArray(R.array.themes)[0]
-		val light = resources.getStringArray(R.array.themes)[1]
-		val dark = resources.getStringArray(R.array.themes)[2]
-		val selectedTheme = prefs!!.getString("theme", auto)
-		if (selectedTheme == dark) { // dark
-			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-		} else if (selectedTheme == light) { // light
-			AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-		} // auto
-	}
 
 	companion object {
-		@JvmField var prefs:SharedPreferences? = null
+		@JvmField var prefs:SharedPreferences? = App.prefs
 		@JvmStatic fun convertSize(length: Long): String {
 			val format = DecimalFormat("#.##")
 			val kib:Long = 1024

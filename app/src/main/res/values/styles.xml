@@ -11,9 +11,16 @@
 		<item name="colorOnSecondary">@color/fg</item>
 		<item name="colorAccent">?colorPrimary</item>
 		<item name="Accents">?colorAccent</item>
+		<item name="preferenceTheme">@style/AppPreferenceThemeOverlay</item>
 	</style>
 	<style name="AppTheme.NoActionBar" parent="AppTheme">
 		<item name="windowActionBar">false</item>
 		<item name="windowNoTitle">true</item>
+	</style>
+	<style name="AppPreferenceThemeOverlay" parent="@style/PreferenceThemeOverlay">
+		<item name="switchPreferenceCompatStyle">@style/AppSwitchPreference</item>
+	</style>
+	<style name="AppSwitchPreference" parent="@style/Preference.SwitchPreferenceCompat.Material">
+		<item name="widgetLayout">@layout/preference_material_switch</item>
 	</style>
 </resources>
