@@ -160,12 +160,17 @@ class BlacklistFragment: BaseFragment(){
 		}
 		fun addBlackList(prefs: SharedPreferences?, path: String) {
 			if (blackList.isNullOrEmpty()) getBlackList(prefs)
+			if (blackListOn.isNullOrEmpty()) getBlacklistOn(prefs)
 			blackList.apply {
 				add(path)
 				distinct()
 				sort()
 			}
-			blackListOn.add(path)
+			blackListOn.apply {
+				add(path)
+				distinct()
+				sort()
+			}
 			prefs!!
 				.edit()
 				.putStringSet("blacklist", HashSet(blackList))
@@ -174,6 +179,7 @@ class BlacklistFragment: BaseFragment(){
 		}
 		fun rmBlackList(prefs: SharedPreferences?, path: String) {
 			if (blackList.isNullOrEmpty()) getBlackList(prefs)
+			if (blackListOn.isNullOrEmpty()) getBlacklistOn(prefs)
 			blackList.remove(path)
 			blackListOn.remove(path)
 			prefs!!
@@ -189,9 +195,16 @@ class BlacklistFragment: BaseFragment(){
 			return blackListOn
 		}
 		fun setBlacklistOn(prefs: SharedPreferences?, path: String, checked: Boolean) {
-			if (blackListOn.isNullOrEmpty()) getBlacklistOn(prefs)
-			if (checked) blackListOn.add(path)
-			else blackListOn.remove(path)
+			blackListOn.apply {
+				if (isNullOrEmpty()) getBlacklistOn(prefs)
+				if (checked){
+					if (!contains(path)) add(path)
+					distinct()
+					sort()
+				} else {
+					remove(path)
+				}
+			}
 			prefs!!
 				.edit()
 				.putStringSet("blacklistOn",HashSet(blackListOn))

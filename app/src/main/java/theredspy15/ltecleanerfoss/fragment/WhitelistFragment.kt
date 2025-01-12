@@ -151,12 +151,17 @@ class WhitelistFragment: BaseFragment(){
 		}
 		fun addWhiteList(prefs: SharedPreferences?, path: String) {
 			if (whiteList.isNullOrEmpty()) getWhiteList(prefs)
+			if (whiteListOn.isNullOrEmpty()) getWhitelistOn(prefs)
 			whiteList.apply {
 				add(path)
 				distinct()
 				sort()
 			}
-			whiteListOn.add(path)
+			whiteListOn.apply {
+				add(path)
+				distinct()
+				sort()
+			}
 			prefs!!
 				.edit()
 				.putStringSet("whitelist", HashSet(whiteList))
@@ -165,6 +170,7 @@ class WhitelistFragment: BaseFragment(){
 		}
 		fun rmWhiteList(prefs: SharedPreferences?, path: String) {
 			if (whiteList.isNullOrEmpty()) getWhiteList(prefs)
+			if (whiteListOn.isNullOrEmpty()) getWhitelistOn(prefs)
 			whiteList.remove(path)
 			whiteListOn.remove(path)
 			prefs!!
@@ -180,9 +186,16 @@ class WhitelistFragment: BaseFragment(){
 			return whiteListOn
 		}
 		fun setWhitelistOn(prefs: SharedPreferences?, path: String, checked: Boolean) {
-			if (whiteListOn.isNullOrEmpty()) getWhitelistOn(prefs)
-			if (checked) whiteListOn.add(path)
-			else whiteListOn.remove(path)
+			whiteListOn.apply {
+				if (isNullOrEmpty()) getWhitelistOn(prefs)
+				if (checked){
+					if (!contains(path)) add(path)
+					distinct()
+					sort()
+				} else {
+					remove(path)
+				}
+			}
 			prefs!!
 				.edit()
 				.putStringSet("whitelistOn",HashSet(whiteListOn))
