@@ -1,6 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2020-2023 Hunter J Drum
- * SPDX-FileCopyrightText: 2024 MDP43140
+ * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 package theredspy15.ltecleanerfoss.fragment
