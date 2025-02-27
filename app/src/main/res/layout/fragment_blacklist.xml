@@ -9,23 +9,15 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:padding="12dp"
-	android:weightSum="3"
+	android:weightSum="1"
+	android:padding="8dp"
 	tools:context=".fragment.BlacklistFragment">
-
-	<ScrollView
-		android:layout_weight="3"
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/pathsLayout"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:scrollbarSize="24dp">
-
-		<LinearLayout
-			android:id="@+id/pathsLayout"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical"/>
-	</ScrollView>
-
+		android:layout_weight="1"
+		android:padding="0dp" />
 	<LinearLayout
 		android:layout_gravity="bottom"
 		android:layout_width="match_parent"

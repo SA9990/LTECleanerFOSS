@@ -18,6 +18,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts.OpenDocumentTree
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import theredspy15.ltecleanerfoss.R
@@ -57,66 +59,29 @@ class WhitelistFragment: BaseFragment(){
 		}
 		getWhiteList(App.prefs)
 		getWhitelistOn(App.prefs)
+		binding.pathsLayout.setItemViewCacheSize(1)
+		val adapter = ListItemAdapter(requireActivity(), false)
+		adapter.list = whiteList
+		adapter.onItemClick = ::removePath
+		binding.pathsLayout.adapter = adapter
+		binding.pathsLayout.addItemDecoration(ListItemAdapter.VerticalSpaceItemDecoration())
+		binding.pathsLayout.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
 		loadViews()
 		return binding.root
 	}
 	private fun loadViews() {
-		binding.pathsLayout.removeAllViews()
-		val layout = LinearLayout.LayoutParams(
-			ViewGroup.LayoutParams.MATCH_PARENT,
-			ViewGroup.LayoutParams.MATCH_PARENT
-		)
-		layout.setMargins(0,20,0,20)
-		if (whiteList.isNullOrEmpty()) {
-			val textView = TextView(requireContext())
-			textView.apply {
-				text = getString(R.string.empty_whitelist)
-				textAlignment = View.TEXT_ALIGNMENT_CENTER
-				textSize = 18f
-			}
-			requireActivity().runOnUiThread { binding.pathsLayout.addView(textView, layout) }
-		} else {
-			for (path in whiteList) {
-				val horizontalLayout = LinearLayout(requireContext())
-				val checkBox = CheckBox(requireContext())
-				val button = Button(requireContext())
-				button.apply {
-					text = path
-					textSize = 18f
-					isAllCaps = false
-					setPadding(0,0,0,0)
-					background = null
-					layoutParams = LinearLayout.LayoutParams(
-						ViewGroup.LayoutParams.MATCH_PARENT,
-						ViewGroup.LayoutParams.WRAP_CONTENT
-					)
-					setOnClickListener { removePath(path,button) }
-				}
-				checkBox.apply {
-					isChecked = whiteListOn.contains(path);
-					setOnCheckedChangeListener { _, checked ->
-						setWhitelistOn(App.prefs,path,checked)
-					}
-				}
-				horizontalLayout.apply {
-					setBackgroundResource(R.drawable.rounded_view)
-					orientation = LinearLayout.HORIZONTAL
-					setPadding(12,12,12,12)
-					addView(checkBox)
-					addView(button)
-				}
-				requireActivity().runOnUiThread { binding.pathsLayout.addView(horizontalLayout, layout) }
-			}
+		requireActivity().runOnUiThread {
+			binding.pathsLayout.adapter!!.notifyDataSetChanged()
 		}
 	}
-	private fun removePath(path: String, button: Button) {
+	private fun removePath(path: String) {
 		MaterialAlertDialogBuilder(requireContext())
 			.setTitle(getString(R.string.remove_from_whitelist))
 			.setMessage(path)
 			.setPositiveButton(getString(R.string.delete)){ dialog:DialogInterface, _:Int ->
 				rmWhiteList(App.prefs,path)
 				dialog.dismiss()
-				binding.pathsLayout.removeView(button)
+				loadViews()
 			}
 			.setNegativeButton(getString(android.R.string.cancel)) { dialog:DialogInterface, _:Int ->
 				dialog.dismiss()
@@ -135,8 +100,8 @@ class WhitelistFragment: BaseFragment(){
 		}
 	}
 	companion object {
-		private var whiteList: ArrayList<String> = ArrayList()
-		private var whiteListOn: ArrayList<String> = ArrayList()
+		var whiteList: ArrayList<String> = ArrayList()
+		var whiteListOn: ArrayList<String> = ArrayList()
 		fun getWhiteList(prefs: SharedPreferences?): List<String?> {
 			if (whiteList.isNullOrEmpty() && prefs != null) {
 				// Java type mismatch: inferred type is

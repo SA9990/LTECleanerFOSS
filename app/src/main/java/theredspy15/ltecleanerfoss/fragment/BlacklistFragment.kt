@@ -18,6 +18,8 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import theredspy15.ltecleanerfoss.R
@@ -56,56 +58,19 @@ class BlacklistFragment: BaseFragment(){
 		}
 		getBlackList(App.prefs)
 		getBlacklistOn(App.prefs)
+		binding.pathsLayout.setItemViewCacheSize(1)
+		val adapter = ListItemAdapter(requireActivity(), false)
+		adapter.list = blackList
+		adapter.onItemClick = ::editPath
+		binding.pathsLayout.adapter = adapter
+		binding.pathsLayout.addItemDecoration(ListItemAdapter.VerticalSpaceItemDecoration())
+		binding.pathsLayout.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
 		loadViews()
 		return binding.root
 	}
 	private fun loadViews() {
-		binding.pathsLayout.removeAllViews()
-		val layout = LinearLayout.LayoutParams(
-			ViewGroup.LayoutParams.MATCH_PARENT,
-			ViewGroup.LayoutParams.MATCH_PARENT
-		)
-		layout.setMargins(0,20,0,20)
-		if (blackList.isNullOrEmpty()) {
-			val textView = TextView(requireContext())
-			textView.apply {
-				text = getString(R.string.empty_blacklist)
-				textAlignment = View.TEXT_ALIGNMENT_CENTER
-				textSize = 18f
-			}
-			requireActivity().runOnUiThread { binding.pathsLayout.addView(textView, layout) }
-		} else {
-			for (path in blackList) {
-				val horizontalLayout = LinearLayout(requireContext())
-				val checkBox = CheckBox(requireContext())
-				val button = Button(requireContext())
-				button.apply {
-					text = path
-					textSize = 18f
-					isAllCaps = false
-					setPadding(0,0,0,0)
-					background = null
-					layoutParams = LinearLayout.LayoutParams(
-						ViewGroup.LayoutParams.MATCH_PARENT,
-						ViewGroup.LayoutParams.WRAP_CONTENT
-					)
-					setOnClickListener { editPath(path) }
-				}
-				checkBox.apply {
-					isChecked = blackListOn.contains(path);
-					setOnCheckedChangeListener { _, checked ->
-						setBlacklistOn(App.prefs,path,checked)
-					}
-				}
-				horizontalLayout.apply {
-					setBackgroundResource(R.drawable.rounded_view)
-					orientation = LinearLayout.HORIZONTAL
-					setPadding(12,12,12,12)
-					addView(checkBox)
-					addView(button)
-				}
-				requireActivity().runOnUiThread { binding.pathsLayout.addView(horizontalLayout, layout) }
-			}
+		requireActivity().runOnUiThread {
+			binding.pathsLayout.adapter!!.notifyDataSetChanged()
 		}
 	}
 	private fun editPath(path: String?) {
@@ -120,7 +85,7 @@ class BlacklistFragment: BaseFragment(){
 				val userInput = inputEditText.text.toString().replace("^/sdcard/", "/storage/emulated/0/")
 				dialog.dismiss()
 				if (path != null) rmBlackList(App.prefs,path)
-				// check if the added pattern
+				// check if the added pattern is dangerous (can wipe potential user data)
 				if ("/storage/emulated/0/Android/data".matches(userInput.toRegex()) &&
 						"/storage/emulated/0/DCIM/Camera".matches(userInput.toRegex())){
 					Snackbar.make(
@@ -144,8 +109,8 @@ class BlacklistFragment: BaseFragment(){
 	}
 
 	companion object {
-		private var blackList: ArrayList<String> = ArrayList()
-		private var blackListOn: ArrayList<String> = ArrayList()
+		var blackList: ArrayList<String> = ArrayList()
+		var blackListOn: ArrayList<String> = ArrayList()
 		fun getBlackList(prefs: SharedPreferences?): List<String?> {
 			if (blackList.isNullOrEmpty() && prefs != null) {
 				// Java type mismatch: inferred type is
