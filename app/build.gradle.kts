@@ -7,6 +7,7 @@ import java.util.Properties // used by signingConfigs.release (ksProps variable)
 import com.android.build.gradle.tasks.PackageAndroidArtifact // used by empty app-metadata.properties
 
 plugins {
+	alias(libs.plugins.androidx.baselineprofile)
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.kotlin.android)
 }
@@ -103,6 +104,9 @@ android {
 			)
 		}
 	}
+	baselineProfile {
+		dexLayoutOptimization = true
+	}
 	dependenciesInfo {
 		// https://gitlab.com/IzzyOnDroid/repo/-/issues/491
 		includeInApk = false
@@ -131,6 +135,8 @@ dependencies {
 	debugImplementation(libs.leakcanary.android)
 	// Error logger
 	implementation(libs.ael.kt)
+	// baseline profile
+	"baselineProfile"(project(":baselineprofile"))
 	// Tests (AndroidJUnitRunner & JUnit Rules, Assertions)
 	implementation(libs.androidx.test.runner)
 	implementation(libs.androidx.test.junit)

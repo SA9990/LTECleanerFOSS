@@ -20,4 +20,4 @@ dependencyResolutionManagement {
 //}
 
 rootProject.name = "LTE Cleaner"
-include(":app")
+include(":app",":baselineprofile")
