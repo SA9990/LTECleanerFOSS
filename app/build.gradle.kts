@@ -7,8 +7,8 @@ import java.util.Properties // used by signingConfigs.release (ksProps variable)
 import com.android.build.gradle.tasks.PackageAndroidArtifact // used by empty app-metadata.properties
 
 plugins {
-	id("com.android.application")
-	kotlin("android")
+	alias(libs.plugins.android.application)
+	alias(libs.plugins.kotlin.android)
 }
 kotlin {
 	// Used as defaults for android.kotlinOptions.jvmTarget and android.compileOptions.*Compatibility
@@ -116,22 +116,22 @@ android {
 }
 dependencies {
 	// AndroidX App Compatibility
-	implementation("androidx.appcompat:appcompat:1.7.0")
+	implementation(libs.androidx.appcompat)
 	// AndroidX Kotlin
-	implementation("androidx.core:core-ktx:1.15.0")
+	implementation(libs.androidx.kt)
 	// GridLayout (used in MainActivity for 2x2 grid buttons, implementation without this is much more preferred)
-	implementation("androidx.gridlayout:gridlayout:1.1.0-beta01")
+	implementation(libs.androidx.gridlayout)
 	// Preference
-	implementation("androidx.preference:preference-ktx:1.2.1")
+	implementation(libs.androidx.pref.kt)
 	// Background service
-	implementation("androidx.work:work-runtime-ktx:2.10.0")
+	implementation(libs.androidx.work.runtime)
 	// MD3 on different Android versions
-	implementation("com.google.android.material:material:1.12.0")
+	implementation(libs.material)
 	// Leak detection
-	debugImplementation("com.squareup.leakcanary:leakcanary-android:2.14")
+	debugImplementation(libs.leakcanary.android)
 	// Error logger
-	implementation("com.github.mdp43140.ael:ael_kt:1.0.1-hf")
+	implementation(libs.ael.kt)
 	// Tests (AndroidJUnitRunner & JUnit Rules, Assertions)
-	androidTestImplementation("androidx.test:runner:1.6.2")
-	androidTestImplementation("androidx.test.ext:junit:1.2.1")
+	implementation(libs.androidx.test.runner)
+	implementation(libs.androidx.test.junit)
 }

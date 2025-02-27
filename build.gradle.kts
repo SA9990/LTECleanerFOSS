@@ -1,6 +1,6 @@
 plugins {
-	id("com.android.application") version "8.8.1" apply false
-	kotlin("android") version "2.1.10" apply false // kotlin("android") == "org.jetbrains.kotlin.android"
+	alias(libs.plugins.android.application) apply false
+	alias(libs.plugins.kotlin.android) apply false
 }
 tasks.withType(JavaCompile::class.java){
 	options.compilerArgs.add("-Xlint:all")
