@@ -22,8 +22,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import theredspy15.ltecleanerfoss.R
 import theredspy15.ltecleanerfoss.App
-import theredspy15.ltecleanerfoss.Constants.blacklistDefault
-import theredspy15.ltecleanerfoss.Constants.blacklistOnDefault
+import theredspy15.ltecleanerfoss.Constants
 import theredspy15.ltecleanerfoss.MainActivity
 import theredspy15.ltecleanerfoss.databinding.FragmentBlacklistBinding
 class BlacklistFragment: BaseFragment(){
@@ -40,11 +39,11 @@ class BlacklistFragment: BaseFragment(){
 		binding.resetBtn.setOnClickListener {
 			getBlackList(App.prefs)
 			getBlacklistOn(App.prefs)
-			for (i in blacklistDefault){
+			for (i in Constants.blacklistDefault){
 				if (!blackList.contains(i))
 					blackList.add(i)
 			}
-			for (i in blacklistOnDefault){
+			for (i in Constants.blacklistOnDefault){
 				if (!blackListOn.contains(i))
 					blackListOn.add(i)
 			}
@@ -152,7 +151,7 @@ class BlacklistFragment: BaseFragment(){
 				// Java type mismatch: inferred type is
 				// kotlin.collections.(Mutable)Set<kotlin.String!>?, but
 				// kotlin.collections.(Mutable)Collection<out kotlin.String!> was expected
-				blackList = ArrayList(prefs.getStringSet("blacklist",blacklistDefault))
+				blackList = ArrayList(prefs.getStringSet("blacklist",Constants.blacklistDefault))
 				blackList.remove("[")
 				blackList.remove("]")
 			}
@@ -190,7 +189,7 @@ class BlacklistFragment: BaseFragment(){
 		}
 		fun getBlacklistOn(prefs: SharedPreferences?): List<String?> {
 			if (blackListOn.isNullOrEmpty() && prefs != null) {
-				blackListOn = ArrayList(prefs.getStringSet("blacklistOn",blacklistOnDefault))
+				blackListOn = ArrayList(prefs.getStringSet("blacklistOn",Constants.blacklistOnDefault))
 			}
 			return blackListOn
 		}

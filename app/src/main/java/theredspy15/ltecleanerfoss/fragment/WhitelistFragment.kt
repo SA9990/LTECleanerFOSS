@@ -22,8 +22,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import theredspy15.ltecleanerfoss.R
 import theredspy15.ltecleanerfoss.App
-import theredspy15.ltecleanerfoss.Constants.whitelistDefault
-import theredspy15.ltecleanerfoss.Constants.whitelistOnDefault
+import theredspy15.ltecleanerfoss.Constants
 import theredspy15.ltecleanerfoss.MainActivity
 import theredspy15.ltecleanerfoss.databinding.FragmentWhitelistBinding
 class WhitelistFragment: BaseFragment(){
@@ -41,11 +40,11 @@ class WhitelistFragment: BaseFragment(){
 		binding.resetBtn.setOnClickListener {
 			getWhiteList(App.prefs)
 			getWhitelistOn(App.prefs)
-			for (i in whitelistDefault){
+			for (i in Constants.whitelistDefault){
 				if (!whiteList.contains(i))
 					whiteList.add(i)
 			}
-			for (i in whitelistOnDefault){
+			for (i in Constants.whitelistOnDefault){
 				if (!whiteListOn.contains(i))
 					whiteListOn.add(i)
 			}
@@ -143,7 +142,7 @@ class WhitelistFragment: BaseFragment(){
 				// Java type mismatch: inferred type is
 				// kotlin.collections.(Mutable)Set<kotlin.String!>?, but
 				// kotlin.collections.(Mutable)Collection<out kotlin.String!> was expected
-				whiteList = ArrayList(prefs.getStringSet("whitelist",whitelistDefault))
+				whiteList = ArrayList(prefs.getStringSet("whitelist",Constants.whitelistDefault))
 				whiteList.remove("[")
 				whiteList.remove("]")
 			}
@@ -181,7 +180,7 @@ class WhitelistFragment: BaseFragment(){
 		}
 		fun getWhitelistOn(prefs: SharedPreferences?): List<String?> {
 			if (whiteListOn.isNullOrEmpty() && prefs != null) {
-				whiteListOn = ArrayList(prefs.getStringSet("whitelistOn",whitelistOnDefault))
+				whiteListOn = ArrayList(prefs.getStringSet("whitelistOn",Constants.whitelistOnDefault))
 			}
 			return whiteListOn
 		}
