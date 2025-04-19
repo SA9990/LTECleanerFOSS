@@ -25,11 +25,10 @@ import theredspy15.ltecleanerfoss.fragment.WhitelistFragment
 import theredspy15.ltecleanerfoss.fragment.SettingsFragment
 
 class MainActivity: AppCompatActivity(){
-	lateinit var binding: ActivityMainBinding
+	val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 	lateinit var dialogBuilder: MaterialAlertDialogBuilder
 	override fun onCreate(savedInstanceState: Bundle?){
 		super.onCreate(savedInstanceState)
-		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 		val mainFrag = MainFragment()
 		startFragment(mainFrag)
