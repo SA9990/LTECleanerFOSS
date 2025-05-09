@@ -12,7 +12,6 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.widget.TextView
 import androidx.preference.PreferenceManager
-import theredspy15.ltecleanerfoss.fragment.MainFragment
 import theredspy15.ltecleanerfoss.fragment.BlacklistFragment
 import theredspy15.ltecleanerfoss.fragment.WhitelistFragment
 import java.io.File
