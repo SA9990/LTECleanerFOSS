@@ -85,45 +85,35 @@ class SettingsFragment: PreferenceFragmentCompat(){
 		returnTransition  = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
 		exitTransition    = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true )
 		reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
-		findPreference<Preference>("blacklist")!!.onPreferenceClickListener =
-			Preference.OnPreferenceClickListener {
-				(requireActivity() as MainActivity).startFragment(BlacklistFragment())
-				false
-			}
-		findPreference<Preference>("whitelist")!!.onPreferenceClickListener =
-			Preference.OnPreferenceClickListener {
-				(requireActivity() as MainActivity).startFragment(WhitelistFragment())
-				false
-			}
-		findPreference<Preference>("cleanevery")!!.onPreferenceChangeListener =
-			Preference.OnPreferenceChangeListener { _:Preference, _:Any? ->
-				enqueueWork(requireContext().applicationContext)
-				true
-			}
-		findPreference<Preference>("theme")!!.onPreferenceChangeListener =
-			Preference.OnPreferenceChangeListener { _:Preference, value:Any? ->
-				val themeStr = resources.getStringArray(R.array.themes_key)
-				AppCompatDelegate.setDefaultNightMode(when (value){
-					themeStr[1] -> AppCompatDelegate.MODE_NIGHT_NO
-					themeStr[2] -> AppCompatDelegate.MODE_NIGHT_YES
-					else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-				})
-				true
-			}
-		findPreference<Preference>("dataImport")!!.onPreferenceClickListener =
-			Preference.OnPreferenceClickListener {
-				importFileLauncher.launch(arrayOf("application/json"))
-				false
-			}
-		findPreference<Preference>("dataExport")!!.onPreferenceClickListener =
-			Preference.OnPreferenceClickListener {
-				exportFileLauncher.launch("LTECleaner_settings.json")
-				false
-			}
-		findPreference<Preference>("__doomedBruhhh")!!.onPreferenceClickListener =
-			Preference.OnPreferenceClickListener {
-				throw IllegalAccessException("Get doomed haha >:)")
-			}
+		findPreference<Preference>("blacklist")!!.setOnPreferenceClickListener {
+			(requireActivity() as MainActivity).startFragment(BlacklistFragment())
+			false
+		}
+		findPreference<Preference>("whitelist")!!.setOnPreferenceClickListener {
+			(requireActivity() as MainActivity).startFragment(WhitelistFragment())
+			false
+		}
+		findPreference<Preference>("cleanevery")!!.setOnPreferenceChangeListener { _:Preference, _:Any? ->
+			enqueueWork(requireContext().applicationContext)
+			true
+		}
+		findPreference<Preference>("theme")!!.setOnPreferenceChangeListener { _:Preference, value:Any? ->
+			val themeStr = resources.getStringArray(R.array.themes_key)
+			AppCompatDelegate.setDefaultNightMode(when (value){
+				themeStr[1] -> AppCompatDelegate.MODE_NIGHT_NO
+				themeStr[2] -> AppCompatDelegate.MODE_NIGHT_YES
+				else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+			})
+			true
+		}
+		findPreference<Preference>("dataImport")!!.setOnPreferenceClickListener {
+			importFileLauncher.launch(arrayOf("application/json"))
+			false
+		}
+		findPreference<Preference>("dataExport")!!.setOnPreferenceClickListener {
+			exportFileLauncher.launch("LTECleaner_settings.json")
+			false
+		}
 	}
 	override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
 		setPreferencesFromResource(R.xml.preferences,rootKey)
