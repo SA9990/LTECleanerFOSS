@@ -63,7 +63,7 @@ class SettingsFragment: PreferenceFragmentCompat(){
 	private val exportFileLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { uri ->
 		if (uri != null){
 			// TODO - warning - Type mismatch: inferred type is (Mutable)Map<String!, *>? but (MutableMap<Any?, Any?>..Map<*, *>) was expected
-			val jsonData: String = JSONObject(App.prefs?.all).toString()
+			val jsonData: String = JSONObject(App.prefs?.all).toString(2)
 			CommonFunctions.writeContentToUri(requireContext(), uri, jsonData);
 			Snackbar.make(
 				(requireActivity() as MainActivity).binding.root,
