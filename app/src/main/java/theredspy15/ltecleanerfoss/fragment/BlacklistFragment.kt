@@ -102,7 +102,7 @@ class BlacklistFragment: BaseFragment(){
 				}
 				loadViews()
 			}
-			.setNegativeButton(getString(android.R.string.cancel)) { dialog:DialogInterface, _:Int ->
+			.setNegativeButton(android.R.string.cancel) { dialog:DialogInterface, _:Int ->
 				dialog.dismiss()
 			}
 			.show()
