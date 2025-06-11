@@ -47,13 +47,13 @@ module.exports = async ({github, context}) => {
 
     // Require the probe lib for getting the image dimensions
     const probe = require('probe-image-size');
-    
+
     var wasMatchModified = false;
 
     // Try to find and replace the images with minimized ones
     let newBody = await replaceAsync(initialBody, REGEX_USER_CONTENT_IMAGE_LOOKUP, minimizeAsync);
     newBody = await replaceAsync(newBody, REGEX_ASSETS_IMAGE_LOCKUP, minimizeAsync);
-    
+
     if (!wasMatchModified) {
         console.log('Nothing was modified. Skipping update');
         return;
