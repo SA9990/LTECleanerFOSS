@@ -29,7 +29,7 @@ object CommonFunctions {
 	}
 	fun makeNotification(ctx: Context, channel: String): NotificationCompat.Builder {
 		return NotificationCompat.Builder(ctx, channel)
-			.setSmallIcon(R.drawable.ic_baseline_cleanup_24)
+			.setSmallIcon(R.drawable.ic_cleanup)
 			.setAutoCancel(true)
 			.setPriority(NotificationCompat.PRIORITY_DEFAULT)
 			.setVibrate(LongArray(0))

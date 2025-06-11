@@ -7,7 +7,7 @@
 	<shortcut
 		android:shortcutId="CleanupShortcut"
 		android:enabled="true"
-		android:icon="@drawable/ic_baseline_cleanup_24"
+		android:icon="@drawable/ic_cleanup"
 		android:shortcutShortLabel="@string/clean">
 		<intent
 			android:action="android.intent.action.MAIN"
@@ -21,7 +21,7 @@
 	<shortcut
 		android:shortcutId="StopBgAppsShortcut"
 		android:enabled="true"
-		android:icon="@drawable/ic_baseline_cleanup_24"
+		android:icon="@drawable/ic_cleanup"
 		android:shortcutShortLabel="@string/stopbgapps_title">
 		<intent
 			android:action="android.intent.action.MAIN"
