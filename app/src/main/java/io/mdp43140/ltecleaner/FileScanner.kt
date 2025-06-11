@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss
+package io.mdp43140.ltecleaner
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
@@ -12,8 +12,8 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.widget.TextView
 import androidx.preference.PreferenceManager
-import theredspy15.ltecleanerfoss.fragment.BlacklistFragment
-import theredspy15.ltecleanerfoss.fragment.WhitelistFragment
+import io.mdp43140.ltecleaner.fragment.BlacklistFragment
+import io.mdp43140.ltecleaner.fragment.WhitelistFragment
 import java.io.File
 import java.util.Locale
 class FileScanner(private val path: File, context: Context){

@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss.fragment
+package io.mdp43140.ltecleaner.fragment
 import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.net.Uri
@@ -22,11 +22,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import theredspy15.ltecleanerfoss.R
-import theredspy15.ltecleanerfoss.App
-import theredspy15.ltecleanerfoss.Constants
-import theredspy15.ltecleanerfoss.MainActivity
-import theredspy15.ltecleanerfoss.databinding.FragmentWhitelistBinding
+import io.mdp43140.ltecleaner.R
+import io.mdp43140.ltecleaner.App
+import io.mdp43140.ltecleaner.Constants
+import io.mdp43140.ltecleaner.MainActivity
+import io.mdp43140.ltecleaner.databinding.FragmentWhitelistBinding
 class WhitelistFragment: BaseFragment(){
 	private lateinit var binding: FragmentWhitelistBinding
 	override fun onCreateView(

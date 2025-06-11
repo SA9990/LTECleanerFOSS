@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss
+package io.mdp43140.ltecleaner
 object Constants {
 	const val BGCLEAN_WORK_NAME = "scheduled_cleanup_work"
 	const val BGCLEAN_WORK_TAG = "cleanup_work_tag"

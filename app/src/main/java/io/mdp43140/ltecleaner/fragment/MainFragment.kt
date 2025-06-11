@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss.fragment
+package io.mdp43140.ltecleaner.fragment
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.ActivityManager
@@ -31,15 +31,15 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import theredspy15.ltecleanerfoss.App
-import theredspy15.ltecleanerfoss.CommonFunctions.convertSize
-import theredspy15.ltecleanerfoss.CommonFunctions.makeStatusNotification
-import theredspy15.ltecleanerfoss.CommonFunctions.sendNotification
-import theredspy15.ltecleanerfoss.Constants
-import theredspy15.ltecleanerfoss.FileScanner
-import theredspy15.ltecleanerfoss.MainActivity
-import theredspy15.ltecleanerfoss.databinding.FragmentMainBinding
-import theredspy15.ltecleanerfoss.R
+import io.mdp43140.ltecleaner.App
+import io.mdp43140.ltecleaner.CommonFunctions.convertSize
+import io.mdp43140.ltecleaner.CommonFunctions.makeStatusNotification
+import io.mdp43140.ltecleaner.CommonFunctions.sendNotification
+import io.mdp43140.ltecleaner.Constants
+import io.mdp43140.ltecleaner.FileScanner
+import io.mdp43140.ltecleaner.MainActivity
+import io.mdp43140.ltecleaner.databinding.FragmentMainBinding
+import io.mdp43140.ltecleaner.R
 import java.io.File
 import java.util.Locale
 

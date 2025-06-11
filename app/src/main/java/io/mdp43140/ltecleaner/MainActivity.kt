@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss
+package io.mdp43140.ltecleaner
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,12 +17,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import theredspy15.ltecleanerfoss.R
-import theredspy15.ltecleanerfoss.databinding.ActivityMainBinding
-import theredspy15.ltecleanerfoss.fragment.MainFragment
-import theredspy15.ltecleanerfoss.fragment.BlacklistFragment
-import theredspy15.ltecleanerfoss.fragment.WhitelistFragment
-import theredspy15.ltecleanerfoss.fragment.SettingsFragment
+import io.mdp43140.ltecleaner.R
+import io.mdp43140.ltecleaner.databinding.ActivityMainBinding
+import io.mdp43140.ltecleaner.fragment.MainFragment
+import io.mdp43140.ltecleaner.fragment.BlacklistFragment
+import io.mdp43140.ltecleaner.fragment.WhitelistFragment
+import io.mdp43140.ltecleaner.fragment.SettingsFragment
 
 class MainActivity: AppCompatActivity(){
 	val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }

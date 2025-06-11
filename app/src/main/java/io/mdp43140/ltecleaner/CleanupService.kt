@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss
+package io.mdp43140.ltecleaner
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
@@ -15,8 +15,8 @@ import androidx.core.app.NotificationCompat
 import androidx.preference.PreferenceManager
 import io.mdp43140.ael.ErrorLogger
 import java.util.Locale
-//import theredspy15.ltecleanerfoss.CommonFunctions
-//import theredspy15.ltecleanerfoss.Constants
+//import io.mdp43140.ltecleaner.CommonFunctions
+//import io.mdp43140.ltecleaner.Constants
 class CleanupService: Service(){
 	private lateinit var notification: NotificationCompat.Builder
 	override fun onBind(intent: Intent?): IBinder? {

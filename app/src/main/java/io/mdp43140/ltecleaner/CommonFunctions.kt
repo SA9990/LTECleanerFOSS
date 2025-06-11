@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss
+package io.mdp43140.ltecleaner
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import java.text.DecimalFormat
-//import theredspy15.ltecleanerfoss.Constants
+//import io.mdp43140.ltecleaner.Constants
 import kotlin.system.exitProcess
 object CommonFunctions {
 	fun makeNotificationChannel(ctx: Context, name: String, description: String?, channelName: String, importance: Int){

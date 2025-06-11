@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss.fragment
+package io.mdp43140.ltecleaner.fragment
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -21,15 +21,15 @@ import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
 import io.mdp43140.ael.ErrorLogger
-import io.mdp43140.ltecleanerfoss.util.putData // SharedPreferencesExtension.kt
+import io.mdp43140.ltecleaner.util.putData // SharedPreferencesExtension.kt
 import org.json.JSONArray
 import org.json.JSONObject
-import theredspy15.ltecleanerfoss.App
-import theredspy15.ltecleanerfoss.CleanupService
-import theredspy15.ltecleanerfoss.CommonFunctions
-import theredspy15.ltecleanerfoss.MainActivity
-import theredspy15.ltecleanerfoss.ScheduledWorker.Companion.enqueueWork
-import theredspy15.ltecleanerfoss.R
+import io.mdp43140.ltecleaner.App
+import io.mdp43140.ltecleaner.CleanupService
+import io.mdp43140.ltecleaner.CommonFunctions
+import io.mdp43140.ltecleaner.MainActivity
+import io.mdp43140.ltecleaner.ScheduledWorker.Companion.enqueueWork
+import io.mdp43140.ltecleaner.R
 class SettingsFragment: PreferenceFragmentCompat(){
 	private val importFileLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
 		if (uri != null){

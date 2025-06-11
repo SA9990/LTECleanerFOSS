@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss
+package io.mdp43140.ltecleaner
 import android.content.Context
 import android.content.Intent
 import androidx.preference.PreferenceManager
@@ -14,8 +14,8 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.WorkManager
 import java.util.concurrent.TimeUnit
-//import theredspy15.ltecleanerfoss.App
-//import theredspy15.ltecleanerfoss.Constants
+//import io.mdp43140.ltecleaner.App
+//import io.mdp43140.ltecleaner.Constants
 class ScheduledWorker(appContext: Context, workerParams: WorkerParameters): Worker(appContext, workerParams) {
 	override fun doWork(): Result {
 		try {

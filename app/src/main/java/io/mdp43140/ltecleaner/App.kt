@@ -3,13 +3,13 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss
+package io.mdp43140.ltecleaner
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import com.google.android.material.color.DynamicColors
-//import theredspy15.ltecleanerfoss.CommonFunctions
+//import io.mdp43140.ltecleaner.CommonFunctions
 import io.mdp43140.ael.ErrorLogger
 class App: Application(){
 	private var runCount = 0

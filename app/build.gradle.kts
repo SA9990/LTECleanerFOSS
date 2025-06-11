@@ -18,9 +18,9 @@ kotlin {
 android {
 	compileSdk = 35
 	buildToolsVersion = "35.0.0"
-	namespace = "theredspy15.ltecleanerfoss"
+	namespace = "io.mdp43140.ltecleaner"
 	defaultConfig {
-		applicationId = "io.mdp43140.ltecleaner"
+		applicationId = android.namespace
 		minSdk = 24
 		targetSdk = compileSdk
 		versionCode = 64

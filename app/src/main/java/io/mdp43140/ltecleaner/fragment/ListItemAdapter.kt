@@ -1,4 +1,4 @@
-package theredspy15.ltecleanerfoss.fragment
+package io.mdp43140.ltecleaner.fragment
 import android.app.Activity
 import android.content.Context
 import android.graphics.Rect
@@ -11,8 +11,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import theredspy15.ltecleanerfoss.App
-import theredspy15.ltecleanerfoss.databinding.ListItemBinding
+import io.mdp43140.ltecleaner.App
+import io.mdp43140.ltecleaner.databinding.ListItemBinding
 class ListItemAdapter(
 	private val ctx: Activity,
 	val isWhitelist: Boolean

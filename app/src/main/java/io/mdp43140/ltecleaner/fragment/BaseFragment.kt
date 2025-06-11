@@ -2,7 +2,7 @@
  * SPDX-FileCopyrightText: 2024-2025 MDP43140
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-package theredspy15.ltecleanerfoss.fragment
+package io.mdp43140.ltecleaner.fragment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.transition.MaterialSharedAxis
