@@ -11,4 +11,5 @@
 	<color name="ic_launcher_bg">#FF204A20</color>
 	<color name="legendary">#FFE65100</color>
 	<color name="fg">#FF000000</color>
+	<color name="bg">#FFFFFFFF</color>
 </resources>
