@@ -7,6 +7,7 @@ package io.mdp43140.ltecleaner
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -30,11 +31,15 @@ class MainActivity: AppCompatActivity(){
 	override fun onCreate(savedInstanceState: Bundle?){
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
+		// Set black background
+		if (CommonFunctions.isDarkThemeActive(this) && App.prefs!!.getBoolean("pitchBlack",false))
+			window.decorView.setBackgroundColor(Color.BLACK)
+		// Start Main Fragment
 		val mainFrag = MainFragment()
 		startFragment(mainFrag)
+		// Load whitelist
 		WhitelistFragment.getWhiteList(App.prefs)
 		dialogBuilder = MaterialAlertDialogBuilder(this)
-
 		// Handle intent action (from shortcut stuff)
 		val intentAction = intent.getStringExtra("action")
 		when (intentAction){

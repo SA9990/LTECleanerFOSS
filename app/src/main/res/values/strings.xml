@@ -67,6 +67,8 @@
 	<string name="default_notification_sum">Shows notification of background cleanup progress and how much cache was cleaned</string>
 	<string name="blacklist_sum">Configure a lists of filter that should remove a file</string>
 	<string name="whitelist_sum">Configure a lists of filter that should ignore a file</string>
+	<string name="pitchBlack">Black background on dark theme</string>
+	<string name="pitchBlack_sum">Saves battery on OLED displays</string>
 	<string name="dynColor">Use dynamic colors</string>
 	<string name="dynColor_sum">Enables dynamic colors (requires Android 12+)</string>
 	<string name="sourceCode">Source code</string>

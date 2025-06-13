@@ -8,6 +8,7 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.res.Configuration
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
@@ -20,6 +21,9 @@ import java.text.DecimalFormat
 //import io.mdp43140.ltecleaner.Constants
 import kotlin.system.exitProcess
 object CommonFunctions {
+	fun isDarkThemeActive(ctx: Context): Boolean {
+		return (ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+	}
 	fun makeNotificationChannel(ctx: Context, name: String, description: String?, channelName: String, importance: Int){
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 			val channel = NotificationChannel(channelName, name, importance)

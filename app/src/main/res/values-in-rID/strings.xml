@@ -67,6 +67,8 @@
 	<string name="default_notification_sum">Menunjukkan pemberitahuan pembersihan latar-belakang dan berapa banyak cache yang dibersihkan</string>
 	<string name="blacklist_sum">Konfigurasikan daftar filter yang seharusnya menghapus file</string>
 	<string name="whitelist_sum">Konfigurasikan daftar filter yang seharusnya mengabaikan file</string>
+	<string name="pitchBlack">Latar-belakang hitam saat tema gelap</string>
+	<string name="pitchBlack_sum">Menghemat baterai pada layar OLED</string>
 	<string name="dynColor">Gunakan warna dinamis</string>
 	<string name="dynColor_sum">Mengaktifkan warna dinamis (memerlukan Android 12+)</string>
 	<string name="sourceCode">Sumber kode</string>

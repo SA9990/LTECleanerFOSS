@@ -118,6 +118,12 @@
 			android:title="@string/stopbgapps_title"
 			app:iconSpaceReserved="false" />
 		<SwitchPreferenceCompat
+			android:defaultValue="false"
+			android:key="pitchBlack"
+			android:title="@string/pitchBlack"
+			android:summary="@string/pitchBlack_sum"
+			app:iconSpaceReserved="false" />
+		<SwitchPreferenceCompat
 			android:defaultValue="true"
 			android:key="dynamicColor"
 			android:persistent="true"
