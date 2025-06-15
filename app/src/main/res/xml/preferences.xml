@@ -160,20 +160,5 @@
 				android:action="android.intent.action.VIEW"
 				android:data="https://github.com/mdp43140/LTECleanerFOSS/blob/master/LICENSE" />
 		</Preference>
-		<Preference
-			android:title="Background cleanup service test"
-			android:key="svcTest"
-			android:summary="run cleanup in background"
-			app:iconSpaceReserved="false" />
-		<Preference
-			android:title="Error test"
-			android:key="__hitASnagTheySaid"
-			android:summary="Trigger an error"
-			app:iconSpaceReserved="false" />
-		<Preference
-			android:title="Crash test"
-			android:key="__doomedBruhhh"
-			android:summary="Crash this app"
-			app:iconSpaceReserved="false" />
 	</PreferenceCategory>
 </PreferenceScreen>
