@@ -39,7 +39,7 @@ class SettingsFragment: PreferenceFragmentCompat(){
 					!!.toString(Charsets.UTF_8)
 			)
 			val prefsEditor = App.prefs?.edit()
-			val buffer = StringBuilder();
+			val buffer = StringBuilder()
 			for (key in jsonObject.keys()){
 				val value = jsonObject.get(key)
 				if (prefsEditor?.putData(key,value) == false)
@@ -64,7 +64,7 @@ class SettingsFragment: PreferenceFragmentCompat(){
 		if (uri != null){
 			// TODO - warning - Type mismatch: inferred type is (Mutable)Map<String!, *>? but (MutableMap<Any?, Any?>..Map<*, *>) was expected
 			val jsonData: String = JSONObject(App.prefs?.all).toString(2)
-			CommonFunctions.writeContentToUri(requireContext(), uri, jsonData);
+			CommonFunctions.writeContentToUri(requireContext(), uri, jsonData)
 			Snackbar.make(
 				(requireActivity() as MainActivity).binding.root,
 				"Settings exported!",

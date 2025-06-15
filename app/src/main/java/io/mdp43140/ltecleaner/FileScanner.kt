@@ -207,7 +207,7 @@ class FileScanner(private val path: File, context: Context){
 		while (cycles < maxCycles) {
 
 			// cycle indicator
-			addText?.invoke(context,"Running Cycle " + cycles + "/" + maxCycles,0);
+			addText?.invoke(context,"Running Cycle " + cycles + "/" + maxCycles,0)
 
 			// find/scan files
 			if (foundFiles == null) foundFiles = getListFiles(path)
@@ -230,7 +230,7 @@ class FileScanner(private val path: File, context: Context){
 					}
 				}
 				guiScanProgressProgress = guiScanProgressProgress + 1
-				updateProgress!!.invoke(context,guiScanProgressProgress * 100.0 / guiScanProgressMax);
+				updateProgress!!.invoke(context,guiScanProgressProgress * 100.0 / guiScanProgressMax)
 			}
 			foundFiles = null
 			if (filesRemoved == 0) break
@@ -238,7 +238,7 @@ class FileScanner(private val path: File, context: Context){
 			++cycles
 		}
 		// cycle indicator
-		addText?.invoke(context,"Finished!",1);
+		addText?.invoke(context,"Finished!",1)
 		isRunning = false
 		return kilobytesTotal
 	}

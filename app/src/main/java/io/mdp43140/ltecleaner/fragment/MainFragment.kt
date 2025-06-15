@@ -180,7 +180,7 @@ class MainFragment: BaseFragment(){
 			val memAvailBefore = Math.round(memInfo.availMem / 1048576f).toInt()
 			for (pkg in requireContext().getPackageManager().getInstalledApplications(8704)){
 				if (pkg.processName != pkgName){
-					am.killBackgroundProcesses(pkg.processName);
+					am.killBackgroundProcesses(pkg.processName)
 				}
 			}
 			am.getMemoryInfo(memInfo)

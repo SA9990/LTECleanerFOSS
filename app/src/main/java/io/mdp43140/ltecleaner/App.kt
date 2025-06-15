@@ -14,7 +14,7 @@ import io.mdp43140.ael.ErrorLogger
 class App: Application(){
 	private var runCount = 0
 	override fun attachBaseContext(base: Context){
-		super.attachBaseContext(base);
+		super.attachBaseContext(base)
 		// Catches bugs and crashes, and makes it easy to report the bug
 		if (ErrorLogger.instance == null){
 			ErrorLogger(base)
