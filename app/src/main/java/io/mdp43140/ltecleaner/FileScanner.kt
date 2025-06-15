@@ -189,8 +189,8 @@ class FileScanner(private val path: File, context: Context){
 		}
 
 		// cached whitelist/blacklist values
-		whitelist = WhitelistFragment.getWhitelistOn(prefs).mapNotNull { it }
-		blacklist = BlacklistFragment.getBlacklistOn(prefs).mapNotNull { it?.toRegex() }
+		whitelist = WhitelistFragment.whiteListOn.mapNotNull { it }
+		blacklist = BlacklistFragment.blackListOn.mapNotNull { it?.toRegex() }
 		// Auto whitelist
 		if (autoWhite){
 			autoWhitelist.clear()
@@ -262,6 +262,8 @@ class FileScanner(private val path: File, context: Context){
 
 	init {
 		BlacklistFragment.getBlackList(prefs)
+		BlacklistFragment.getBlacklistOn(prefs)
 		WhitelistFragment.getWhiteList(prefs)
+		WhitelistFragment.getWhitelistOn(prefs)
 	}
 }
