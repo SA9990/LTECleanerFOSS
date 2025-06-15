@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
 import io.mdp43140.ael.ErrorLogger
@@ -38,7 +39,7 @@ class SettingsFragment: PreferenceFragmentCompat(){
 					?.use { it.readBytes() }
 					!!.toString(Charsets.UTF_8)
 			)
-			val prefsEditor = App.prefs?.edit()
+			val prefsEditor = PreferenceManager.getDefaultSharedPreferences(requireContext()).edit()
 			val buffer = StringBuilder()
 			for (key in jsonObject.keys()){
 				val value = jsonObject.get(key)
@@ -62,7 +63,7 @@ class SettingsFragment: PreferenceFragmentCompat(){
 	}
 	private val exportFileLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { uri ->
 		if (uri != null){
-			val jsonData: String = JSONObject(App.prefs!!.all).toString(2)
+			val jsonData: String = JSONObject(PreferenceManager.getDefaultSharedPreferences(requireContext()).all).toString(2)
 			CommonFunctions.writeContentToUri(requireContext(), uri, jsonData)
 			Snackbar.make(
 				(requireActivity() as MainActivity).binding.root,

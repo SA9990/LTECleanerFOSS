@@ -5,7 +5,6 @@
  */
 package io.mdp43140.ltecleaner.fragment
 import android.content.DialogInterface
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -26,6 +25,7 @@ import io.mdp43140.ltecleaner.R
 import io.mdp43140.ltecleaner.App
 import io.mdp43140.ltecleaner.Constants
 import io.mdp43140.ltecleaner.MainActivity
+import io.mdp43140.ltecleaner.PreferenceRepository
 import io.mdp43140.ltecleaner.databinding.FragmentWhitelistBinding
 class WhitelistFragment: BaseFragment(){
 	private lateinit var binding: FragmentWhitelistBinding
@@ -50,11 +50,8 @@ class WhitelistFragment: BaseFragment(){
 				if (!whiteListOn.contains(i))
 					whiteListOn.add(i)
 			}
-			App.prefs!!
-				.edit()
-				.putStringSet("whitelist", HashSet(whiteList))
-				.putStringSet("whitelistOn", HashSet(whiteListOn))
-				.apply()
+			App.prefs!!.whitelist = HashSet(whiteList)
+			App.prefs!!.whitelistOn = HashSet(whiteListOn)
 			loadViews()
 		}
 		getWhiteList(App.prefs)
@@ -102,15 +99,15 @@ class WhitelistFragment: BaseFragment(){
 	companion object {
 		var whiteList: ArrayList<String> = ArrayList()
 		var whiteListOn: ArrayList<String> = ArrayList()
-		fun getWhiteList(prefs: SharedPreferences?): List<String> {
+		fun getWhiteList(prefs: PreferenceRepository?): List<String> {
 			if (whiteList.isNullOrEmpty() && prefs != null) {
-				whiteList = ArrayList(prefs.getStringSet("whitelist",Constants.whitelistDefault) ?: Constants.whitelistDefault)
+				whiteList = ArrayList(prefs.whitelist ?: Constants.whitelistDefault)
 				whiteList.remove("[")
 				whiteList.remove("]")
 			}
 			return whiteList
 		}
-		fun addWhiteList(prefs: SharedPreferences?, path: String) {
+		fun addWhiteList(prefs: PreferenceRepository?, path: String) {
 			if (whiteList.isNullOrEmpty()) getWhiteList(prefs)
 			if (whiteListOn.isNullOrEmpty()) getWhitelistOn(prefs)
 			whiteList.apply {
@@ -123,30 +120,24 @@ class WhitelistFragment: BaseFragment(){
 				distinct()
 				sort()
 			}
-			prefs!!
-				.edit()
-				.putStringSet("whitelist", HashSet(whiteList))
-				.putStringSet("whitelistOn", HashSet(whiteListOn))
-				.apply()
+			prefs!!.whitelist = HashSet(whiteList)
+			prefs!!.whitelistOn = HashSet(whiteListOn)
 		}
-		fun rmWhiteList(prefs: SharedPreferences?, path: String) {
+		fun rmWhiteList(prefs: PreferenceRepository?, path: String) {
 			if (whiteList.isNullOrEmpty()) getWhiteList(prefs)
 			if (whiteListOn.isNullOrEmpty()) getWhitelistOn(prefs)
 			whiteList.remove(path)
 			whiteListOn.remove(path)
-			prefs!!
-				.edit()
-				.putStringSet("whitelist", HashSet(whiteList))
-				.putStringSet("whitelistOn", HashSet(whiteListOn))
-				.apply()
+			prefs!!.whitelist = HashSet(whiteList)
+			prefs!!.whitelistOn = HashSet(whiteListOn)
 		}
-		fun getWhitelistOn(prefs: SharedPreferences?): List<String> {
+		fun getWhitelistOn(prefs: PreferenceRepository?): List<String> {
 			if (whiteListOn.isNullOrEmpty() && prefs != null) {
-				whiteListOn = ArrayList(prefs.getStringSet("whitelistOn",Constants.whitelistOnDefault) ?: Constants.whitelistOnDefault)
+				whiteListOn = ArrayList(prefs.whitelistOn ?: Constants.whitelistOnDefault)
 			}
 			return whiteListOn
 		}
-		fun setWhitelistOn(prefs: SharedPreferences?, path: String, checked: Boolean) {
+		fun setWhitelistOn(prefs: PreferenceRepository?, path: String, checked: Boolean) {
 			whiteListOn.apply {
 				if (isNullOrEmpty()) getWhitelistOn(prefs)
 				if (checked){
@@ -157,10 +148,7 @@ class WhitelistFragment: BaseFragment(){
 					remove(path)
 				}
 			}
-			prefs!!
-				.edit()
-				.putStringSet("whitelistOn",HashSet(whiteListOn))
-				.apply()
+			prefs!!.whitelistOn = HashSet(whiteListOn)
 		}
 	}
 }

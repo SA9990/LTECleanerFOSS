@@ -9,7 +9,6 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.res.Configuration
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
 import android.util.Log
@@ -62,9 +61,9 @@ object CommonFunctions {
 	fun sendNotification(ctx: Context, id: Int, notification: NotificationCompat.Builder){
 		sendNotification(ctx, id, notification.build())
 	}
-	fun updateTheme(ctx: Context, prefs: SharedPreferences?){
+	fun updateTheme(ctx: Context, theme: String){
 		val themeStr = ctx.resources.getStringArray(R.array.themes_key)
-		AppCompatDelegate.setDefaultNightMode(when (prefs!!.getString("theme",themeStr[0])){
+		AppCompatDelegate.setDefaultNightMode(when (theme){
 			themeStr[1] -> AppCompatDelegate.MODE_NIGHT_NO
 			themeStr[2] -> AppCompatDelegate.MODE_NIGHT_YES
 			else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM

@@ -42,8 +42,8 @@ class CleanupService: Service(){
 				// scanner setup
 				val fs = FileScanner(path,applicationContext)
 				fs.setFilters(
-					App.prefs!!.getBoolean("clean_generic",true),
-					App.prefs!!.getBoolean("clean_apk",false)
+					App.prefs!!.cleanGeneric,
+					App.prefs!!.cleanApk
 				)
 				fs.delete = true
 				fs.updateProgress = ::updatePercentage

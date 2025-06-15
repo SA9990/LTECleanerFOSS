@@ -7,8 +7,6 @@ package io.mdp43140.ltecleaner
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
 import androidx.work.Constraints
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
@@ -27,7 +25,7 @@ class BootReceiver: BroadcastReceiver() {
 		ScheduledWorker.enqueueWork(ctx)
 
 		// Schedule the work at boot completed
-		if (App.prefs!!.getBoolean("bootedcleanup",false)){
+		if (App.prefs!!.bootCleanup){
 			val myWork = OneTimeWorkRequestBuilder<ScheduledWorker>()
 				.addTag(Constants.BGCLEAN_WORK_TAG)
 				.setConstraints(constraints)

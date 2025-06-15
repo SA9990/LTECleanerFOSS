@@ -12,7 +12,6 @@ import android.content.ClipboardManager
 import android.content.DialogInterface
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -81,7 +80,7 @@ class MainFragment: BaseFragment(){
 		if (!FileScanner.isRunning) {
 			requestWriteExternalPermission()
 			if (App.prefs == null) println("prefs is null!")
-			if (App.prefs!!.getBoolean("one_click",false)){
+			if (App.prefs!!.oneClick){
 				scan(true) // one-click enabled
 			} else { // one-click disabled
 				(requireActivity() as MainActivity).dialogBuilder.setTitle(getString(R.string.are_you_sure_deletion_title))
@@ -133,16 +132,16 @@ class MainFragment: BaseFragment(){
 					fileListView.removeAllViews()
 				}
 			}
-			if (App.prefs!!.getBoolean("clean_clipboard", false)) clearClipboard()
-			if (App.prefs!!.getBoolean("close_bg_apps", false)) stopBgApps()
+			if (App.prefs!!.cleanClipboard) clearClipboard()
+			if (App.prefs!!.closeBgApps) stopBgApps()
 			val path = Environment.getExternalStorageDirectory()
 
 			// scanner setup
 			val fs = FileScanner(path,requireActivity())
 			fs.apply {
 				setFilters(
-					App.prefs!!.getBoolean("clean_generic",true),
-					App.prefs!!.getBoolean("clean_apk",false)
+					App.prefs!!.cleanGeneric,
+					App.prefs!!.cleanApk
 				)
 				delete = deleteCache
 				updateProgress = ::updatePercentage

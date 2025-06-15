@@ -6,8 +6,6 @@
 package io.mdp43140.ltecleaner
 import android.app.Application
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
 import com.google.android.material.color.DynamicColors
 //import io.mdp43140.ltecleaner.CommonFunctions
 import io.mdp43140.ael.ErrorLogger
@@ -24,19 +22,18 @@ class App: Application(){
 	}
 	override fun onCreate(){
 		super.onCreate()
-		prefs = PreferenceManager.getDefaultSharedPreferences(this)
+		prefs = PreferenceRepository(this)
 		// Stores how many times the app has been opened,
 		// Can also be used for first run related codes in the future, who knows...
-		runCount = prefs!!.getInt("run_count",0)
-		prefs!!.edit().putInt("run_count",runCount + 1).apply()
+		prefs!!.runCount = prefs!!.runCount + 1
 		// Update theme and apply dynamic color
-		CommonFunctions.updateTheme(this,prefs)
-		if (prefs!!.getBoolean("dynamic_color",true)){
+		CommonFunctions.updateTheme(this,prefs!!.theme)
+		if (prefs!!.dynamicColor){
 			DynamicColors.applyToActivitiesIfAvailable(this)
 			DynamicColors.wrapContextIfAvailable(this)
 		}
 	}
 	companion object {
-		var prefs:SharedPreferences? = null
+		var prefs: PreferenceRepository? = null
 	}
 }

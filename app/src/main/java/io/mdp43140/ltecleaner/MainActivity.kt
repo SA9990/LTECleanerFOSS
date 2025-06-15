@@ -32,7 +32,7 @@ class MainActivity: AppCompatActivity(){
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
 		// Set black background
-		if (CommonFunctions.isDarkThemeActive(this) && App.prefs!!.getBoolean("pitch_black",false))
+		if (CommonFunctions.isDarkThemeActive(this) && App.prefs!!.pitchBlack)
 			window.decorView.setBackgroundColor(Color.BLACK)
 		// Start Main Fragment
 		val mainFrag = MainFragment()

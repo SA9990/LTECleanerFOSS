@@ -6,29 +6,28 @@
 package io.mdp43140.ltecleaner
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.graphics.Color
 import android.widget.TextView
-import androidx.preference.PreferenceManager
 import io.mdp43140.ltecleaner.fragment.BlacklistFragment
 import io.mdp43140.ltecleaner.fragment.WhitelistFragment
+import io.mdp43140.ltecleaner.PreferenceRepository
 import java.io.File
 import java.util.Locale
 class FileScanner(private val path: File, context: Context){
 	// TODO: Ability to clean SD Card? Already tried SAF implementation, but its really hard, and soon i realized it has storage access restrictions: https://developer.android.com/training/data-storage/shared/documents-files#document-tree-access-restrictions
 	// TODO: do whitelist & blacklist system in the same function instead of being separate
-	private var prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+	private var prefs: PreferenceRepository = App.prefs!!
 	private val context = context
 	private var res: Resources = context.resources
 	private var filesRemoved = 0
 	private var kilobytesTotal: Long = 0
 	var delete = false
-	var emptyFile = prefs.getBoolean("clean_empty_file", false)
-	var emptyDir = prefs.getBoolean("clean_empty_folder", false)
-	var autoWhite = prefs.getBoolean("auto_white", true)
-	var corpse = prefs.getBoolean("clean_corpse", false)
+	var autoWhite = prefs.autoWhite
+	var corpse = prefs.cleanCorpse
+	var emptyFile = prefs.cleanEmptyFile
+	var emptyDir = prefs.cleanEmptyFolder
 	var updateProgress: ((context: Context, percent: Double) -> Unit)? = null
 	var addText: ((context: Context, path: String, type: Int) -> TextView?)? = null
 	private var installedPackages = getInstalledPackages()
@@ -106,10 +105,7 @@ class FileScanner(private val path: File, context: Context){
 				whiteLists
 					.toMutableList()
 					.add(file.absolutePath.lowercase())
-				prefs
-					.edit()
-					.putStringSet("whitelist", HashSet(whiteLists))
-					.apply()
+				prefs.whitelist = HashSet(whiteLists)
 				return true
 			}
 		}
@@ -201,7 +197,7 @@ class FileScanner(private val path: File, context: Context){
 	fun start(): Long {
 		isRunning = true
 		var cycles: Byte = 0
-		var maxCycles: Byte = if (delete) prefs.getInt("multi_run",1).toByte() else 1
+		var maxCycles: Byte = if (delete) prefs.multiRun.toByte() else 1
 
 		// removes the need to 'clean' multiple times to get everything
 		while (cycles < maxCycles) {

@@ -5,7 +5,6 @@
  */
 package io.mdp43140.ltecleaner.fragment
 import android.content.DialogInterface
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -26,6 +25,7 @@ import io.mdp43140.ltecleaner.R
 import io.mdp43140.ltecleaner.App
 import io.mdp43140.ltecleaner.Constants
 import io.mdp43140.ltecleaner.MainActivity
+import io.mdp43140.ltecleaner.PreferenceRepository
 import io.mdp43140.ltecleaner.databinding.FragmentBlacklistBinding
 class BlacklistFragment: BaseFragment(){
 	private lateinit var binding: FragmentBlacklistBinding
@@ -49,11 +49,8 @@ class BlacklistFragment: BaseFragment(){
 				if (!blackListOn.contains(i))
 					blackListOn.add(i)
 			}
-			App.prefs!!
-				.edit()
-				.putStringSet("blacklist", HashSet(blackList))
-				.putStringSet("blacklistOn", HashSet(blackListOn))
-				.apply()
+			App.prefs!!.blacklist = HashSet(blackList)
+			App.prefs!!.blacklistOn = HashSet(blackListOn)
 			loadViews()
 		}
 		getBlackList(App.prefs)
@@ -111,15 +108,15 @@ class BlacklistFragment: BaseFragment(){
 	companion object {
 		var blackList: ArrayList<String> = ArrayList()
 		var blackListOn: ArrayList<String> = ArrayList()
-		fun getBlackList(prefs: SharedPreferences?): List<String> {
+		fun getBlackList(prefs: PreferenceRepository?): List<String?> { // TODO: Should it be `List<String>?` ?
 			if (blackList.isNullOrEmpty() && prefs != null) {
-				blackList = ArrayList(prefs.getStringSet("blacklist",Constants.blacklistDefault) ?: Constants.blacklistDefault)
+				blackList = ArrayList(prefs.blacklist ?: Constants.blacklistDefault)
 				blackList.remove("[")
 				blackList.remove("]")
 			}
 			return blackList
 		}
-		fun addBlackList(prefs: SharedPreferences?, path: String) {
+		fun addBlackList(prefs: PreferenceRepository?, path: String) {
 			if (blackList.isNullOrEmpty()) getBlackList(prefs)
 			if (blackListOn.isNullOrEmpty()) getBlacklistOn(prefs)
 			blackList.apply {
@@ -132,30 +129,24 @@ class BlacklistFragment: BaseFragment(){
 				distinct()
 				sort()
 			}
-			prefs!!
-				.edit()
-				.putStringSet("blacklist", HashSet(blackList))
-				.putStringSet("blacklistOn", HashSet(blackListOn))
-				.apply()
+			prefs!!.blacklist = HashSet(blackList)
+			prefs!!.blacklistOn = HashSet(blackListOn)
 		}
-		fun rmBlackList(prefs: SharedPreferences?, path: String) {
+		fun rmBlackList(prefs: PreferenceRepository?, path: String) {
 			if (blackList.isNullOrEmpty()) getBlackList(prefs)
 			if (blackListOn.isNullOrEmpty()) getBlacklistOn(prefs)
 			blackList.remove(path)
 			blackListOn.remove(path)
-			prefs!!
-				.edit()
-				.putStringSet("blacklist", HashSet(blackList))
-				.putStringSet("blacklistOn",HashSet(blackListOn))
-				.apply()
+			prefs!!.blacklist = HashSet(blackList)
+			prefs!!.blacklistOn = HashSet(blackListOn)
 		}
-		fun getBlacklistOn(prefs: SharedPreferences?): List<String> {
+		fun getBlacklistOn(prefs: PreferenceRepository?): List<String> {
 			if (blackListOn.isNullOrEmpty() && prefs != null) {
-				blackListOn = ArrayList(prefs.getStringSet("blacklistOn",Constants.blacklistOnDefault) ?: Constants.blacklistOnDefault)
+				blackListOn = ArrayList(prefs.blacklistOn ?: Constants.blacklistOnDefault)
 			}
 			return blackListOn
 		}
-		fun setBlacklistOn(prefs: SharedPreferences?, path: String, checked: Boolean) {
+		fun setBlacklistOn(prefs: PreferenceRepository?, path: String, checked: Boolean) {
 			blackListOn.apply {
 				if (isNullOrEmpty()) getBlacklistOn(prefs)
 				if (checked){
@@ -166,10 +157,7 @@ class BlacklistFragment: BaseFragment(){
 					remove(path)
 				}
 			}
-			prefs!!
-				.edit()
-				.putStringSet("blacklistOn",HashSet(blackListOn))
-				.apply()
+			prefs!!.blacklistOn = HashSet(blackListOn)
 		}
 	}
 }
