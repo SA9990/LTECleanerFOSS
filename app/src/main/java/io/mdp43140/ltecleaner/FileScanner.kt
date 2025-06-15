@@ -25,10 +25,10 @@ class FileScanner(private val path: File, context: Context){
 	private var filesRemoved = 0
 	private var kilobytesTotal: Long = 0
 	var delete = false
-	var emptyFile = prefs.getBoolean("emptyFile", false)
-	var emptyDir = prefs.getBoolean("emptyFolder", false)
+	var emptyFile = prefs.getBoolean("clean_empty_file", false)
+	var emptyDir = prefs.getBoolean("clean_empty_folder", false)
 	var autoWhite = prefs.getBoolean("auto_white", true)
-	var corpse = prefs.getBoolean("corpse", false)
+	var corpse = prefs.getBoolean("clean_corpse", false)
 	var updateProgress: ((context: Context, percent: Double) -> Unit)? = null
 	var addText: ((context: Context, path: String, type: Int) -> TextView?)? = null
 	private var installedPackages = getInstalledPackages()
@@ -201,7 +201,7 @@ class FileScanner(private val path: File, context: Context){
 	fun start(): Long {
 		isRunning = true
 		var cycles: Byte = 0
-		var maxCycles: Byte = if (delete) prefs.getInt("multirun",1).toByte() else 1
+		var maxCycles: Byte = if (delete) prefs.getInt("multi_run",1).toByte() else 1
 
 		// removes the need to 'clean' multiple times to get everything
 		while (cycles < maxCycles) {

@@ -133,16 +133,16 @@ class MainFragment: BaseFragment(){
 					fileListView.removeAllViews()
 				}
 			}
-			if (App.prefs!!.getBoolean("clipboard", false)) clearClipboard()
-			if (App.prefs!!.getBoolean("closebgapps", false)) stopBgApps()
+			if (App.prefs!!.getBoolean("clean_clipboard", false)) clearClipboard()
+			if (App.prefs!!.getBoolean("close_bg_apps", false)) stopBgApps()
 			val path = Environment.getExternalStorageDirectory()
 
 			// scanner setup
 			val fs = FileScanner(path,requireActivity())
 			fs.apply {
 				setFilters(
-					App.prefs!!.getBoolean("generic",true),
-					App.prefs!!.getBoolean("apk",false)
+					App.prefs!!.getBoolean("clean_generic",true),
+					App.prefs!!.getBoolean("clean_apk",false)
 				)
 				delete = deleteCache
 				updateProgress = ::updatePercentage

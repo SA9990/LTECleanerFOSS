@@ -27,11 +27,11 @@ class App: Application(){
 		prefs = PreferenceManager.getDefaultSharedPreferences(this)
 		// Stores how many times the app has been opened,
 		// Can also be used for first run related codes in the future, who knows...
-		runCount = prefs!!.getInt("runCount",0)
-		prefs!!.edit().putInt("runCount",runCount + 1).apply()
+		runCount = prefs!!.getInt("run_count",0)
+		prefs!!.edit().putInt("run_count",runCount + 1).apply()
 		// Update theme and apply dynamic color
 		CommonFunctions.updateTheme(this,prefs)
-		if (prefs!!.getBoolean("dynamicColor",true)){
+		if (prefs!!.getBoolean("dynamic_color",true)){
 			DynamicColors.applyToActivitiesIfAvailable(this)
 			DynamicColors.wrapContextIfAvailable(this)
 		}

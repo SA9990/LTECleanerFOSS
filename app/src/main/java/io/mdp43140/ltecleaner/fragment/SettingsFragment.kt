@@ -93,7 +93,7 @@ class SettingsFragment: PreferenceFragmentCompat(){
 			(requireActivity() as MainActivity).startFragment(WhitelistFragment())
 			false
 		}
-		findPreference<Preference>("cleanevery")!!.setOnPreferenceChangeListener { _:Preference, _:Any? ->
+		findPreference<Preference>("clean_every")!!.setOnPreferenceChangeListener { _:Preference, _:Any? ->
 			enqueueWork(requireContext().applicationContext)
 			true
 		}
@@ -106,11 +106,11 @@ class SettingsFragment: PreferenceFragmentCompat(){
 			})
 			true
 		}
-		findPreference<Preference>("dataImport")!!.setOnPreferenceClickListener {
+		findPreference<Preference>("data_import")!!.setOnPreferenceClickListener {
 			importFileLauncher.launch(arrayOf("application/json"))
 			false
 		}
-		findPreference<Preference>("dataExport")!!.setOnPreferenceClickListener {
+		findPreference<Preference>("data_export")!!.setOnPreferenceClickListener {
 			exportFileLauncher.launch("LTECleaner_settings.json")
 			false
 		}
