@@ -113,10 +113,7 @@ class BlacklistFragment: BaseFragment(){
 		var blackListOn: ArrayList<String> = ArrayList()
 		fun getBlackList(prefs: SharedPreferences?): List<String?> {
 			if (blackList.isNullOrEmpty() && prefs != null) {
-				// Java type mismatch: inferred type is
-				// kotlin.collections.(Mutable)Set<kotlin.String!>?, but
-				// kotlin.collections.(Mutable)Collection<out kotlin.String!> was expected
-				blackList = ArrayList(prefs.getStringSet("blacklist",Constants.blacklistDefault))
+				blackList = ArrayList(prefs.getStringSet("blacklist",Constants.blacklistDefault) ?: Constants.blacklistDefault)
 				blackList.remove("[")
 				blackList.remove("]")
 			}
@@ -154,7 +151,7 @@ class BlacklistFragment: BaseFragment(){
 		}
 		fun getBlacklistOn(prefs: SharedPreferences?): List<String?> {
 			if (blackListOn.isNullOrEmpty() && prefs != null) {
-				blackListOn = ArrayList(prefs.getStringSet("blacklistOn",Constants.blacklistOnDefault))
+				blackListOn = ArrayList(prefs.getStringSet("blacklistOn",Constants.blacklistOnDefault) ?: Constants.blacklistOnDefault)
 			}
 			return blackListOn
 		}

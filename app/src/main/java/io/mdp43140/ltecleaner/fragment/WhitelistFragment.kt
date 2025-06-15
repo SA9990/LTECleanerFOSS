@@ -104,10 +104,7 @@ class WhitelistFragment: BaseFragment(){
 		var whiteListOn: ArrayList<String> = ArrayList()
 		fun getWhiteList(prefs: SharedPreferences?): List<String?> {
 			if (whiteList.isNullOrEmpty() && prefs != null) {
-				// Java type mismatch: inferred type is
-				// kotlin.collections.(Mutable)Set<kotlin.String!>?, but
-				// kotlin.collections.(Mutable)Collection<out kotlin.String!> was expected
-				whiteList = ArrayList(prefs.getStringSet("whitelist",Constants.whitelistDefault))
+				whiteList = ArrayList(prefs.getStringSet("whitelist",Constants.whitelistDefault) ?: Constants.whitelistDefault)
 				whiteList.remove("[")
 				whiteList.remove("]")
 			}
@@ -145,7 +142,7 @@ class WhitelistFragment: BaseFragment(){
 		}
 		fun getWhitelistOn(prefs: SharedPreferences?): List<String?> {
 			if (whiteListOn.isNullOrEmpty() && prefs != null) {
-				whiteListOn = ArrayList(prefs.getStringSet("whitelistOn",Constants.whitelistOnDefault))
+				whiteListOn = ArrayList(prefs.getStringSet("whitelistOn",Constants.whitelistOnDefault) ?: Constants.whitelistOnDefault)
 			}
 			return whiteListOn
 		}
