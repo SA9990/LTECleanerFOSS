@@ -111,7 +111,7 @@ class BlacklistFragment: BaseFragment(){
 	companion object {
 		var blackList: ArrayList<String> = ArrayList()
 		var blackListOn: ArrayList<String> = ArrayList()
-		fun getBlackList(prefs: SharedPreferences?): List<String?> {
+		fun getBlackList(prefs: SharedPreferences?): List<String> {
 			if (blackList.isNullOrEmpty() && prefs != null) {
 				blackList = ArrayList(prefs.getStringSet("blacklist",Constants.blacklistDefault) ?: Constants.blacklistDefault)
 				blackList.remove("[")
@@ -149,7 +149,7 @@ class BlacklistFragment: BaseFragment(){
 				.putStringSet("blacklistOn",HashSet(blackListOn))
 				.apply()
 		}
-		fun getBlacklistOn(prefs: SharedPreferences?): List<String?> {
+		fun getBlacklistOn(prefs: SharedPreferences?): List<String> {
 			if (blackListOn.isNullOrEmpty() && prefs != null) {
 				blackListOn = ArrayList(prefs.getStringSet("blacklistOn",Constants.blacklistOnDefault) ?: Constants.blacklistOnDefault)
 			}

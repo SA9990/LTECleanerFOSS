@@ -102,7 +102,7 @@ class WhitelistFragment: BaseFragment(){
 	companion object {
 		var whiteList: ArrayList<String> = ArrayList()
 		var whiteListOn: ArrayList<String> = ArrayList()
-		fun getWhiteList(prefs: SharedPreferences?): List<String?> {
+		fun getWhiteList(prefs: SharedPreferences?): List<String> {
 			if (whiteList.isNullOrEmpty() && prefs != null) {
 				whiteList = ArrayList(prefs.getStringSet("whitelist",Constants.whitelistDefault) ?: Constants.whitelistDefault)
 				whiteList.remove("[")
@@ -140,7 +140,7 @@ class WhitelistFragment: BaseFragment(){
 				.putStringSet("whitelistOn", HashSet(whiteListOn))
 				.apply()
 		}
-		fun getWhitelistOn(prefs: SharedPreferences?): List<String?> {
+		fun getWhitelistOn(prefs: SharedPreferences?): List<String> {
 			if (whiteListOn.isNullOrEmpty() && prefs != null) {
 				whiteListOn = ArrayList(prefs.getStringSet("whitelistOn",Constants.whitelistOnDefault) ?: Constants.whitelistOnDefault)
 			}
