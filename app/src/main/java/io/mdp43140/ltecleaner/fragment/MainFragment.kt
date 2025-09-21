@@ -23,6 +23,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
 import android.provider.Settings
 import android.widget.ImageView
 import android.widget.ScrollView
@@ -41,7 +42,6 @@ import io.mdp43140.ltecleaner.databinding.FragmentMainBinding
 import io.mdp43140.ltecleaner.R
 import java.io.File
 import java.util.Locale
-
 class MainFragment: BaseFragment(){
 	private lateinit var binding: FragmentMainBinding
 	override fun onCreateView(
@@ -50,6 +50,22 @@ class MainFragment: BaseFragment(){
 		savedInstanceState: Bundle?
 	): View? {
 		binding = FragmentMainBinding.inflate(inflater, container, false)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+			// Handle Edge-to-edge
+			binding.root.setOnApplyWindowInsetsListener { v, windowInsets ->
+				val insets = windowInsets.getInsets(
+					WindowInsets.Type.systemBars() or
+					WindowInsets.Type.displayCutout()
+				)
+				v.setPadding(
+					insets.left,
+					insets.top,
+					insets.right,
+					insets.bottom
+				)
+				WindowInsets.CONSUMED
+			}
+		}
 		binding.apply {
 			analyzeBtn.isEnabled = !FileScanner.isRunning
 			cleanBtn.isEnabled = !FileScanner.isRunning
@@ -83,7 +99,7 @@ class MainFragment: BaseFragment(){
 			if (App.prefs!!.oneClick){
 				scan(true) // one-click enabled
 			} else { // one-click disabled
-				(requireActivity() as MainActivity).dialogBuilder.setTitle(getString(R.string.are_you_sure_deletion_title))
+				(requireActivity() as MainActivity).dialogBuilder.setTitle(R.string.are_you_sure_deletion_title)
 					.setMessage(getString(R.string.are_you_sure_deletion))
 					.setCancelable(false)
 					.setPositiveButton(getString(R.string.clean)){ dialogInterface: DialogInterface, _: Int ->
