@@ -24,7 +24,6 @@ import io.mdp43140.ltecleaner.fragment.MainFragment
 import io.mdp43140.ltecleaner.fragment.BlacklistFragment
 import io.mdp43140.ltecleaner.fragment.WhitelistFragment
 import io.mdp43140.ltecleaner.fragment.SettingsFragment
-
 class MainActivity: AppCompatActivity(){
 	val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 	lateinit var dialogBuilder: MaterialAlertDialogBuilder
@@ -95,7 +94,7 @@ class MainActivity: AppCompatActivity(){
 				"Sadly, Android 13+ no longer have access to external storage",
 				Snackbar.LENGTH_SHORT
 			).let {
-				it.setAction(getString(android.R.string.ok)){ _: View ->
+				it.setAction(android.R.string.ok){ _: View ->
 					it.dismiss()
 				}
 				it.show()
@@ -105,9 +104,9 @@ class MainActivity: AppCompatActivity(){
 			requestCode == 1 &&
 			grantResults.isNotEmpty() &&
 			grantResults[0] != PackageManager.PERMISSION_GRANTED)
-			dialogBuilder.setTitle(getString(R.string.permission_needed))
+			dialogBuilder.setTitle(R.string.permission_needed)
 				.setMessage(getString(R.string.grantPermissions_sum) + permissions.map { "\n- " + it.replaceFirst("android.permission.","") }.joinToString(""))
-				.setPositiveButton(getString(R.string.settings)){ dialogInterface: DialogInterface, _: Int ->
+				.setPositiveButton(R.string.settings){ dialogInterface: DialogInterface, _: Int ->
 					startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
 						data = Uri.fromParts("package",packageName,null)
 					})

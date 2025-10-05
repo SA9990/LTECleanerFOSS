@@ -23,8 +23,8 @@ android {
 		applicationId = android.namespace
 		minSdk = 24
 		targetSdk = compileSdk
-		versionCode = 64
-		versionName = "5.0.1"
+		versionCode = 65
+		versionName = "5.1.0"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		testInstrumentationRunnerArguments["disableAnalytics"] = "true"
 		vectorDrawables {
@@ -66,12 +66,6 @@ android {
 			proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 			signingConfig = signingConfigs.getByName("main")
 			vcsInfo.include = false
-			postprocessing {
-				isRemoveUnusedCode = true
-				isRemoveUnusedResources = true
-				isObfuscate = false
-				isOptimizeCode = true
-			}
 		}
 	}
 	androidResources {
